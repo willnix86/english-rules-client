@@ -7,6 +7,6 @@ deploy:
   provider: heroku
   api_key:
     secure: kYMsWxA/7jD6Zrhkt0Uo3cElJqBRLQs/7I20DzEwulI/FmM2r3ay7l1L5lbI6K9PtuekMRWYwtuXEldC2f4Gxs/g1/iAj9l86gIZ9Ts4zYjdkOwf8NfKq6i9npRiP1RJHdsCWrbeP+dJDWPT9pMaNna5p9Be6SBgLYH6fsE9YAegB62OA6d2nncEi7osgUnixR8v16EEyqDvv6L/27DaQosFjpDhvIji+T9SVaXO4BdLvcnR6n9z3ueUogMah5pPoIbiR4jZsZdTkaEqSssyQMMxU2hXBSq+f8BGegLCvgwbnFFzEdWvZh0KcT+9pWcDMbgHW6Q5Ewdh0dhurWJmfPzS8jw54TscSNfxgMIMuTSKfYM4YcLHeEiD6/GQr6IvRGL5Z2grrhxGLKts1FQKLkk0IpOhzQLGVkqRJQgdgSIG19bz1dhxGaUjscxbOuNsfiCqzmHFUQVrANM2AXLnjJ82NFsuE2EpgQ0J0ZyWde6JBS16+aZDc2a5CFjhUWU15KEkyDqNJEOdD3+WvqOBoVrHa5J/NY2hA2jf+0Shxoh0NxpVXU/Q3g8g6+JaD2UuxCAfHRwWMSr7pNb5UM+fWKLJdd3c75cdw4SmCLvafrfy3Me0RnIlxU3N36CF3h5JGR9cqEj/uz/J9fPXOW8eZ/S0aIrWsel5HazoDbSD8M8=
-  app: https://safe-headland-77907.herokuapp.com/
+  app: safe-headland-77907
   on:
     repo: willnix86/english-rules
