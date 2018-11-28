@@ -1,6 +1,8 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import {LandingPage, Home, Game, EditGame} from '../components';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {NavigationBar} from './NavigationBar';
+import {LandingPage} from './LandingPage';
+import {Footer} from './Footer';
 import './App.css';
 
 export default function App(props){
@@ -8,15 +10,18 @@ export default function App(props){
     return (
       <Router>
         <div className="App">
-          <header>
-            <h1><Link to="/">English Rules</Link></h1>
-          </header>
+          <NavigationBar />
           <main>
             <Route exact path="/" component={LandingPage} />
+          {
+             /*
             <Route exact path="/user/:userId" component={Home} />
             <Route exact path="/game/:gameId" component={Game} />
             <Route exact path="/editGame/:gameId" component={EditGame} />
+             */
+          } 
           </main>
+          <Footer />
         </div>
       </Router>
     );

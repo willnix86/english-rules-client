@@ -1,0 +1,20 @@
+nav {
+    background-color: rgb(0, 102, 255);
+    padding: 10px 15px 15px 15px;
+    height: 40px;
+}
+
+nav * {
+    display: inline;
+}
+
+.nav__logo {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.nav__loginControl {
+    margin: 13px 15px;
+    float: right;
+}
