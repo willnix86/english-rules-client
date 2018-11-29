@@ -9,6 +9,14 @@ export function SignUpForm(props) {
                 <legend>
                     Get Setup!
                 </legend>
+                <label htmlFor="title">Title:</label>
+                <select id="title">
+                    <option value="mr">Mr.</option>
+                    <option value="miss">Miss.</option>
+                    <option value="mrs">Mrs.</option>
+                    <option value="ms">Ms.</option>
+                    <option value="dr">Dr.</option>
+                </select>
                 <label htmlFor="firstName">First Name:</label>
                 <input id="firstName" type="text" />
                 <label htmlFor="lastName">Last Name:</label>

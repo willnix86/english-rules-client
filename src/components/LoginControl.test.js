@@ -10,13 +10,13 @@ describe('<LoginControl />', () => {
 
     it('should render LOGIN button if no user is logged in', () => {
         const wrapper = mount(<LoginControl />);
-        expect(wrapper.find(LoginControl).props()).not.toEqual({"isLoggedIn":"false"});
+        expect(wrapper.find(LoginControl).props()).not.toEqual({"loggedIn":"false"});
         expect(wrapper.find('button').prop('children')).toEqual("Login");
     });
 
     it('should render LOGOUT button if user is logged in', () => {
-        const wrapper = mount(<LoginControl isLoggedIn="true"/>);
-        expect(wrapper.find(LoginControl).props()).toEqual({"isLoggedIn":"true"});
+        const wrapper = mount(<LoginControl loggedIn="true"/>);
+        expect(wrapper.find(LoginControl).props()).toEqual({"loggedIn":"true"});
         expect(wrapper.find('button').prop('children')).toEqual("Logout");
     });
 

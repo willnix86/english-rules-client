@@ -1,5 +1,4 @@
 import {createStore} from 'redux';
+import {userReducer} from './reducers';
 
-export default function Store() {
-    return null;
-}
+export default createStore(userReducer);

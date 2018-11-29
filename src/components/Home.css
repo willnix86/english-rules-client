@@ -1,0 +1,30 @@
+.home__wrapper {
+    background-color: white;
+}
+
+.home__wrapper > header {
+    height: 200px;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0;
+}
+
+.home__wrapper > header > h1 {
+    margin: 0;
+    padding: 40px 0;
+}
+
+.home__library {
+    background-color: #01C76E;
+    padding: 40px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+    
+li {
+    display: inline-block;
+}

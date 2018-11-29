@@ -1,4 +1,13 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {LandingPage} from './LandingPage';
-import {SignUpForm} from './SignUpForm';
+import {Home} from './Home';
+
+describe('<Home />', () => {
+
+    const games = ['Placeholder'];
+
+    it('renders without crashing', () => {
+        shallow(<Home games={games} />);
+    });
+
+})

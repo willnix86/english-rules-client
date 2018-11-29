@@ -1,0 +1,13 @@
+.loginForm * {
+    display: inline-block;
+    margin: 5px 3px;
+}
+
+.loginForm > form {
+    margin: -10px 3px;
+    padding: 0;
+}
+
+.loginForm input {
+    width: 150px;
+}

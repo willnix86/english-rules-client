@@ -1,10 +1,10 @@
 .hero__wrapper {
     background:
-        /* linear-gradient(
+        linear-gradient(
             rgba(0, 0, 0, 0.3),
             rgba(0, 0, 0, 0.3)
-        ), */
-        url(./../assets/children-on-computer.jpg) no-repeat center 35%;
+        ),
+        url(/children-on-computer.jpg) no-repeat center 35%;
     background-size: cover;
     height: 400px;
 }
@@ -48,7 +48,7 @@ header {
 
 .landing__wrapper:nth-child(5) {
     background-color: #F2F2F2;
-    height: 450px;
+    height: 500px;
 }
 
 .landing__title {
