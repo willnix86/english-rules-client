@@ -1,7 +1,7 @@
 import React from 'react'
 import './SignUpForm.css';
 
-export function SignUpForm() {
+export function SignUpForm(props) {
     
     return (
         <form>
@@ -18,8 +18,9 @@ export function SignUpForm() {
                 <label htmlFor="password">Password:</label>
                 <input id="password" type="password" />
                 <label htmlFor="signup"></label>
-                <button id="signup" type="submit">Sign Up</button>
+                <button id="signup" type="submit" onSubmit={props.onSubmit}>Sign Up</button>
             </fieldset>
         </form>
     )
+    
 }

@@ -1,9 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {shallow} from 'enzyme';
 import App from './App';
+import {NavigationBar} from './NavigationBar';
+import {Footer} from './Footer';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+describe('<App />', () => {
+
+  it('renders without crashing', () => {
+    shallow(<App />);
+  });
+
+  it('renders <NavigationBar /> and <Footer />', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(NavigationBar).length).toEqual(1);
+    expect(wrapper.find(Footer).length).toEqual(1);
+    wrapper.unmount();
+  });
+
+})
+
