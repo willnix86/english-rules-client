@@ -4,21 +4,21 @@ import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import {NavigationBar} from './NavigationBar';
 import {LandingPage} from './LandingPage';
 import {Home} from './Home';
-import {SentenceVariation} from './SentenceVariation';
+import Conjunctions from './Conjunctions';
 import {Footer} from './Footer';
 import './App.css';
 
-export function App(props){
+const HomeRoute = (props) => (
+  <Route path="/home" render={() => (
+    props.loggedIn ? 
+      ( <Home {...props} /> ) 
+    :
+      ( <Redirect to="/" />)
+  )} 
+  />
+);
 
-  const HomeRoute = () => (
-    <Route path="/home" render={() => (
-      props.loggedIn ? 
-        ( <Home {...props} /> ) 
-      :
-        ( <Redirect to="/" />)
-    )} 
-    />
-  );
+export function App(props){
 
   return (
     <Router>
@@ -29,7 +29,7 @@ export function App(props){
             component={LandingPage} 
           />
           <HomeRoute {...props} />
-          <Route exact path="/SentenceVariation" component={SentenceVariation} />
+          <Route exact path="/Conjunctions" component={Conjunctions} />
         </main>
         <Footer />
       </div>
@@ -39,10 +39,10 @@ export function App(props){
 }
 
 const mapStateToProps = state => ({
-  title: state.title,
-  lastName: state.lastName,
-  games: state.games,
-  loggedIn: state.loggedIn
+  title: state.user.title,
+  lastName: state.user.lastName,
+  games: state.user.games,
+  loggedIn: state.user.loggedIn
 });
 
 export default connect(mapStateToProps)(App);

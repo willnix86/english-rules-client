@@ -15,6 +15,7 @@ export function LandingPage(props) {
             <section className="landing__wrapper">
                 <h2 className="landing__title">Learning Through Play</h2>
                 <h3 className="landing__subtitle">Reinforce your teaching through fun and interactive mini-games</h3>
+                <img className="landing__image" src={window.location.origin + "/landingpage1.png"} alt="Screenshot of Compound Sentences Game" />
             </section>
             <section className="landing__wrapper">
                 <h2 className="landing__title">Customize Games and Build on the Basics</h2>

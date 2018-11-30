@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './LoginControl.css';
 
 export function LoginControl({className, loggedIn, ...props}) {
@@ -6,7 +7,10 @@ export function LoginControl({className, loggedIn, ...props}) {
     return (
         <div className={['loginForm', className].join(' ')} {...props}>
             {loggedIn ? (
-                <button onClick={props.onClick}>Logout</button>
+                <div>
+                    <Link to="/home"><button>Library</button></Link>
+                    <button onClick={props.onClick}>Logout</button>
+                </div>
             ) : (
                 <form>
                     <label htmlFor="userName"></label>

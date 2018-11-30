@@ -14,11 +14,13 @@
     z-index: 0;
     color: white;
     margin-top: 40px;
+    font-family: 'Open Sans';
 }
 
 .startText {
 color: white;
 font-size: calc(10px + 2vmin);
+font-family: 'Open Sans';
 }
 
 .startText p {
@@ -46,11 +48,11 @@ background-color: #3683D0
 margin: 40px auto 0px auto;
 }
 
-form {
+.game__controls form {
 margin-top: 0px;
 }
 
-input[type="text"] {
+.game__controls input[type="text"] {
 height: 4vh;
 width: 75vw;
 display: block;

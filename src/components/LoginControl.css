@@ -3,6 +3,10 @@
     margin: 5px 3px;
 }
 
+.loginForm > div {
+    margin-top: -3px;
+}
+
 .loginForm > form {
     margin: -10px 3px;
     padding: 0;

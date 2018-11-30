@@ -9,10 +9,6 @@
     height: 400px;
 }
 
-header {
-    padding: 80px 0;
-}
-
 .hero__title {
     text-shadow: 0 0 20px rgba(0,0,0,.45);
     font-family: 'Fascinate Inline', cursive;
@@ -36,6 +32,8 @@ header {
 
 .landing__wrapper:nth-child(2) {
     background-color: white;
+    height: auto;
+    padding: 30px 0;
 }
 
 .landing__wrapper:nth-child(3) {
@@ -53,8 +51,22 @@ header {
 
 .landing__title {
     text-transform: uppercase;
-    font-size: 38px;
+    font-size: 40px;
     font-weight: 700;
     margin: 0;
     padding-top: 50px;
+}
+
+.landing__subtitle {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 50px;
+}
+
+.landing__image {
+    height: 250px;
+    border: 5px solid #FFD301;
+}
+
+.landing__image:nth-of-type(1) {
+    transform: rotateZ(-3deg);
 }

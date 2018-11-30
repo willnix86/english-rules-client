@@ -8,7 +8,7 @@ export function Home(props) {
     const gameCartridges = [];
 
     for (let i = 0; i < props.games.length; i++) {
-        let link = "/SentenceVariation"; // "/" + props.games[i];
+        let link = "/Conjunctions"; // "/" + props.games[i];
         gameCartridges.push(
             <li key={i}>
                 <Link to={link}><GameCartridge title={props.games[i]} /></Link>
