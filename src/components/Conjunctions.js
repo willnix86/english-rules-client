@@ -3,7 +3,6 @@ import WordContainer from './WordContainer';
 import MoodImage from './MoodImage'
 import './Conjunctions.css';
 import { connect } from 'react-redux';
-import store from '../store';
 import { updateSentence, showResponse } from '../actions/conjunctionsActions';
 
 export class Conjunctions extends React.Component {
@@ -40,8 +39,6 @@ export class Conjunctions extends React.Component {
 
             for (let i = 0; i < arrayOfWords.length; i++) {
 
-                let conjunctionIndex = 0;
-
                 if (conjunctionList.includes(arrayOfWords[i])) {
 
                     if (i < 2) {
@@ -50,11 +47,8 @@ export class Conjunctions extends React.Component {
                         return this.props.dispatch(showResponse(message, mood));
                     }
 
-                    if (conjunctionList.includes(arrayOfWords[i-1])) {
-                        conjunctionIndex = i;
-                    } else {
+                    if (!conjunctionList.includes(arrayOfWords[i-1])) {
                         conjunctions++;
-                        conjunctionIndex = i;
                     }
 
                 }
