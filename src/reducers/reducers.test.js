@@ -14,7 +14,7 @@ describe('conjunctionsReducer', () => {
         expect(state).toEqual({
             conjunctions: ['and', 'but', 'or', 'nor', 'for', 'yet', 'so'],
             sentence: '',
-            message: '',
+            message: 'Type or click the buttons below to write a compound sentence.',
             mood: 'talking'
         });
     });
