@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 import {LoginControl} from './LoginControl';
+import {MemoryRouter} from 'react-router-dom';
 
 describe('<LoginControl />', () => {
 
@@ -15,9 +16,9 @@ describe('<LoginControl />', () => {
     });
 
     it('should render LOGOUT button if user is logged in', () => {
-        const wrapper = mount(<LoginControl loggedIn="true"/>);
+        const wrapper = mount(<MemoryRouter><LoginControl loggedIn="true"/></MemoryRouter>);
         expect(wrapper.find(LoginControl).props()).toEqual({"loggedIn":"true"});
-        expect(wrapper.find('button').prop('children')).toEqual("Logout");
+        expect(wrapper.find('button').at(1).prop('children')).toEqual("Logout");
     });
 
     // it('should fire the onSubmit callback when the button is clicked', () => {

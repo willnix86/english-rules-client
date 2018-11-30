@@ -91,15 +91,6 @@ export class Conjunctions extends React.Component {
                 <div className="game__screen">
                     <MoodImage mood={this.props.mood} />
                     <div className="message"><p>{this.props.message}</p></div>
-                    {
-                        this.props.message !== "" 
-                        ?
-                        <div></div>
-                        :
-                        <div className="startText">
-                        <p>Type or click on the words below to write a compound sentence.</p>
-                        </div>
-                    }
                 </div>
 
                 <div className="game__controls">
@@ -119,6 +110,10 @@ export class Conjunctions extends React.Component {
     };
     
 }
+
+Conjunctions.defaultProps = {
+    conjunctions: ['and', 'but', 'or', 'nor', 'for', 'yet', 'so']
+};
 
 const mapStateToProps = state => ({
     conjunctions: state.conjunctions.conjunctions,
