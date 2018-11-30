@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import MoodBar from './moodBar';
+import MoodBar from './MoodBar';
 
 describe('<MoodBar />', () => {
 

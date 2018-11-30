@@ -1,4 +1,4 @@
-.happyButton, .sadButton {
+.wordButton {
     margin: 15px 3px 0 3px;
     font-size: calc(13px + 1vmin);
     font-weight: bold;
@@ -6,42 +6,44 @@
     padding: 10px 35px;
     color: white;
     border-radius: 5px;
-}
-
-.happyButton:active, .sadButton:active {
-    transition: all 30ms ease-in-out;
-}
-
-.happyButton {
     border:1px solid #88BC42;
     background-color: #88BC42;
 }
 
-.happyButton:focus {
+.wordButton:active {
+    transition: all 30ms ease-in-out;
+}
+
+li .wordButton {
+    border:1px solid #88BC42;
+    background-color: #88BC42;
+}
+
+li .wordButton:focus {
     outline-color: #88BC42;
 }
 
-.happyButton:active {
+li .wordButton:active {
     border: 1px solid rgb(125, 173, 62);
     background-color: rgb(125, 173, 62);
 }
 
-.sadButton {
+li:nth-child(2n) .wordButton {
     border:1px solid #C93B2B;
     background-color: #C93B2B;
 }
 
-.sadButton:focus {
+li:nth-child(2n) .wordButton:focus {
     outline-color: #C93B2B;
 }
 
-.sadButton:active {
+li:nth-child(2n) .wordButton:nth-child(2):active {
     border:1px solid rgb(194, 57, 42);
     background-color: rgb(194, 57, 42);
 }
 
 @media only screen and (max-width: 640px) {
-    .happyButton, .sadButton {
+    .wordButton {
         padding: 5px 20px;
     }
 

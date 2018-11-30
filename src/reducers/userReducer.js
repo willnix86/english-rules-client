@@ -1,4 +1,4 @@
-import * as actions from '../actions';
+import * as actions from '../actions/userActions';
 
 const initialState = {
     userName: 'tess.ting',

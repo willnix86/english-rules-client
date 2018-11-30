@@ -1,24 +1,15 @@
 import React from 'react';
-import WordButton from './wordButton';
-import './wordContainer.css';
+import WordButton from './WordButton';
+import './WordContainer.css';
 
 export default function WordContainer(props) {
 
-    const happyButtons = [];
-    const sadButtons = [];
+    const wordButtons = [];
 
-    for (let i = 0; i < props.happyWords.length; i++) {
-        happyButtons.push(
+    for (let i = 0; i < props.conjunctions.length; i++) {
+        wordButtons.push(
             <li key={i}>
-                <WordButton value={props.happyWords[i]} onClick={props.onClickWord} className="happyButton" />
-            </li>
-        )
-    }
-
-    for (let i = 0; i < props.sadWords.length; i++) {
-        sadButtons.push(
-            <li key={i}>
-                <WordButton value={props.sadWords[i]} onClick={props.onClickWord} className="sadButton" />
+                <WordButton value={props.conjunctions[i]} onClick={props.onClickWord} className="wordButton" />
             </li>
         )
     }
@@ -26,10 +17,7 @@ export default function WordContainer(props) {
     return (
         <div className="wordContainer">
             <ul className="wordButtons">
-                {happyButtons}
-            </ul>
-            <ul className="wordButtons">
-                {sadButtons}
+                {wordButtons}
             </ul>
         </div>
     )

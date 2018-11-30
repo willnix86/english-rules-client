@@ -1,5 +1,5 @@
 import React from 'react';
-import './moodImage.css';
+import './MoodImage.css';
 
 export default function MoodImage(props) {
 

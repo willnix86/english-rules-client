@@ -2,6 +2,51 @@
   text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.game__screen-message {
+  height: auto;
+  width: 90vw;
+  line-height: 25px;
+  word-wrap: break-word;
+  position: relative;
+  top: 5px;
+  left: 0;
+  z-index: 0;
+  color: white;
+  margin-top: 40px;
+}
+
+.game__screen-startText {
+color: white;
+font-size: calc(10px + 2vmin);
+}
+
+.game__screen-startText p {
+margin: 0;
+}
+
+.game__screen {
+  min-height: 30vh;
+  max-height: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  font-weight: bold;
+  color: white;
+  background: #3683D0;
+  position: relative;
+}
+
+.game__controls {
+min-height: 30vh;
+max-height: 40vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 0 auto;
+padding: 10px 10px 30px 10px;
+height: auto;
+background-color: rgb(44, 117, 190);
 }

@@ -1,17 +1,11 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import WordButton from './wordButton';
+import WordButton from './WordButton';
 
 describe('<WordButton />', () => {
 
     it('renders without crashing', () => {
         shallow(<WordButton />);
-    });
-
-    it('renders with correct className', () => {
-        const wrapper = mount(<WordButton className="happyButton" />);
-        
-        expect(wrapper.hasClass('happyButton')).toEqual(true);
     });
 
     it('renders with correct value', () => {

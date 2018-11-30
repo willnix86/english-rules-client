@@ -1,5 +1,5 @@
 import React from 'react';
-import './moodBar.css';
+import './MoodBar.css';
 
 export default function MoodBar(props) {
     

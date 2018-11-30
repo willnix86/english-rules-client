@@ -1,5 +1,5 @@
 import React from 'react';
-import './wordButton.css';
+import './WordButton.css';
 
 export default class WordButton extends React.Component {
 

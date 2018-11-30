@@ -1,27 +1,21 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import WordContainer from './wordContainer';
-import WordButton from './wordButton';
+import WordContainer from './WordContainer';
 
 describe('<WordContainer />', () => {
 
-    const happyWordList = ['happy', 'joyful', 'gleeful', 'jovial', 'glad'];
-
-    const sadWordList = ['sad', 'miserable', 'depressed', 'bad', 'grumpy'];
+    const conjunctions = ['and', 'but', 'or', 'nor', 'for', 'yet', 'so'];
     
     it('renders without crashing', () => {
-        shallow(<WordContainer happyWords={happyWordList} sadWords={sadWordList} />);
+        shallow(<WordContainer conjunctions={conjunctions} />);
     });
 
     it('renders the correct amount of buttons', () => {
         
-        const wrapper = mount(<WordContainer happyWords={happyWordList} sadWords={sadWordList} />);
+        const wrapper = mount(<WordContainer conjunctions={conjunctions}  />);
 
-        expect(wrapper.find('ul').children('li').length).toEqual(happyWordList.length + sadWordList.length);
+        expect(wrapper.find('ul').children('li').length).toEqual(conjunctions.length);
 
     })
-    
-
-
 
 })
