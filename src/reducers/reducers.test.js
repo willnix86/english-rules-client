@@ -2,6 +2,8 @@ import { userReducer } from './userReducer';
 import { conjunctionsReducer } from './conjunctionsReducer';
 import { updateSentence, showResponse } from '../actions/conjunctionsActions';
 
+// NEED TO ADD USER TESTS
+
 describe('conjunctionsReducer', () => {
     const sentence = "I like to play games and so do my friends.";
     const mood = "uhoh";

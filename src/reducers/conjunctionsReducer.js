@@ -3,7 +3,7 @@ import * as actions from '../actions/conjunctionsActions'
 const initialState = {
     conjunctions: ['and', 'but', 'or', 'nor', 'for', 'yet', 'so'],
     sentence: '',
-    message: '',
+    message: 'Type or click the buttons below to write a compound sentence.',
     mood: 'talking'
 }
 

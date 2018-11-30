@@ -1,5 +1,6 @@
 import { UPDATE_SENTENCE, updateSentence, SHOW_RESPONSE, showResponse } from './conjunctionsActions';
 
+// NEED TO ADD USER TESTS
 
 describe('Conjunctions Actions', () => {
     
