@@ -4,7 +4,7 @@ const initialState = {
     userName: 'tess.ting',
     title: 'Ms',
     lastName: 'Ting',
-    games: ['Conjunctions'],
+    games: ['Conjunctions', 'Word Types'],
     loggedIn: true
 };
 

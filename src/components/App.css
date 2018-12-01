@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-label, button, input {
+label, button, input, select {
   font-family: 'Open Sans', sans-serif;
 }
 

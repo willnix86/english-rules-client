@@ -5,6 +5,7 @@ import {NavigationBar} from './NavigationBar';
 import {LandingPage} from './LandingPage';
 import {Home} from './Home';
 import Conjunctions from './Conjunctions';
+import WordTypes from './WordTypes';
 import {Footer} from './Footer';
 import './App.css';
 
@@ -29,7 +30,8 @@ export function App(props){
             component={LandingPage} 
           />
           <HomeRoute {...props} />
-          <Route exact path="/Conjunctions" component={Conjunctions} />
+          <Route exact path="/conjunctions" component={Conjunctions} />
+          <Route exact path="/wordtypes" component={WordTypes} />
         </main>
         <Footer />
       </div>

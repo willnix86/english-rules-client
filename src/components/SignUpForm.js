@@ -7,7 +7,7 @@ export function SignUpForm(props) {
         <form>
             <fieldset>
                 <legend>
-                    Get Setup!
+                    GET SETUP!
                 </legend>
                 <label htmlFor="title">Title:</label>
                 <select id="title">

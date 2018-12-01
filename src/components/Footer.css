@@ -3,6 +3,7 @@ footer {
     padding: 20px 15px 15px 15px;
     height: 40px;
     color: white;
+    font-family: 'Open Sans', sans-serif;
 }
 
 footer * {

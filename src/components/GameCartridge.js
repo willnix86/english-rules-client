@@ -3,12 +3,13 @@ import './GameCartridge.css';
 
 export default function GameCartridge(props) {
 
-    const gameSrcName = props.title.split(' ').join('');
+    const gameSrcName = props.title.split(' ').join('').toLowerCase();
+    console.log(gameSrcName);
 
     return (
         <div className="cartridge__body">
             <div className="cartridge__image">
-                <img src={window.location.origin + "/" + gameSrcName.toLowerCase() + ".png"} alt={"Image of " + props.title} />
+                <img src={window.location.origin + "/" + gameSrcName + ".png"} alt={"Image of " + props.title} />
             </div>
             <div className="cartridge__title">
                 <p>{props.title}</p>

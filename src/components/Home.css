@@ -17,6 +17,8 @@
 .home__library {
     background-color: #01C76E;
     padding: 40px;
+    min-height: 580px;
+    max-height: auto;
 }
 
 ul {

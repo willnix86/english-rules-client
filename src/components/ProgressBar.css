@@ -1,4 +1,4 @@
-.moodBar {
+.progressBar {
     margin-top: 20px;
     width: 90vw;
     border-radius: 8px;
@@ -6,7 +6,7 @@
     font-weight: bold;
 }
 
-.moodBar p {
+.progressBar p {
     margin: 10px 0 0 0;
     color: white;
     font-size: bold;
