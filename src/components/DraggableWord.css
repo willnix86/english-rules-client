@@ -1,0 +1,23 @@
+.draggableWord {
+    margin: 15px 3px 0 3px;
+    font-size: calc(13px + 1vmin);
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    height: auto;
+    padding: 10px 35px;
+    color: black;
+    border-radius: 5px;
+    background-color:  white;
+}
+
+.correctType {
+    background-color:  rgb(223, 250, 216);
+    border: 3px solid rgb(123, 245, 123);
+    box-shadow: 0 8px 6px rgba(32, 33, 36, 0.28);
+}
+
+.incorrectType {
+    background-color:  rgb(253, 214, 214);
+    border: 3px solid rgb(245, 123, 123);
+    box-shadow: 0 8px 6px rgba(32, 33, 36, 0.28);
+}

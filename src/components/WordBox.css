@@ -1,0 +1,9 @@
+.wordBox {
+    height: 300px;
+    width: 400px;
+    padding: 10px;
+}
+
+.wordBox > h2 {
+    font-family: 'Open Sans', sans-serif;
+}

@@ -88,7 +88,10 @@ export class Conjunctions extends React.Component {
                 </div>
 
                 <div className="game__controls">
-                    <WordContainer conjunctions={this.props.conjunctions} onClickWord={this.addWord}/>
+                    <WordContainer 
+                        words={this.props.conjunctions} onClickWord={this.addWord}
+                        className="buttons"
+                    />
                     <form onSubmit={this.handleSubmit}>
                         <input
                         type="text"

@@ -7,12 +7,12 @@ describe('<WordContainer />', () => {
     const conjunctions = ['and', 'but', 'or', 'nor', 'for', 'yet', 'so'];
     
     it('renders without crashing', () => {
-        shallow(<WordContainer conjunctions={conjunctions} />);
+        shallow(<WordContainer words={conjunctions} />);
     });
 
-    it('renders the correct amount of buttons', () => {
+    it('renders the correct amount of children', () => {
         
-        const wrapper = mount(<WordContainer conjunctions={conjunctions}  />);
+        const wrapper = mount(<WordContainer words={conjunctions} className={'buttons'} />);
 
         expect(wrapper.find('ul').children('li').length).toEqual(conjunctions.length);
 
