@@ -1,0 +1,50 @@
+.wordButton {
+    margin: 15px 3px 0 3px;
+    font-size: calc(13px + 1vmin);
+    font-weight: bold;
+    height: auto;
+    padding: 10px 35px;
+    color: white;
+    border-radius: 5px;
+    border:1px solid #88BC42;
+    background-color: #88BC42;
+}
+
+.wordButton:active {
+    transition: all 30ms ease-in-out;
+}
+
+li .wordButton {
+    border:1px solid #88BC42;
+    background-color: #88BC42;
+}
+
+li .wordButton:focus {
+    outline-color: #88BC42;
+}
+
+li .wordButton:active {
+    border: 1px solid rgb(125, 173, 62);
+    background-color: rgb(125, 173, 62);
+}
+
+li:nth-child(2n) .wordButton {
+    border:1px solid #C93B2B;
+    background-color: #C93B2B;
+}
+
+li:nth-child(2n) .wordButton:focus {
+    outline-color: #C93B2B;
+}
+
+li:nth-child(2n) .wordButton:nth-child(2):active {
+    border:1px solid rgb(194, 57, 42);
+    background-color: rgb(194, 57, 42);
+}
+
+@media only screen and (max-width: 640px) {
+    .wordButton {
+        padding: 5px 20px;
+    }
+
+}
