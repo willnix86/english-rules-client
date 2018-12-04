@@ -3,9 +3,13 @@ import WordContainer from './WordContainer';
 import MoodImage from './MoodImage'
 import './Conjunctions.css';
 import { connect } from 'react-redux';
-import { updateSentence, showResponse } from '../actions/conjunctionsActions';
+import { updateSentence, showResponse, resetGame } from '../actions/conjunctionsActions';
 
 export class Conjunctions extends React.Component {
+
+    componentWillUnmount() {
+        this.props.dispatch(resetGame());
+    };
 
     addWord = (word) => {
         this.props.dispatch(updateSentence((this.props.sentence + " " + word).trim()))

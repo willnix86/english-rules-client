@@ -17,6 +17,8 @@ export const conjunctionsReducer = (state=initialState, action) => {
             message: action.message,
             mood: action.mood
         });
+    } else if (action.type === actions.RESET_GAME) {
+        return initialState;
     }
     return state;
 };

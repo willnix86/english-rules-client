@@ -1,9 +1,7 @@
-export const GET_WORDS = 'GET_WORDS';
-export const getWords = (nouns, adjectives, verbs) => ({
-    type: GET_WORDS,
-    nouns,
-    adjectives,
-    verbs
+export const ADD_WORD = 'ADD_WORD';
+export const addWord = (word) => ({
+    type: ADD_WORD,
+    word
 });
 
 export const DROP_WORD = 'DROP_WORD';

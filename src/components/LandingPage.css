@@ -64,8 +64,9 @@
 
 .landing__image {
     height: 250px;
+    width: 200px;
     border: 5px solid #FFD301;
-    margin: 0 20px;
+    margin: 20px 30px;
 }
 
 .landing__image:nth-of-type(1) {

@@ -9,6 +9,10 @@ import './WordTypes.css';
 
 export class WordTypes extends React.Component {
 
+    componentWillUnmount() {
+        this.props.dispatch(resetGame());
+    };
+
     render() {
 
         const words = this.props.words;
@@ -21,7 +25,7 @@ export class WordTypes extends React.Component {
 
         return (
             <div className="game__wrapper">
-                <div className="game__screen row">
+                <div className="game__screen">
                     <p>Drag and drop the words below into the correct box</p>
                     
                     <WordBox 

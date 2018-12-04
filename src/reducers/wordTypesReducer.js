@@ -1,7 +1,7 @@
 import * as actions from '../actions/wordTypeActions';
 import update from 'immutability-helper';
 
-const initialState = {
+export const initialState = {
     words: [{
         word: 'house',
         wordType: 'noun',
@@ -95,11 +95,11 @@ const initialState = {
 }
 
 export const wordTypesReducer = (state=initialState, action) => {
-    if (action.type === actions.GET_WORDS) {
+    if (action.type === actions.ADD_WORD) {
         return Object.assign({}, state, {
             words: [...state.words, {
-                word: action.word,
-                wordType: action.wordType,
+                word: action.word.word,
+                wordType: action.word.wordType,
                 target: 'Container',
                 answer: ''
             }]
