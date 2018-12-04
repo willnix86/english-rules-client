@@ -8,8 +8,8 @@ export function LoginControl({className, loggedIn, ...props}) {
         return (
             <div className={['logoutForm', className].join(' ')} {...props}>
                     <div>
-                        <Link to="/home"><button>Library</button></Link>
-                        <button onClick={props.onClick}>Logout</button>
+                        <Link to="/home"><button className="library">Library</button></Link>
+                        <button className="logout" onClick={props.onClick}>Logout</button>
                     </div>
                 </div>
         )
@@ -21,7 +21,7 @@ export function LoginControl({className, loggedIn, ...props}) {
                         <input id="userName" type="text" placeholder="Username" />
                         <label htmlFor="userPassword"></label>
                         <input id="userPassword" type="text" placeholder="Password" />
-                        <button onClick={props.onClick}>Login</button>
+                        <button className="login" onClick={props.onClick}>Login</button>
                     </form>
                 </div>
             )
