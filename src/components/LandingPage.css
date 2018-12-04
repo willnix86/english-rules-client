@@ -65,8 +65,13 @@
 .landing__image {
     height: 250px;
     border: 5px solid #FFD301;
+    margin: 0 20px;
 }
 
 .landing__image:nth-of-type(1) {
     transform: rotateZ(-3deg);
+}
+
+.landing__image:nth-of-type(2) {
+    transform: rotateZ(5deg);
 }

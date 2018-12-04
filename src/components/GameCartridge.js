@@ -4,7 +4,6 @@ import './GameCartridge.css';
 export default function GameCartridge(props) {
 
     const gameSrcName = props.title.split(' ').join('').toLowerCase();
-    console.log(gameSrcName);
 
     return (
         <div className="cartridge__body">
