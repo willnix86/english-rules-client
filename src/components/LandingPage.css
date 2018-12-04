@@ -78,3 +78,7 @@
 .landing__image:nth-of-type(2) {
     transform: rotateZ(5deg);
 }
+
+#signup {
+    margin: 0 auto;
+}

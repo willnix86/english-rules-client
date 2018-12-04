@@ -37,3 +37,28 @@
 .loginForm button {
     margin-top: 7px;
 }
+
+@media only screen and (min-width: 312px) and (max-width: 500px) {
+    .loginForm {
+        margin: 0 auto;
+        float: none;
+    }
+
+    .loginForm > form * {
+        display: block;
+        margin: 3px auto;
+    }
+
+    .loginForm > form > label {
+        display: none;
+    }
+
+    .loginForm > form > button {
+        height: 32px;
+        padding: 0 30px;
+    }
+
+    .logoutForm {
+        padding-top: 16px;
+    }
+}

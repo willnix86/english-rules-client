@@ -1,5 +1,5 @@
 form {
-    padding: 50px 0;
+    padding: 30px 0;
 }
 
 form * {
@@ -17,5 +17,5 @@ fieldset {
 }
 
 legend {
-    font-size: 30px;
+    font-size: calc(10px + 2vmin);
 }
