@@ -18,61 +18,52 @@
 }
 
 .startText {
-color: white;
-font-size: calc(10px + 2vmin);
-font-family: 'Open Sans';
+    color: white;
+    font-size: calc(10px + 2vmin);
+    font-family: 'Open Sans';
 }
 
 .startText p {
-margin: 0;
+    margin: 0;
 }
 
 .App-body {
-height: 60vh;
-margin: 0 auto;
-max-width: 1300px;
-}
-
-.controlsContainer {
-width: 100%;
-display: flex;
-flex-direction: column;
-align-items: center;
-margin: 0 auto;
-padding: 10px 10px 30px 10px;
-height: auto;
-background-color: #3683D0
+    height: 60vh;
+    margin: 0 auto;
+    max-width: 1300px;
 }
 
 .wordContainer {
-margin: 40px auto 0px auto;
+    margin: 40px auto 0px auto;
 }
 
 .game__controls form {
-margin-top: 0px;
+    margin-top: 0px;
+    text-align: center;
 }
 
 .game__controls input[type="text"] {
-height: 4vh;
-width: 75vw;
-display: block;
-padding: 5px;
-background-color: rgb(226, 226, 226);
-font-size: calc(5px + 2vmin);
-border: none;
+    height: 4vh;
+    width: 75vw;
+    display: block;
+    padding: 5px;
+    background-color: rgb(226, 226, 226);
+    font-size: calc(5px + 2vmin);
+    border: none;
 }
 
 .submit {
-margin-top: 15px;
-font-size: calc(12px + 1vmin);
-font-weight: bold;
-height: auto;
-color: black;
-background-color: #538fbe;
-padding: 15px 40px;
-border-radius: 5px;
-border:1px solid rgba(59, 58, 99, 0.5);
-background-color: #F8CE46;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: calc(12px + 1vmin);
+    font-weight: bold;
+    height: auto;
+    color: black;
+    background-color: #538fbe;
+    padding: 15px 40px;
+    border-radius: 5px;
+    border:1px solid rgba(59, 58, 99, 0.5);
+    background-color: #F8CE46;
 }
 
 .submit:focus {       

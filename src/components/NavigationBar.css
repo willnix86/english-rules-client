@@ -19,3 +19,35 @@ nav * {
     margin: 5px 15px;
     float: right;
 }
+
+@media only screen and (min-width: 312px) and (max-width: 500px) {
+    nav {
+        height: 75px;
+    }
+
+    .loginForm {
+        margin: 0 auto;
+        float: none;
+    }
+
+    .loginForm > form * {
+        display: block;
+        margin: 3px auto;
+    }
+
+    .loginForm > form > label {
+        display: none;
+    }
+
+    .loginForm > form > button {
+        height: 32px;
+        padding: 0 30px;
+    }
+}
+
+@media only screen and (max-width: 547px) {
+    .nav__logo {
+        display: none;
+    }
+
+}

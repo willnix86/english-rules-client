@@ -10,18 +10,16 @@ export function Home(props) {
     for (let i = 0; i < props.games.length; i++) {
         let link = "/" + props.games[i].split(' ').join('').toLowerCase();
         gameCartridges.push(
-            <li key={i}>
+            <div key={i} class="home__game">
                 <Link to={link}><GameCartridge title={props.games[i]} /></Link>
-            </li>
+            </div>
         )
     }
 
     return (
-        <div className='home__wrapper'>
-            <div className="home__library">
-                <ul>
-                    {gameCartridges}
-                </ul>
+        <div className="home__library">
+            <div className="home__gameslist">
+                {gameCartridges}
             </div>
         </div>
     )

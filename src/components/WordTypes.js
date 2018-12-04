@@ -33,21 +33,18 @@ export class WordTypes extends React.Component {
                         correctWords={nouns}
                         color={'Yellow'}
                         droppedWords={words.filter(word => word.target ==='Nouns')}
-                        className={'col-4'}
                     />
                     <WordBox 
                         wordType={'Adjectives'} 
                         correctWords={adjectives} 
                         color={'Red'} 
                         droppedWords={words.filter(word => word.target ==='Adjectives')}
-                        className={'col-4'}
                     />
                     <WordBox 
                         wordType={'Verbs'} 
                         correctWords={verbs} 
                         color={'Green'}
                         droppedWords={words.filter(word => word.target ==='Verbs')}
-                        className={'col-4'}
                     />
 
                     <button class='reset-game' onClick={() => this.props.dispatch(resetGame())}>Reset</button>

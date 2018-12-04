@@ -10,6 +10,7 @@
 .cartridge__image > img {
     border-radius: 10px;
     width: 250px;
+    height: 318px;
 }
 
 .cartridge__title {
@@ -17,4 +18,15 @@
     font-size: 40px;
     font-family: 'Passion One', cursive;
     text-transform: uppercase;
+}
+
+@media only screen and (max-width: 422px) {
+    .cartridge__body {
+        width: 250px;
+        height: auto;
+    }
+
+    .cartridge__image > img {
+        width: 200px;
+    }
 }
