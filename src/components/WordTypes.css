@@ -1,0 +1,30 @@
+.reset-game {
+    margin-top: 15px;
+}
+
+.col-3, .col-4, .col-6, .col-12 {
+    float: left;
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+    margin-bottom: 10px;
+}
+
+/* Mobile defaults */
+.col-3, .col-4, .col-6, .col-12 {
+    width: 90%;
+}
+
+/* Larger screens */
+@media only screen and (min-width: 669px) {
+
+    /* 4 columns */
+    .col-4 {
+        max-width: 904px;
+        margin: 0 0.5% 10px 0.5%;
+    }
+
+    .wordButtons {
+        max-width: 904px;
+    }
+
+}

@@ -21,29 +21,33 @@ export class WordTypes extends React.Component {
 
         return (
             <div className="game__wrapper">
-                <div className="game__screen">
-                    <button onClick={() => this.props.dispatch(resetGame())}>Reset</button>
-
+                <div className="game__screen row">
+                    <p>Drag and drop the words below into the correct box</p>
+                    
                     <WordBox 
                         wordType={'Nouns'}
                         correctWords={nouns}
                         color={'Yellow'}
                         droppedWords={words.filter(word => word.target ==='Nouns')}
+                        className={'col-4'}
                     />
                     <WordBox 
                         wordType={'Adjectives'} 
                         correctWords={adjectives} 
                         color={'Red'} 
                         droppedWords={words.filter(word => word.target ==='Adjectives')}
+                        className={'col-4'}
                     />
                     <WordBox 
                         wordType={'Verbs'} 
                         correctWords={verbs} 
                         color={'Green'}
                         droppedWords={words.filter(word => word.target ==='Verbs')}
+                        className={'col-4'}
                     />
-                </div>
 
+                    <button class='reset-game' onClick={() => this.props.dispatch(resetGame())}>Reset</button>
+                </div>
                 <div className="game__controls">
                     <WordContainer 
                         wordType={'Container'}

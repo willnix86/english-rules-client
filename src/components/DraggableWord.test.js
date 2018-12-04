@@ -11,7 +11,7 @@ function wrapInTestContext(DecoratedComponent) {
     );
 }
 
-describe('<DraggableWord>', () => {
+describe('<DraggableWord />', () => {
 
     it('renders without crashing', () => {
         mount(<DraggableWord />);

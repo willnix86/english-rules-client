@@ -39,7 +39,7 @@ function collect(connect, monitor) {
     }
 }
 
-class WordBox extends React.Component {
+export class WordBox extends React.Component {
 
     render() {
 
@@ -82,7 +82,7 @@ class WordBox extends React.Component {
     
         return connectDropTarget(
             <div 
-                className='wordBox' 
+                className={'wordBox' + ' ' + this.props.className} 
                 style={fill}
             >
                 <h2>{wordType}</h2>
