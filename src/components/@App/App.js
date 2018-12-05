@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
-import {NavigationBar} from './NavigationBar';
-import {LandingPage} from './LandingPage';
-import {Home} from './Home';
-import Conjunctions from './Conjunctions';
-import WordTypes from './WordTypes';
-import {Footer} from './Footer';
+import {NavigationBar} from '../NavigationBar/NavigationBar';
+import {LandingPage} from '../LandingPage/LandingPage';
+import {Home} from '../Home/Home';
+import Conjunctions from '../@Conjunctions/Conjunctions';
+import WordTypes from '../@WordTypes/WordTypes';
+import {Footer} from '../Footer/Footer';
 import './App.css';
 
 const HomeRoute = (props) => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 import MoodImage from './MoodImage';
-import image from './../../public/talking.png';
+import image from './../../../public/talking.png';
 
 describe('<MoodImage />', () => {
 

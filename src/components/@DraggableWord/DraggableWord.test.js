@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import TestUtils from 'react-dom/test-utils';
 import { DragDropContext } from 'react-dnd';
 import TestBackend from 'react-dnd-test-backend';
-import DraggableWord from './DraggableWord';
+import DraggableWord from '../@DraggableWord/DraggableWord';
 
 function wrapInTestContext(DecoratedComponent) {
     return DragDropContext(TestBackend)(

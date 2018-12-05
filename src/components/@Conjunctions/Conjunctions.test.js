@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 import {Conjunctions} from './Conjunctions';
-import { updateSentence, showResponse } from '../actions/conjunctionsActions';
+import { updateSentence, showResponse } from '../../actions/conjunctionsActions';
 
 describe('<Conjunctions />', () => {
 

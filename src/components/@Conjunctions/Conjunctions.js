@@ -1,9 +1,9 @@
 import React from 'react';
-import WordContainer from './WordContainer';
-import MoodImage from './MoodImage'
+import WordContainer from '../WordContainer/WordContainer';
+import MoodImage from '../MoodImage/MoodImage'
 import './Conjunctions.css';
 import { connect } from 'react-redux';
-import { updateSentence, showResponse, resetGame } from '../actions/conjunctionsActions';
+import { updateSentence, showResponse, resetGame } from '../../actions/conjunctionsActions';
 
 export class Conjunctions extends React.Component {
 

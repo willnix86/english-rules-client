@@ -1,13 +1,12 @@
 import React from 'react';
-import WordBox from './WordBox';
-import WordContainer from './WordContainer';
+import WordBox from '../@WordBox/WordBox';
+import WordContainer from '../WordContainer/WordContainer';
 import { DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend'
 import TouchBackend from 'react-dnd-touch-backend';
 import MultiBackend, { TouchTransition, createTransition } from 'react-dnd-multi-backend';
 import { connect } from 'react-redux';
-import { resetGame } from '../actions/wordTypeActions';
-import { default as ItemPreview } from './ItemPreview';
+import { resetGame } from '../../actions/wordTypeActions';
 import './WordTypes.css';
 
 let totalTime;
@@ -97,7 +96,6 @@ export class WordTypes extends React.Component {
                     <button className='reset-game' onClick={() => this.props.dispatch(resetGame())}>Reset</button>
                 </div>
                 <div className="game__controls">
-                    <ItemPreview key="__preview" name="Item" />
                     {
                         correctWords === words.length
                         ?

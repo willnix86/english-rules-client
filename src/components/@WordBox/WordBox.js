@@ -1,8 +1,8 @@
 import React from 'react';
-import DraggableWord from './DraggableWord';
+import DraggableWord from '../@DraggableWord/DraggableWord';
 import { DropTarget } from 'react-dnd';
 import { connect } from 'react-redux';
-import { dropWord } from '../actions/wordTypeActions';
+import { dropWord } from '../../actions/wordTypeActions';
 import './WordBox.css';
 
 const ItemTypes = {

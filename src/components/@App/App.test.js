@@ -1,8 +1,8 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {App} from './App';
-import {NavigationBar} from './NavigationBar';
-import {Footer} from './Footer';
+import {App} from '../@App/App';
+import {NavigationBar} from '../NavigationBar/NavigationBar';
+import {Footer} from '../Footer/Footer';
 
 describe('<App />', () => {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import WordContainer from './WordContainer';
+import WordContainer from '../WordContainer/WordContainer';
 
 describe('<WordContainer />', () => {
 

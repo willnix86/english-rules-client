@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import GameCartridge from './GameCartridge';
+import GameCartridge from '..//GameCartridge/GameCartridge';
 import './Home.css';
 
 export function Home(props) {
