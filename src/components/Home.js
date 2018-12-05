@@ -10,7 +10,7 @@ export function Home(props) {
     for (let i = 0; i < props.games.length; i++) {
         let link = "/" + props.games[i].split(' ').join('').toLowerCase();
         gameCartridges.push(
-            <div key={i} class="home__game">
+            <div key={i} className="home__game">
                 <Link to={link}><GameCartridge title={props.games[i]} /></Link>
             </div>
         )

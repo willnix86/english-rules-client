@@ -65,7 +65,6 @@ export class Conjunctions extends React.Component {
                 return this.props.dispatch(showResponse(message, mood));
             };
         
-            // Change mood depending on how many conjunctions were used
             if (conjunctions >= 2) {
                 mood = 'happy';
                 message = 'WOW, that\'s amazing. What an incredible job! Why don\'t you write another one?';

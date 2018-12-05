@@ -20,6 +20,14 @@
     text-transform: uppercase;
 }
 
+.cartridge__subtitle {
+    font-weight: 100;
+    font-size: 18px;
+    font-family: 'Open sans', sans-serif;
+    text-transform: none;
+    margin-top: -43px;
+}
+
 @media only screen and (max-width: 422px) {
     .cartridge__body {
         width: 250px;

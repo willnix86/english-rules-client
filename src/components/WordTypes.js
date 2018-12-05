@@ -3,6 +3,8 @@ import WordBox from './WordBox';
 import WordContainer from './WordContainer';
 import { DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend'
+import TouchBackend from 'react-dnd-touch-backend';
+import MultiBackend, { TouchTransition, createTransition } from 'react-dnd-multi-backend';
 import { connect } from 'react-redux';
 import { resetGame } from '../actions/wordTypeActions';
 import './WordTypes.css';
@@ -10,6 +12,29 @@ import './WordTypes.css';
 let totalTime;
 let start;
 let finish;
+
+const MouseTransition = createTransition('mousedown', (e) => {
+    return e.type
+        && e.type.indexOf('touch') === -1
+        && e.type.indexOf('mouse') !== -1;
+});
+
+const HTML5toTouch = {
+    backends: [
+        {
+            backend: HTML5Backend,
+        },
+        {
+            backend: TouchBackend({ enableMouseEvents: false }),
+            preview: true,
+            transition: TouchTransition,
+        },
+        {
+            backend: HTML5Backend,
+            transition: MouseTransition,
+        },
+    ],
+};
 
 export class WordTypes extends React.Component {
 
@@ -42,6 +67,7 @@ export class WordTypes extends React.Component {
 
         return (
             <div className="game__wrapper">
+
                 <div className="game__screen">
             
                         <p>Drag and drop the words below into the correct box.</p>
@@ -95,6 +121,6 @@ const mapStateToProps = state => ({
     finishTime: state.wordTypes.finishTime
 })
 
-WordTypes = DragDropContext(HTML5Backend)(WordTypes);
+WordTypes = DragDropContext(MultiBackend(HTML5toTouch))(WordTypes);
 
 export default connect(mapStateToProps)(WordTypes);
