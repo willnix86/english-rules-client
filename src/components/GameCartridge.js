@@ -12,13 +12,6 @@ export default function GameCartridge(props) {
             </div>
             <div className="cartridge__title">
                 <p>{props.title}</p>
-                {
-                    props.title === 'Word Types'
-                    ?
-                    <p className="cartridge__subtitle">(Desktops Only)</p>
-                    :
-                    <p></p>
-                }
             </div>
         </div>
     )

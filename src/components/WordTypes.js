@@ -7,6 +7,7 @@ import TouchBackend from 'react-dnd-touch-backend';
 import MultiBackend, { TouchTransition, createTransition } from 'react-dnd-multi-backend';
 import { connect } from 'react-redux';
 import { resetGame } from '../actions/wordTypeActions';
+import { default as ItemPreview } from './ItemPreview';
 import './WordTypes.css';
 
 let totalTime;
@@ -96,6 +97,7 @@ export class WordTypes extends React.Component {
                     <button className='reset-game' onClick={() => this.props.dispatch(resetGame())}>Reset</button>
                 </div>
                 <div className="game__controls">
+                    <ItemPreview key="__preview" name="Item" />
                     {
                         correctWords === words.length
                         ?
