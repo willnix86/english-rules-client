@@ -59,8 +59,9 @@
 
 .landing__subtitle {
     font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
     margin-bottom: 50px;
-    font-size: calc(10px + 2vmin);
+    font-size: calc(7px + 2vmin);
     padding: 0 15px;
 }
 
