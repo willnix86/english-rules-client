@@ -91,7 +91,9 @@ export const initialState = {
         wordType: 'verb',
         target: 'Container',
         answer: ''
-    }]
+    }],
+    startTime: 0,
+    finishTime: 0
 }
 
 export const wordTypesReducer = (state=initialState, action) => {

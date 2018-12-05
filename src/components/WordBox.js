@@ -82,7 +82,7 @@ export class WordBox extends React.Component {
     
         return connectDropTarget(
             <div 
-                className={'wordBox' + ' ' + this.props.className} 
+                className={['wordBox', this.props.className].join(' ')} 
                 style={fill}
             >
                 <h2>{wordType}</h2>

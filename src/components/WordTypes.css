@@ -36,6 +36,12 @@
     align-items: center;
 }
 
+.wordTypes-message {
+    font-size: calc(10px + 2vmin);
+    font-weight: bold;
+    color: white;
+}
+
 @media only screen and (max-width: 624px) {
     .wordbox-wrapper {
         flex-direction: row;

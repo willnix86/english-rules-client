@@ -30,6 +30,10 @@ nav * {
         float: none;
     }
 
+    .nav__loginControl {
+        float: none;
+    }
+
 }
 
 @media only screen and (max-width: 547px) {
