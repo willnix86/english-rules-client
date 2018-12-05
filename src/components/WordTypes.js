@@ -28,24 +28,26 @@ export class WordTypes extends React.Component {
                 <div className="game__screen">
                     <p>Drag and drop the words below into the correct box</p>
                     
-                    <WordBox 
-                        wordType={'Nouns'}
-                        correctWords={nouns}
-                        color={'Yellow'}
-                        droppedWords={words.filter(word => word.target ==='Nouns')}
-                    />
-                    <WordBox 
-                        wordType={'Adjectives'} 
-                        correctWords={adjectives} 
-                        color={'Red'} 
-                        droppedWords={words.filter(word => word.target ==='Adjectives')}
-                    />
-                    <WordBox 
-                        wordType={'Verbs'} 
-                        correctWords={verbs} 
-                        color={'Green'}
-                        droppedWords={words.filter(word => word.target ==='Verbs')}
-                    />
+                    <div className="wordbox-wrapper">
+                        <WordBox 
+                            wordType={'Nouns'}
+                            correctWords={nouns}
+                            color={'Yellow'}
+                            droppedWords={words.filter(word => word.target ==='Nouns')}
+                        />
+                        <WordBox 
+                            wordType={'Adjectives'} 
+                            correctWords={adjectives} 
+                            color={'Red'} 
+                            droppedWords={words.filter(word => word.target ==='Adjectives')}
+                        />
+                        <WordBox 
+                            wordType={'Verbs'} 
+                            correctWords={verbs} 
+                            color={'Green'}
+                            droppedWords={words.filter(word => word.target ==='Verbs')}
+                        />
+                    </div>
 
                     <button class='reset-game' onClick={() => this.props.dispatch(resetGame())}>Reset</button>
                 </div>
