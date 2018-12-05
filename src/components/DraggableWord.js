@@ -1,5 +1,6 @@
 import React from 'react'
 import { DragSource } from 'react-dnd';
+import PropTypes from 'prop-types';
 import './DraggableWord.css';
 
 const ItemTypes = {
@@ -17,6 +18,7 @@ const wordSource = {
 function collect(connect, monitor) {
     return {
         connectDragSource: connect.dragSource(),
+        connectDragPreview: connect.dragPreview(),
         isDragging: monitor.isDragging()
     }
 }
@@ -24,8 +26,8 @@ function collect(connect, monitor) {
 class DraggableWord extends React.Component {
 
     render() {
-        const { isDragging, connectDragSource, wordAnswer } = this.props;
-        return connectDragSource(
+        const { isDragging, connectDragSource, connectDragPreview, wordAnswer } = this.props;
+        let content = (
             <div 
                 className={['draggableWord', wordAnswer].join(' ')}
                 style={{
@@ -35,6 +37,12 @@ class DraggableWord extends React.Component {
             >
                 {this.props.value}
             </div>
+        );
+
+        content = connectDragPreview(content);
+
+        return connectDragSource(
+            content
         );
     }
 
