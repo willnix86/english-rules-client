@@ -1,6 +1,4 @@
 import React from 'react';
-import WordButton from '../WordButton/WordButton';
-import DraggableWord from '../@DraggableWord/DraggableWord';
 import './WordContainer.css';
 
 export default function WordContainer(props) {

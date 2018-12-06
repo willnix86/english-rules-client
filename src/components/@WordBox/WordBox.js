@@ -1,5 +1,4 @@
 import React from 'react';
-import DraggableWord from '../@DraggableWord/DraggableWord';
 import { connect } from 'react-redux';
 import './WordBox.css';
 

@@ -4,7 +4,7 @@ import WordContainer from '../WordContainer/WordContainer';
 import DraggableWord from '../@DraggableWord/DraggableWord';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { connect } from 'react-redux';
-import { resetGame } from '../../actions/wordTypeActions';
+import { dropWord, resetGame } from '../../actions/wordTypeActions';
 import './WordTypes.css';
 
 let totalTime;
@@ -19,7 +19,22 @@ export class WordTypes extends React.Component {
 
 
     onDragEnd = result => {
-        console.log(result);
+        const { destination, draggableId } = result;
+        if (destination.droppableId === draggableId[1]) {
+            this.props.dispatch(dropWord(
+                result.draggableId[0],
+                destination.droppableId,
+                'correctType'
+            ))
+
+        } else {
+            this.props.dispatch(dropWord(
+                result.draggableId[0],
+                destination.droppableId,
+                'incorrectType'
+            ))
+        }
+
     };
 
     render() {
@@ -77,7 +92,8 @@ export class WordTypes extends React.Component {
                                     <DraggableWord 
                                         key={index} 
                                         value={word.word} 
-                                        index={index} 
+                                        index={index}
+                                        wordType={word.wordType} 
                                         wordAnswer={word.answer}
                                         style={getWordstyle(snapshot.isDragging)}
                                     />
@@ -102,6 +118,7 @@ export class WordTypes extends React.Component {
                                         value={word.word} 
                                         index={index} 
                                         wordAnswer={word.answer}
+                                        wordType={word.wordType} 
                                         style={getWordstyle(snapshot.isDragging)}
                                     />
                                 )}
@@ -125,7 +142,8 @@ export class WordTypes extends React.Component {
                                         key={index} 
                                         value={word.word} 
                                         index={index} 
-                                        wordAnswer={word.answer}
+                                        wordType={word.wordType}
+                                        wordAnswer={word.answer} 
                                         style={getWordstyle(snapshot.isDragging)}
                                     />
                                 )}
@@ -159,7 +177,7 @@ export class WordTypes extends React.Component {
                                             key={index} 
                                             value={word.word} 
                                             index={index} 
-                                            wordAnswer={word.answer}
+                                            wordType={word.wordType}
                                             style={getWordstyle(snapshot.isDragging)}
                                         />
                                     )}

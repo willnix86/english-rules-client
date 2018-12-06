@@ -4,91 +4,91 @@ import update from 'immutability-helper';
 const initialState = {
     words: [{
         word: 'house',
-        wordType: 'noun',
+        wordType: 'Nouns',
         target: 'Container',
         answer: ''
     },
     {
         word: 'eggs',
-        wordType: 'noun',
+        wordType: 'Nouns',
         target: 'Container',
         answer: ''
     },
     {
         word: 'children',
-        wordType: 'noun',
+        wordType: 'Nouns',
         target: 'Container',
         answer: ''
     },
     {
         word: 'football',
-        wordType: 'noun',
+        wordType: 'Nouns',
         target: 'Container',
         answer: ''
     },
     {
         word: 'glass',
-        wordType: 'noun',
+        wordType: 'Nouns',
         target: 'Container',
         answer: ''
     },
     {
         word: 'red',
-        wordType: 'adjective',
+        wordType: 'Adjectives',
         target: 'Container',
         answer: ''
     },
     {
         word: 'yummy',
-        wordType: 'adjective',
+        wordType: 'Adjectives',
         target: 'Container',
         answer: ''
     },
     {
         word: 'wooden',
-        wordType: 'adjective',
+        wordType: 'Adjectives',
         target: 'Container',
         answer: ''
     },
     {
         word: 'quick',
-        wordType: 'adjective',
+        wordType: 'Adjectives',
         target: 'Container',
         answer: ''
     },
     {
         word: 'rough',
-        wordType: 'adjective',
+        wordType: 'Adjectives',
         target: 'Container',
         answer: ''
     },
     {
         word: 'play',
-        wordType: 'verb',
+        wordType: 'Verbs',
         target: 'Container',
         answer: ''
     },
     {
         word: 'going',
-        wordType: 'verb',
+        wordType: 'Verbs',
         target: 'Container',
         answer: ''
     },
     {
         word: 'skipped',
-        wordType: 'verb',
+        wordType: 'Verbs',
         target: 'Container',
         answer: ''
     },
     {
         word: 'eat',
-        wordType: 'verb',
+        wordType: 'Verbs',
         target: 'Container',
         answer: ''
     },
     {
         word: 'read',
-        wordType: 'verb',
+        wordType: 'Verbs',
         target: 'Container',
         answer: ''
     }],

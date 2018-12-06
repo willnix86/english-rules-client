@@ -4,9 +4,9 @@ import './DraggableWord.css';
 export default class DraggableWord extends React.Component {
 
     render() {
-        const { index, value, wordAnswer } = this.props;
+        const { index, value, wordAnswer, wordType } = this.props;
         return (
-            <Draggable key={index} draggableId={value} index={index}>
+            <Draggable key={index} draggableId={[value, wordType]} index={index}>
                 {provided => (
                 <div
                     {...provided.draggableProps}

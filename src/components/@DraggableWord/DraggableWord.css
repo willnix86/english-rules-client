@@ -10,6 +10,10 @@
     background-color:  white;
 }
 
+.draggableWord:focus {
+    outline-color: rgb(216, 216, 216);
+}
+
 .correctType {
     background-color:  rgb(223, 250, 216);
     border: 3px solid rgb(123, 245, 123);
