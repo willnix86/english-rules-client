@@ -1,10 +1,13 @@
 import React from 'react';
 import WordBox from '../@WordBox/WordBox';
 import WordContainer from '../WordContainer/WordContainer';
-import { DragDropContext} from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend'
-import TouchBackend from 'react-dnd-touch-backend';
-import MultiBackend, { TouchTransition, createTransition } from 'react-dnd-multi-backend';
+// import { DragDropContext} from 'react-dnd';
+// import HTML5Backend from 'react-dnd-html5-backend';
+// import TouchBackend from 'react-dnd-touch-backend';
+// import MultiBackend, { TouchTransition, createTransition } from 'react-dnd-multi-backend';
+
+import { DragDropContext } from 'react-beautiful-dnd';
+
 import { connect } from 'react-redux';
 import { resetGame } from '../../actions/wordTypeActions';
 import './WordTypes.css';
