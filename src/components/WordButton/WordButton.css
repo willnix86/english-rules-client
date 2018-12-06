@@ -2,7 +2,7 @@
     margin: 15px 3px 0 3px;
     font-size: calc(13px + 1vmin);
     font-weight: bold;
-    height: auto;
+    max-height: 100px;
     padding: 10px 35px;
     color: white;
     border-radius: 5px;
@@ -14,30 +14,30 @@
     transition: all 30ms ease-in-out;
 }
 
-li .wordButton {
+.wordButton {
     border:1px solid #88BC42;
     background-color: #88BC42;
 }
 
-li .wordButton:focus {
+.wordButton:focus {
     outline-color: #88BC42;
 }
 
-li .wordButton:active {
+.wordButton:active {
     border: 1px solid rgb(125, 173, 62);
     background-color: rgb(125, 173, 62);
 }
 
-li:nth-child(2n) .wordButton {
+.wordButton:nth-child(2n) {
     border:1px solid #C93B2B;
     background-color: #C93B2B;
 }
 
-li:nth-child(2n) .wordButton:focus {
+.wordButton:nth-child(2n):focus {
     outline-color: #C93B2B;
 }
 
-li:nth-child(2n) .wordButton:nth-child(2):active {
+.wordButton:nth-child(2):nth-child(2n):active {
     border:1px solid rgb(194, 57, 42);
     background-color: rgb(194, 57, 42);
 }

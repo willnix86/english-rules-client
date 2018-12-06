@@ -1,6 +1,7 @@
 import React from 'react';
 import WordBox from '../@WordBox/WordBox';
 import WordContainer from '../WordContainer/WordContainer';
+import DraggableWord from '../@DraggableWord/DraggableWord';
 import { DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend'
 import TouchBackend from 'react-dnd-touch-backend';
@@ -77,20 +78,45 @@ export class WordTypes extends React.Component {
                             wordType={'Nouns'}
                             correctWords={nouns}
                             color={'Yellow'}
-                            droppedWords={words.filter(word => word.target ==='Nouns')}
-                        />
+                        >
+                            {words.filter(word => word.target === 'Nouns').map((word, index) => 
+                                <DraggableWord 
+                                    key={index} 
+                                    wordType={word.wordType} 
+                                    wordAnswer={word.answer}
+                                    value={word.word}
+                                />
+                            )}
+                        </WordBox>
                         <WordBox 
                             wordType={'Adjectives'} 
                             correctWords={adjectives} 
                             color={'Red'} 
-                            droppedWords={words.filter(word => word.target ==='Adjectives')}
-                        />
+                        >
+                            {words.filter(word => word.target === 'Adjectives').map((word, index) => 
+                                <DraggableWord 
+                                    key={index} 
+                                    wordType={word.wordType} 
+                                    wordAnswer={word.answer}
+                                    value={word.word}
+                                    
+                                />
+                            )}
+                        </WordBox>
                         <WordBox 
                             wordType={'Verbs'} 
                             correctWords={verbs} 
                             color={'Green'}
-                            droppedWords={words.filter(word => word.target ==='Verbs')}
-                        />
+                            >
+                            {words.filter(word => word.target === 'Verbs').map((word, index) => 
+                                <DraggableWord 
+                                    key={index} 
+                                    wordType={word.wordType} 
+                                    wordAnswer={word.answer}
+                                    value={word.word}
+                                />
+                            )}
+                        </WordBox>
                     </div>
 
                     <button className='reset-game' onClick={() => this.props.dispatch(resetGame())}>Reset</button>
@@ -103,9 +129,16 @@ export class WordTypes extends React.Component {
                         :
                         <WordContainer 
                         wordType={'Container'}
-                        words={words.filter(word => word.target === 'Container')}
                         className="draggables" 
-                        />
+                        >
+                            {words.filter(word => word.target === 'Container').map((word, index) => 
+                                <DraggableWord 
+                                    key={index} 
+                                    wordType={word.wordType}
+                                    value={word.word}
+                                />
+                            )}
+                        </WordContainer>
                     }
                 </div>
             </div>

@@ -1,8 +1,7 @@
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    display: inline-block;
+.wordContainer {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }

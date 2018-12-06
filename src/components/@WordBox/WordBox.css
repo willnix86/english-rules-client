@@ -6,8 +6,6 @@
 
 .wordBox > h2 {
     font-family: 'Open Sans', sans-serif;
-}
-
-.wordBox > ul {
-    height: auto;
+    width: 100%;
+    align-items: flex-start;
 }

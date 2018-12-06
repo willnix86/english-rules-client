@@ -3,11 +3,14 @@
     font-size: calc(13px + 1vmin);
     font-weight: normal;
     font-family: 'Open Sans', sans-serif;
-    height: auto;
     padding: 10px 35px;
     color: black;
     border-radius: 5px;
     background-color:  white;
+}
+
+.draggableWord:focus {
+    outline-color: rgb(216, 216, 216);
 }
 
 .correctType {

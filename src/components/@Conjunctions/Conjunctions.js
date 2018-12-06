@@ -1,6 +1,7 @@
 import React from 'react';
 import WordContainer from '../WordContainer/WordContainer';
-import MoodImage from '../MoodImage/MoodImage'
+import MoodImage from '../MoodImage/MoodImage';
+import WordButton from '../WordButton/WordButton';
 import './Conjunctions.css';
 import { connect } from 'react-redux';
 import { updateSentence, showResponse, resetGame } from '../../actions/conjunctionsActions';
@@ -85,16 +86,23 @@ export class Conjunctions extends React.Component {
 
         return (
             <div className="game__wrapper">
+            
                 <div className="game__screen">
                     <MoodImage mood={this.props.mood} />
                     <div className="message"><p>{this.props.message}</p></div>
                 </div>
 
                 <div className="game__controls">
-                    <WordContainer 
-                        words={this.props.conjunctions} onClickWord={this.addWord}
-                        className="buttons"
-                    />
+                    <WordContainer>
+                        {this.props.conjunctions.map((word, index) => 
+                            <WordButton 
+                                key={index} 
+                                onClick={this.addWord}
+                                className="wordButton"
+                                value={word}
+                            />
+                        )}
+                    </WordContainer>
                     <form onSubmit={this.handleSubmit}>
                         <input
                         type="text"

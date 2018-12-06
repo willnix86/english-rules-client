@@ -1,5 +1,4 @@
 import React from 'react';
-import DraggableWord from '../@DraggableWord/DraggableWord';
 import { DropTarget } from 'react-dnd';
 import { connect } from 'react-redux';
 import { dropWord } from '../../actions/wordTypeActions';
@@ -64,21 +63,6 @@ export class WordBox extends React.Component {
             default:
                 fill.backgroundColor = 'black';
         }
-
-        let wordList = [];
-
-        if (this.props.droppedWords) {
-            for (let i = 0; i < this.props.droppedWords.length; i++) {
-                wordList.push(
-                    <li key={i}>
-                        <DraggableWord 
-                            value={this.props.droppedWords[i].word}
-                            wordAnswer={this.props.droppedWords[i].answer}
-                        />
-                    </li>
-                );
-            };
-        }
     
         return connectDropTarget(
             <div 
@@ -86,9 +70,7 @@ export class WordBox extends React.Component {
                 style={fill}
             >
                 <h2>{wordType}</h2>
-                <ul>
-                    {wordList}
-                </ul>
+                {this.props.children}
             </div>
         )
     }
