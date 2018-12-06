@@ -1,13 +1,7 @@
 import React from 'react';
 import WordBox from '../@WordBox/WordBox';
 import WordContainer from '../WordContainer/WordContainer';
-// import { DragDropContext} from 'react-dnd';
-// import HTML5Backend from 'react-dnd-html5-backend';
-// import TouchBackend from 'react-dnd-touch-backend';
-// import MultiBackend, { TouchTransition, createTransition } from 'react-dnd-multi-backend';
-
-import { DragDropContext } from 'react-beautiful-dnd';
-
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { connect } from 'react-redux';
 import { resetGame } from '../../actions/wordTypeActions';
 import './WordTypes.css';
@@ -16,33 +10,15 @@ let totalTime;
 let start;
 let finish;
 
-const MouseTransition = createTransition('mousedown', (e) => {
-    return e.type
-        && e.type.indexOf('touch') === -1
-        && e.type.indexOf('mouse') !== -1;
-});
-
-const HTML5toTouch = {
-    backends: [
-        {
-            backend: HTML5Backend,
-        },
-        {
-            backend: TouchBackend({ enableMouseEvents: false }),
-            preview: true,
-            transition: TouchTransition,
-        },
-        {
-            backend: HTML5Backend,
-            transition: MouseTransition,
-        },
-    ],
-};
-
 export class WordTypes extends React.Component {
 
     componentWillUnmount() {
         this.props.dispatch(resetGame());
+    };
+
+
+    onDragEnd = result => {
+        //
     };
 
     render() {
@@ -69,6 +45,8 @@ export class WordTypes extends React.Component {
         }
 
         return (
+            <DragDropContext onDragEnd={this.onDragEnd}>
+
             <div className="game__wrapper">
 
                 <div className="game__screen">
@@ -76,28 +54,55 @@ export class WordTypes extends React.Component {
                         <p>Drag and drop the words below into the correct box.</p>
                     
                     <div className="wordbox-wrapper">
-                        <WordBox 
-                            wordType={'Nouns'}
-                            correctWords={nouns}
-                            color={'Yellow'}
-                            droppedWords={words.filter(word => word.target ==='Nouns')}
-                        />
-                        <WordBox 
-                            wordType={'Adjectives'} 
-                            correctWords={adjectives} 
-                            color={'Red'} 
-                            droppedWords={words.filter(word => word.target ==='Adjectives')}
-                        />
-                        <WordBox 
-                            wordType={'Verbs'} 
-                            correctWords={verbs} 
-                            color={'Green'}
-                            droppedWords={words.filter(word => word.target ==='Verbs')}
-                        />
+                    <Droppable droppableId={'Nouns'}>
+                        {provided => (
+                            <WordBox
+                                innerRef={provided.innerRef} 
+                                provided={provided}
+                                wordType={'Nouns'}
+                                correctWords={nouns}
+                                color={'Yellow'}
+                                droppedWords={words.filter(word => word.target ==='Nouns')}
+                            >
+                                {provided.placeHolder}
+                            </WordBox>
+                        )}
+                    </Droppable>
+                    <Droppable droppableId={'Adjectives'}>
+                        {provided => (
+                            <WordBox 
+                                innerRef={provided.innerRef} 
+                                provided={provided}
+                                wordType={'Adjectives'} 
+                                correctWords={adjectives} 
+                                color={'Red'} 
+                                droppedWords={words.filter(word => word.target ==='Adjectives')}
+                            >
+                                {provided.placeHolder}
+                            </WordBox>
+
+                        )}
+                    </Droppable>
+                    <Droppable droppableId={'Verbs'}>
+                        {provided => (
+                            <WordBox
+                                innerRef={provided.innerRef} 
+                                provided={provided}
+                                wordType={'Verbs'} 
+                                correctWords={verbs} 
+                                color={'Green'}
+                                droppedWords={words.filter(word => word.target ==='Verbs')}
+                            >
+                                {provided.placeHolder}
+                            </WordBox>
+                        )}
+                    </Droppable>
                     </div>
 
                     <button className='reset-game' onClick={() => this.props.dispatch(resetGame())}>Reset</button>
+
                 </div>
+
                 <div className="game__controls">
                     {
                         correctWords === words.length
@@ -111,7 +116,10 @@ export class WordTypes extends React.Component {
                         />
                     }
                 </div>
+                
             </div>
+
+            </DragDropContext>
         );
 
     }
@@ -123,7 +131,5 @@ const mapStateToProps = state => ({
     startTime: state.wordTypes.startTime,
     finishTime: state.wordTypes.finishTime
 })
-
-WordTypes = DragDropContext(MultiBackend(HTML5toTouch))(WordTypes);
 
 export default connect(mapStateToProps)(WordTypes);

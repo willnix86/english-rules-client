@@ -1,49 +1,15 @@
 import React from 'react';
 import DraggableWord from '../@DraggableWord/DraggableWord';
-import { DropTarget } from 'react-dnd';
+
 import { connect } from 'react-redux';
 import { dropWord } from '../../actions/wordTypeActions';
 import './WordBox.css';
-
-const ItemTypes = {
-    WORD: 'word'
-};
-
-const wordBoxTarget = {
-    drop(props, monitor, component) {
-        let wordObj = monitor.getItem();
-        let word = wordObj.word;
-        let target = props.wordType;
-
-        if (props.correctWords.includes(word)) {
-            component.props.dispatch(dropWord(
-                word,
-                target,
-                'correctType'
-            ))
-        } else {
-            component.props.dispatch(dropWord(
-                word,
-                target,
-                'incorrectType'
-            ))
-        }
-
-    }
-} 
-
-function collect(connect, monitor) {
-    return {
-        connectDropTarget: connect.dropTarget(),
-        isOver: monitor.isOver()
-    }
-}
 
 export class WordBox extends React.Component {
 
     render() {
 
-        const { wordType, color, connectDropTarget, isOver } = this.props;
+        const { wordType, color, isOver, provided, innerRef } = this.props;
 
         let fill = {};
 
@@ -72,18 +38,24 @@ export class WordBox extends React.Component {
                 wordList.push(
                     <li key={i}>
                         <DraggableWord 
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            innerRef={provided.innerRef}
                             value={this.props.droppedWords[i].word}
                             wordAnswer={this.props.droppedWords[i].answer}
+                            indexValue={i}
                         />
                     </li>
                 );
             };
         }
-    
-        return connectDropTarget(
+
+        return (
             <div 
                 className={['wordBox', this.props.className].join(' ')} 
                 style={fill}
+                {...provided.droppableProps}
+                ref={innerRef}
             >
                 <h2>{wordType}</h2>
                 <ul>
@@ -97,7 +69,5 @@ export class WordBox extends React.Component {
 const mapStateToProps = state => ({
     words: state.wordTypes.words
 })
-
-WordBox = DropTarget(ItemTypes.WORD, wordBoxTarget, collect)(WordBox);
 
 export default connect(mapStateToProps)(WordBox);
