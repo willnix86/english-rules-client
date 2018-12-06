@@ -1,5 +1,6 @@
 import React from 'react';
 import WordContainer from '../WordContainer/WordContainer';
+import WordButton from '../WordButton/WordButton';
 import MoodImage from '../MoodImage/MoodImage'
 import './Conjunctions.css';
 import { connect } from 'react-redux';
@@ -91,10 +92,17 @@ export class Conjunctions extends React.Component {
                 </div>
 
                 <div className="game__controls">
-                    <WordContainer 
-                        words={this.props.conjunctions} onClickWord={this.addWord}
-                        className="buttons"
-                    />
+                    <WordContainer>
+                        {this.props.conjunctions.map((word, index) => 
+                            <WordButton 
+                                key={index} 
+                                value={word} 
+                                index={index}
+                                onClick={this.addWord}
+                                className="wordButton"
+                            />
+                        )}
+                    </WordContainer>
                     <form onSubmit={this.handleSubmit}>
                         <input
                         type="text"

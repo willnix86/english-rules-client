@@ -1,6 +1,7 @@
 import React from 'react';
 import WordBox from '../@WordBox/WordBox';
 import WordContainer from '../WordContainer/WordContainer';
+import DraggableWord from '../@DraggableWord/DraggableWord';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { connect } from 'react-redux';
 import { resetGame } from '../../actions/wordTypeActions';
@@ -18,12 +19,12 @@ export class WordTypes extends React.Component {
 
 
     onDragEnd = result => {
-        //
+        console.log(result);
     };
 
     render() {
 
-        const words = this.props.words.sort(() => 0.5 - Math.random());
+        const words = this.props.words;
 
         const incorrectWords = words.filter(word => word.answer === 'incorrectType').length;
 
@@ -44,6 +45,14 @@ export class WordTypes extends React.Component {
             totalTime = Math.floor(finish / 1000);
         }
 
+        const getBoxStyle = (isDraggingOver) => ({
+            opacity: isDraggingOver ? 0.5 : 1
+        });
+
+        const getWordstyle = (isDragging) => ({
+            opacity: isDragging ? 0.5 : 1,
+        });
+
         return (
             <DragDropContext onDragEnd={this.onDragEnd}>
 
@@ -55,45 +64,72 @@ export class WordTypes extends React.Component {
                     
                     <div className="wordbox-wrapper">
                     <Droppable droppableId={'Nouns'}>
-                        {provided => (
+                        {(provided, snapshot) => (
                             <WordBox
                                 innerRef={provided.innerRef} 
-                                provided={provided}
+                                {...provided.droppableProps}
                                 wordType={'Nouns'}
                                 correctWords={nouns}
                                 color={'Yellow'}
-                                droppedWords={words.filter(word => word.target ==='Nouns')}
+                                isOver={snapshot.isDraggingOver}
                             >
-                                {provided.placeHolder}
+                                {words.filter(word => word.target === 'Nouns').map((word, index) => 
+                                    <DraggableWord 
+                                        key={index} 
+                                        value={word.word} 
+                                        index={index} 
+                                        wordAnswer={word.answer}
+                                        style={getWordstyle(snapshot.isDragging)}
+                                    />
+                                )}
+                                {provided.placeholder}
                             </WordBox>
                         )}
                     </Droppable>
                     <Droppable droppableId={'Adjectives'}>
-                        {provided => (
+                        {(provided, snapshot) => (
                             <WordBox 
                                 innerRef={provided.innerRef} 
-                                provided={provided}
+                                {...provided.droppableProps} 
                                 wordType={'Adjectives'} 
                                 correctWords={adjectives} 
-                                color={'Red'} 
-                                droppedWords={words.filter(word => word.target ==='Adjectives')}
+                                color={'Red'}
+                                isOver={snapshot.isDraggingOver} 
                             >
-                                {provided.placeHolder}
+                                {words.filter(word => word.target === 'Adjectives').map((word, index) => 
+                                    <DraggableWord 
+                                        key={index} 
+                                        value={word.word} 
+                                        index={index} 
+                                        wordAnswer={word.answer}
+                                        style={getWordstyle(snapshot.isDragging)}
+                                    />
+                                )}
+                                {provided.placeholder}
                             </WordBox>
 
                         )}
                     </Droppable>
                     <Droppable droppableId={'Verbs'}>
-                        {provided => (
+                        {(provided, snapshot) => (
                             <WordBox
                                 innerRef={provided.innerRef} 
-                                provided={provided}
+                                {...provided.droppableProps}
                                 wordType={'Verbs'} 
                                 correctWords={verbs} 
                                 color={'Green'}
-                                droppedWords={words.filter(word => word.target ==='Verbs')}
+                                isOver={snapshot.isDraggingOver}
                             >
-                                {provided.placeHolder}
+                                {words.filter(word => word.target === 'Verbs').map((word, index) => 
+                                    <DraggableWord 
+                                        key={index} 
+                                        value={word.word} 
+                                        index={index} 
+                                        wordAnswer={word.answer}
+                                        style={getWordstyle(snapshot.isDragging)}
+                                    />
+                                )}
+                                {provided.placeholder}
                             </WordBox>
                         )}
                     </Droppable>
@@ -109,11 +145,29 @@ export class WordTypes extends React.Component {
                         ?
                         <p className="wordTypes-message">WELL DONE!! You finished in {totalTime} seconds. <br /> <br /> Reset the game and see if your friend can do it faster.</p>
                         :
-                        <WordContainer 
-                        wordType={'Container'}
-                        words={words.filter(word => word.target === 'Container')}
-                        className="draggables" 
-                        />
+                        <Droppable droppableId={'Container'}>
+                            {(provided, snapshot) => (
+                                <WordContainer
+                                    innerRef={provided.innerRef}
+                                    {...provided.droppableProps} 
+                                    wordType={'Container'}
+                                    className="draggables"
+                                    style={getBoxStyle(snapshot.isDraggingOver)}
+                                >
+                                    {words.filter(word => word.target === 'Container').map((word, index) => 
+                                        <DraggableWord 
+                                            key={index} 
+                                            value={word.word} 
+                                            index={index} 
+                                            wordAnswer={word.answer}
+                                            style={getWordstyle(snapshot.isDragging)}
+                                        />
+                                    )}
+                                    {provided.placeholder}
+                                </WordContainer>
+                            )}
+                        </Droppable>
+                            
                     }
                 </div>
                 

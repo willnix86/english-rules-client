@@ -4,23 +4,22 @@ import './DraggableWord.css';
 export default class DraggableWord extends React.Component {
 
     render() {
-        const { isDragging, wordAnswer, value, indexValue } = this.props;
-
+        const { index, value, wordAnswer } = this.props;
         return (
-            <Draggable draggableId={value} index={indexValue}>
+            <Draggable key={index} draggableId={value} index={index}>
                 {provided => (
-                    <div 
-                        className={['draggableWord', wordAnswer].join(' ')}
-                        style={{
-                            opacity: isDragging ? 0.5 : 1,
-                            cursor: 'move'
-                        }}
-                        innerref={provided.innerRef}
-                    >
-                        {value}
-                    </div>
+                <div
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                    className={['draggableWord', wordAnswer].join(' ')}
+                    style={this.props.style}
+                >
+                    {value}
+                </div>
                 )}
             </Draggable>
+            
         )
     }
 }

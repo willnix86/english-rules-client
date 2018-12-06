@@ -1,7 +1,7 @@
 import * as actions from '../actions/wordTypeActions';
 import update from 'immutability-helper';
 
-export const initialState = {
+const initialState = {
     words: [{
         word: 'house',
         wordType: 'noun',
@@ -95,6 +95,8 @@ export const initialState = {
     startTime: 0,
     finishTime: 0
 }
+
+initialState.words = initialState.words.sort(() => 0.5 - Math.random());
 
 export const wordTypesReducer = (state=initialState, action) => {
     if (action.type === actions.ADD_WORD) {
