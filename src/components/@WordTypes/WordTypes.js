@@ -25,15 +25,16 @@ const HTML5toTouch = {
     backends: [
         {
             backend: HTML5Backend,
+            transition: MouseTransition
         },
         {
             backend: TouchBackend({ enableMouseEvents: false }),
             preview: true,
-            transition: TouchTransition,
+            transition: TouchTransition
         },
         {
             backend: HTML5Backend,
-            transition: MouseTransition,
+            transition: MouseTransition
         },
     ],
 };
