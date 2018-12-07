@@ -49,8 +49,6 @@ export class WordTypes extends React.Component {
         return <div className={item.className} style={style}>{item.word}</div>;
     }
 
-    
-
     render() {
 
         const words = this.props.words.sort(() => 0.5 - Math.random());
