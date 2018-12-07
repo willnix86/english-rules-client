@@ -4,7 +4,11 @@ import {Provider} from 'react-redux';
 import store from './store';
 import App from './components/@App/App';
 import * as serviceWorker from './serviceWorker';
+import Modal from 'react-modal';
 import './index.css';
+
+
+Modal.setAppElement('#root');
 
 ReactDOM.render(
     <Provider store={store}>

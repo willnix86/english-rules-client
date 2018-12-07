@@ -10,12 +10,15 @@ import { connect } from 'react-redux';
 import DragScroll from 'react-dragscroll';
 import Modal from 'react-modal';
 import { toggleModal } from '../../actions/userActions';
-import { resetGame } from '../../actions/wordTypeActions';
+import { dropWord, resetGame } from '../../actions/wordTypeActions';
 import './WordTypes.css';
 
 let totalTime;
 let start;
 let finish;
+let allyWordChoice;
+let allyWordType;
+let allyTypeChoice;
 
 const MouseTransition = createTransition('mousedown', (e) => {
     return e.type
@@ -48,11 +51,10 @@ const modalStyles = {
         right                 : 'auto',
         bottom                : 'auto',
         marginRight           : '-50%',
-        transform             : 'translate(-50%, -50%)'
+        transform             : 'translate(-50%, -50%)',
+        backgroundColor : '#3683cf',
     }
 };
-
-Modal.setAppElement('#root');
 
 export class WordTypes extends React.Component {
 
@@ -65,9 +67,28 @@ export class WordTypes extends React.Component {
         return <div className={item.className} style={style}>{item.word}</div>;
     }
 
-    handleClickOnWord = (word) => {
-        console.log(word);
+    handleClickOnWord = (word, type) => {
+        allyWordChoice = word;
+        allyWordType = type;
         this.props.dispatch(toggleModal(true));
+    }
+
+    handleClickOnType = (e) => {
+        allyTypeChoice = e.target.value;
+        if (allyWordType === allyTypeChoice) {
+            this.props.dispatch(dropWord(
+                allyWordChoice,
+                allyTypeChoice,
+                'correctType'
+            ))
+        } else {
+            this.props.dispatch(dropWord(
+                allyWordChoice,
+                allyTypeChoice,
+                'incorrectType'
+            ))
+        }
+        this.props.dispatch(toggleModal(false));
     }
 
     onCloseModal = () => {
@@ -121,6 +142,7 @@ export class WordTypes extends React.Component {
                                         wordType={word.wordType} 
                                         wordAnswer={word.answer}
                                         value={word.word}
+                                        onClick={this.handleClickOnWord}
                                     />
                                 )}
                             </WordBox>
@@ -135,7 +157,7 @@ export class WordTypes extends React.Component {
                                         wordType={word.wordType} 
                                         wordAnswer={word.answer}
                                         value={word.word}
-                                        
+                                        onClick={this.handleClickOnWord}
                                     />
                                 )}
                             </WordBox>
@@ -150,6 +172,7 @@ export class WordTypes extends React.Component {
                                         wordType={word.wordType} 
                                         wordAnswer={word.answer}
                                         value={word.word}
+                                        onClick={this.handleClickOnWord}
                                     />
                                 )}
                             </WordBox>
@@ -191,19 +214,25 @@ export class WordTypes extends React.Component {
                         >
                             Close
                         </button>
-                        <p>Pick a Word Type:</p>
+                        <p className="modal-message">Pick a Word Type:</p>
                         <button 
                             className="wordType"
+                            onClick={e => this.handleClickOnType(e)}
+                            value={'Nouns'}
                         >
                             Nouns
                         </button>
                         <button 
                             className="wordType"
+                            onClick={this.handleClickOnType}
+                            value={'Adjectives'}
                         >
                             Adjectives
                         </button>
                         <button 
                             className="wordType"
+                            onClick={this.handleClickOnType}
+                            value={'Verbs'}
                         >
                             Verbs
                         </button>

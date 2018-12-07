@@ -59,14 +59,14 @@ describe('conjunctionsReducer', () => {
 describe('wordTypeReducer', () => {
     let droppedWord = {
         word: 'house',
-        wordType: 'noun',
+        wordType: 'Nouns',
         target: 'Nouns',
         answer: 'correctType'
     };
 
     let word = {
         word: 'cheese',
-        wordType: 'noun',
+        wordType: 'Nouns',
         target: 'Container',
         answer: ''}
 

@@ -37,7 +37,7 @@ function collect(connect, monitor) {
 class DraggableWord extends React.Component {
 
     handleClick = () => {
-        this.props.onClick(this.props.value);
+        this.props.onClick(this.props.value, this.props.wordType);
     }
 
     render() {
