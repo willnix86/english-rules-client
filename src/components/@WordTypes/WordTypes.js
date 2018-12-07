@@ -51,6 +51,9 @@ const modalStyles = {
         transform             : 'translate(-50%, -50%)'
     }
 };
+
+Modal.setAppElement('#root');
+
 export class WordTypes extends React.Component {
 
     componentWillUnmount() {
@@ -65,6 +68,10 @@ export class WordTypes extends React.Component {
     handleClickOnWord = (word) => {
         console.log(word);
         this.props.dispatch(toggleModal(true));
+    }
+
+    onCloseModal = () => {
+        this.props.dispatch(toggleModal(false));
     }
 
     render() {
@@ -178,7 +185,12 @@ export class WordTypes extends React.Component {
                         onRequestClose={this.closeModal}
                         style={modalStyles}
                     >
-                        <button className="closeModal">Close</button>
+                        <button 
+                            className="closeModal"
+                            onClick={this.onCloseModal}
+                        >
+                            Close
+                        </button>
                         <p>Pick a Word Type:</p>
                         <button 
                             className="wordType"
