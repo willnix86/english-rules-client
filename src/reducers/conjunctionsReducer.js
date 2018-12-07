@@ -12,12 +12,14 @@ export const conjunctionsReducer = (state=initialState, action) => {
         return Object.assign({}, state, {
             sentence: action.sentence
         });
-    } else if (action.type === actions.SHOW_RESPONSE) {
+    } 
+    else if (action.type === actions.SHOW_RESPONSE) {
         return Object.assign({}, state, {
             message: action.message,
             mood: action.mood
         });
-    } else if (action.type === actions.RESET_GAME) {
+    } 
+    else if (action.type === actions.RESET_GAME) {
         return initialState;
     }
     return state;

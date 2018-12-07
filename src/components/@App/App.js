@@ -8,6 +8,7 @@ import Conjunctions from '../@Conjunctions/Conjunctions';
 import WordTypes from '../@WordTypes/WordTypes';
 import Prepositions from '../@Prepositions/Prepositions';
 import {Footer} from '../Footer/Footer';
+import Modal from 'react-modal';
 import './App.css';
 
 const HomeRoute = (props) => (
@@ -24,7 +25,7 @@ export function App(props){
 
   return (
     <Router>
-      <div className="App">
+      <div id="#App" className="App">
         <NavigationBar loggedIn={props.loggedIn} />
         <main>
           <Route exact path="/" 

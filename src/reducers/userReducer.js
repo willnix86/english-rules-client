@@ -5,6 +5,7 @@ const initialState = {
     title: 'Ms',
     lastName: 'Ting',
     games: ['Conjunctions', 'Word Types', 'Prepositions'],
+    isModalOpen: false,
     loggedIn: true
 };
 
@@ -15,6 +16,7 @@ export const userReducer = (state=initialState, action) => {
             title: action.title,
             lastName: action.lastName,
             games: action.games,
+            isModalOpen: false,
             loggedIn: true
         });
     }
@@ -24,7 +26,13 @@ export const userReducer = (state=initialState, action) => {
             title: '',
             lastName: '',
             games: [],
+            isModalOpen: false,
             loggedIn: false
+        });
+    }
+    else if (action.type === actions.TOGGLE_MODAL) {
+        return Object.assign({}, state, {
+            isModalOpen: action.isModalOpen
         });
     }
     return state;

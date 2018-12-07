@@ -106,7 +106,8 @@ export const wordTypesReducer = (state=initialState, action) => {
                 answer: ''
             }]
         });
-    } else if (action.type === actions.DROP_WORD) {
+    } 
+    else if (action.type === actions.DROP_WORD) {
         const index = state.words.findIndex((wordObj => wordObj.word === action.word))
         const updatedWord = update(state.words[index], {
             target: {$set: action.target},
@@ -118,7 +119,8 @@ export const wordTypesReducer = (state=initialState, action) => {
         newState.words = update(newState.words, {$push: [updatedWord]});
 
         return newState;
-    } else if (action.type === actions.RESET_GAME) {
+    } 
+    else if (action.type === actions.RESET_GAME) {
         return initialState;
     }
     return state;

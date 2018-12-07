@@ -5,6 +5,7 @@ export const userLogin = {
     title: 'Ms',
     lastName: 'Ting',
     games: ['Placeholder'],
+    isModalOpen: false,
     loggedIn: true
 }
 
@@ -15,5 +16,12 @@ export const userLogout = {
     title: '',
     lastName: '',
     games: [],
+    isModalOpen: false,
     loggedIn: false
 };
+
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const toggleModal = (isModalOpen) => ({
+    type: TOGGLE_MODAL,
+    isModalOpen
+});

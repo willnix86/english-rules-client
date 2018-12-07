@@ -36,11 +36,15 @@ function collect(connect, monitor) {
 
 class DraggableWord extends React.Component {
 
+    handleClick = () => {
+        this.props.onClick(this.props.value);
+    }
+
     render() {
         const { isDragging, connectDragSource, wordAnswer } = this.props;
 
         return connectDragSource(
-            <div 
+            <button 
                 className={['draggableWord', wordAnswer].join(' ')}
                 style={{
                     opacity: isDragging ? 0.5 : 1,
@@ -49,9 +53,10 @@ class DraggableWord extends React.Component {
                 tabIndex='0'
                 draggable='true'
                 aria-describedby='operation'
+                onClick={this.handleClick}
             >
                 {this.props.value}
-            </div>
+            </button>
         );
     }
 

@@ -8,6 +8,8 @@ import TouchBackend from 'react-dnd-touch-backend';
 import MultiBackend, { TouchTransition, createTransition, Preview } from 'react-dnd-multi-backend';
 import { connect } from 'react-redux';
 import DragScroll from 'react-dragscroll';
+import Modal from 'react-modal';
+import { toggleModal } from '../../actions/userActions';
 import { resetGame } from '../../actions/wordTypeActions';
 import './WordTypes.css';
 
@@ -39,6 +41,16 @@ const HTML5toTouch = {
     ],
 };
 
+const modalStyles = {
+    content : {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+        transform             : 'translate(-50%, -50%)'
+    }
+};
 export class WordTypes extends React.Component {
 
     componentWillUnmount() {
@@ -48,6 +60,11 @@ export class WordTypes extends React.Component {
     generatePreview(type, item, style) {
         Object.assign(style, {...item.style});
         return <div className={item.className} style={style}>{item.word}</div>;
+    }
+
+    handleClickOnWord = (word) => {
+        console.log(word);
+        this.props.dispatch(toggleModal(true));
     }
 
     render() {
@@ -82,7 +99,7 @@ export class WordTypes extends React.Component {
             
                         <p>Drag and drop the words below into the correct box.</p>
                         {/* <span id="operation" class='assistive-text'>
-                            Press Spacebar to reorder
+                            Use the spacebar to reorder
                         </span> */}
                     
                         <div className="wordbox-wrapper">
@@ -150,12 +167,35 @@ export class WordTypes extends React.Component {
                                     key={index} 
                                     wordType={word.wordType}
                                     value={word.word}
+                                    onClick={this.handleClickOnWord}
                                 />
                             )}
                         </WordContainer>
                     }
                     </div>
-                
+                    <Modal
+                        isOpen={this.props.isModalOpen}
+                        onRequestClose={this.closeModal}
+                        style={modalStyles}
+                    >
+                        <button className="closeModal">Close</button>
+                        <p>Pick a Word Type:</p>
+                        <button 
+                            className="wordType"
+                        >
+                            Nouns
+                        </button>
+                        <button 
+                            className="wordType"
+                        >
+                            Adjectives
+                        </button>
+                        <button 
+                            className="wordType"
+                        >
+                            Verbs
+                        </button>
+                    </Modal>
                 </div>
 
             </DragScroll>
@@ -168,7 +208,8 @@ export class WordTypes extends React.Component {
 const mapStateToProps = state => ({
     words: state.wordTypes.words,
     startTime: state.wordTypes.startTime,
-    finishTime: state.wordTypes.finishTime
+    finishTime: state.wordTypes.finishTime,
+    isModalOpen: state.user.isModalOpen
 })
 
 WordTypes = DragDropContext(MultiBackend(HTML5toTouch))(WordTypes);
