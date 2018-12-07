@@ -33,6 +33,9 @@ class DraggableWord extends React.Component {
                     opacity: isDragging ? 0.5 : 1,
                     cursor: 'move'
                 }}
+                tabIndex='0'
+                draggable='true'
+                aria-describedby='operation'
             >
                 {this.props.value}
             </div>

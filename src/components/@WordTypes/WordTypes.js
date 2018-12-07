@@ -7,6 +7,7 @@ import HTML5Backend from 'react-dnd-html5-backend'
 import TouchBackend from 'react-dnd-touch-backend';
 import MultiBackend, { TouchTransition, createTransition } from 'react-dnd-multi-backend';
 import { connect } from 'react-redux';
+import DragScroll from 'react-dragscroll';
 import { resetGame } from '../../actions/wordTypeActions';
 import './WordTypes.css';
 
@@ -67,11 +68,15 @@ export class WordTypes extends React.Component {
         }
 
         return (
+            <DragScroll>
             <div className="game__wrapper">
 
                 <div className="game__screen">
             
                         <p>Drag and drop the words below into the correct box.</p>
+                        {/* <span id="operation" class='assistive-text'>
+                            Press Spacebar to reorder
+                        </span> */}
                     
                     <div className="wordbox-wrapper">
                         <WordBox 
@@ -142,6 +147,7 @@ export class WordTypes extends React.Component {
                     }
                 </div>
             </div>
+            </DragScroll>
         );
 
     }

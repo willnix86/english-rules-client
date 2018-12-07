@@ -53,12 +53,15 @@ export class WordBox extends React.Component {
         switch(color.toLowerCase()) {
             case 'yellow':
                 fill.backgroundColor = '#F8CE46';
+                fill.outlineColor = '#fce6a6';
                 break;
             case 'green':
                 fill.backgroundColor = '#88BC42';
+                fill.outlineColor = '#e3ffbc';
                 break;
             case 'red':
                 fill.backgroundColor = '#C93B2B';
+                fill.outlineColor = '#C93A2B';
                 break;
             default:
                 fill.backgroundColor = 'black';
