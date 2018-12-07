@@ -6,6 +6,7 @@ import {LandingPage} from '../LandingPage/LandingPage';
 import {Home} from '../Home/Home';
 import Conjunctions from '../@Conjunctions/Conjunctions';
 import WordTypes from '../@WordTypes/WordTypes';
+import Prepositions from '../@Prepositions/Prepositions';
 import {Footer} from '../Footer/Footer';
 import './App.css';
 
@@ -32,6 +33,7 @@ export function App(props){
           <HomeRoute {...props} />
           <Route exact path="/conjunctions" component={Conjunctions} />
           <Route exact path="/wordtypes" component={WordTypes} />
+          <Route exact path="/prepositions" component={Prepositions} />
         </main>
         <Footer />
       </div>
