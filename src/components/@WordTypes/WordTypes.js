@@ -75,6 +75,7 @@ export class WordTypes extends React.Component {
 
     handleClickOnType = (e) => {
         allyTypeChoice = e.target.value;
+        console.log(allyWordType, allyTypeChoice);
         if (allyWordType === allyTypeChoice) {
             this.props.dispatch(dropWord(
                 allyWordChoice,
@@ -103,11 +104,11 @@ export class WordTypes extends React.Component {
 
         const correctWords = words.filter(word => word.answer === 'correctType').length;
 
-        const nouns = words.filter(word => word.wordType ==='noun').map(word => word.word);
+        const nouns = words.filter(word => word.wordType ==='Nouns').map(word => word.word);
 
-        const adjectives = words.filter(word => word.wordType ==='adjective').map(word => word.word);
+        const adjectives = words.filter(word => word.wordType ==='Adjectives').map(word => word.word);
 
-        const verbs = words.filter(word => word.wordType ==='verb').map(word => word.word);
+        const verbs = words.filter(word => word.wordType ==='Verbs').map(word => word.word);
 
         if ((correctWords === 1 && incorrectWords === 0) || (incorrectWords === 1 && correctWords === 0)) {
             start = Date.now();
@@ -126,9 +127,9 @@ export class WordTypes extends React.Component {
                     <div className="game__screen">
             
                         <p>Drag and drop the words below into the correct box.</p>
-                        {/* <span id="operation" class='assistive-text'>
-                            Use the spacebar to reorder
-                        </span> */}
+                        <span id="operation" className='assistive-text'>
+                            Use the spacebar to select a word and wordtype to place it in.
+                        </span>
                     
                         <div className="wordbox-wrapper">
                             <WordBox 

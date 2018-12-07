@@ -14,7 +14,7 @@ const wordBoxTarget = {
         let word = wordObj.word;
         let target = props.wordType;
 
-        if (props.correctWords.includes(word)) {
+        if (props.correctWords.includes(word)) { 
             component.props.dispatch(dropWord(
                 word,
                 target,
