@@ -9,7 +9,20 @@ const ItemTypes = {
 const wordSource = {
     beginDrag(props) {
         return {
-            word: props.value
+            word: props.value,
+            style: {
+                width: '100px',
+                margin: '15px 3px 0 3px',
+                fontSize: 'calc(13px + 1vmin)',
+                fontWeight: 'normal',
+                fontFamily: '"Open Sans", sans-serif',
+                padding: '10px 35px',
+                color: 'black',
+                borderRadius: '5px',
+                backgroundColor:  'white',
+                opacity: '0.5'
+            },
+            className: props.answer
         };
     }
 }

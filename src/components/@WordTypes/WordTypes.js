@@ -5,7 +5,7 @@ import DraggableWord from '../@DraggableWord/DraggableWord';
 import { DragDropContext} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend'
 import TouchBackend from 'react-dnd-touch-backend';
-import MultiBackend, { TouchTransition, createTransition } from 'react-dnd-multi-backend';
+import MultiBackend, { TouchTransition, createTransition, Preview } from 'react-dnd-multi-backend';
 import { connect } from 'react-redux';
 import DragScroll from 'react-dragscroll';
 import { resetGame } from '../../actions/wordTypeActions';
@@ -44,6 +44,13 @@ export class WordTypes extends React.Component {
         this.props.dispatch(resetGame());
     };
 
+    generatePreview(type, item, style) {
+        Object.assign(style, {...item.style});
+        return <div className={item.className} style={style}>{item.word}</div>;
+    }
+
+    
+
     render() {
 
         const words = this.props.words.sort(() => 0.5 - Math.random());
@@ -69,64 +76,67 @@ export class WordTypes extends React.Component {
 
         return (
             <DragScroll>
-            <div className="game__wrapper">
 
-                <div className="game__screen">
+                <div className="game__wrapper">
+
+                    <div className="game__screen">
             
                         <p>Drag and drop the words below into the correct box.</p>
                         {/* <span id="operation" class='assistive-text'>
                             Press Spacebar to reorder
                         </span> */}
                     
-                    <div className="wordbox-wrapper">
-                        <WordBox 
-                            wordType={'Nouns'}
-                            correctWords={nouns}
-                            color={'Yellow'}
-                        >
-                            {words.filter(word => word.target === 'Nouns').map((word, index) => 
-                                <DraggableWord 
-                                    key={index} 
-                                    wordType={word.wordType} 
-                                    wordAnswer={word.answer}
-                                    value={word.word}
-                                />
-                            )}
-                        </WordBox>
-                        <WordBox 
-                            wordType={'Adjectives'} 
-                            correctWords={adjectives} 
-                            color={'Red'} 
-                        >
-                            {words.filter(word => word.target === 'Adjectives').map((word, index) => 
-                                <DraggableWord 
-                                    key={index} 
-                                    wordType={word.wordType} 
-                                    wordAnswer={word.answer}
-                                    value={word.word}
-                                    
-                                />
-                            )}
-                        </WordBox>
-                        <WordBox 
-                            wordType={'Verbs'} 
-                            correctWords={verbs} 
-                            color={'Green'}
+                        <div className="wordbox-wrapper">
+                            <WordBox 
+                                wordType={'Nouns'}
+                                correctWords={nouns}
+                                color={'Yellow'}
                             >
-                            {words.filter(word => word.target === 'Verbs').map((word, index) => 
-                                <DraggableWord 
-                                    key={index} 
-                                    wordType={word.wordType} 
-                                    wordAnswer={word.answer}
-                                    value={word.word}
-                                />
-                            )}
-                        </WordBox>
+                                {words.filter(word => word.target === 'Nouns').map((word, index) => 
+                                    <DraggableWord 
+                                        key={index} 
+                                        wordType={word.wordType} 
+                                        wordAnswer={word.answer}
+                                        value={word.word}
+                                    />
+                                )}
+                            </WordBox>
+                            <WordBox 
+                                wordType={'Adjectives'} 
+                                correctWords={adjectives} 
+                                color={'Red'} 
+                            >
+                                {words.filter(word => word.target === 'Adjectives').map((word, index) => 
+                                    <DraggableWord 
+                                        key={index} 
+                                        wordType={word.wordType} 
+                                        wordAnswer={word.answer}
+                                        value={word.word}
+                                        
+                                    />
+                                )}
+                            </WordBox>
+                            <WordBox 
+                                wordType={'Verbs'} 
+                                correctWords={verbs} 
+                                color={'Green'}
+                                >
+                                {words.filter(word => word.target === 'Verbs').map((word, index) => 
+                                    <DraggableWord 
+                                        key={index} 
+                                        wordType={word.wordType} 
+                                        wordAnswer={word.answer}
+                                        value={word.word}
+                                    />
+                                )}
+                            </WordBox>
+                        </div>
+
+                        <button className='reset-game' onClick={() => this.props.dispatch(resetGame())}>Reset</button>
                     </div>
 
-                    <button className='reset-game' onClick={() => this.props.dispatch(resetGame())}>Reset</button>
-                </div>
-                <div className="game__controls">
+                    <div className="game__controls">
+                        <Preview generator={this.generatePreview} />
                     {
                         correctWords === words.length
                         ?
@@ -145,8 +155,10 @@ export class WordTypes extends React.Component {
                             )}
                         </WordContainer>
                     }
+                    </div>
+                
                 </div>
-            </div>
+
             </DragScroll>
         );
 
