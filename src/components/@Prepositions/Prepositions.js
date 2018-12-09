@@ -17,7 +17,7 @@ export class Prepositions extends React.Component {
         isDisabled = false;
         this.props.dispatch(setSentence(this.props.sentences[0].sentence));
         this.props.dispatch(setAnswer(this.props.sentences[0].answer));
-    }
+    };
 
     loadNextSentence() {
 
@@ -56,12 +56,12 @@ export class Prepositions extends React.Component {
 
         this.isAnswerRight(word);
         
-    }
+    };
 
     resetGame() {
         index = -1;
         this.props.dispatch(resetGame());
-    }
+    };
     
     render() {
 

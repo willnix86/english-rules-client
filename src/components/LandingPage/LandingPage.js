@@ -24,8 +24,8 @@ export function LandingPage(props) {
                 <h3 className="landing__subtitle">Each exercise can be adapted to fit what students are currently learning, ensuring unlimited variety and maintaining repeatability</h3>
             </section>
             <section className="landing__wrapper">
-                <h2 className="landing__title">Add New Exercises from the English Rules Library</h2>
-                <h3 className="landing__subtitle">Coming Soon!</h3>
+                <h2 className="landing__title">Get Feedback About Your Students' Progress</h2>
+                <h3 className="landing__subtitle">English Rules stores a record of each students' answers so you can track who's still to complete an exercise and how well they've done when they have</h3>
             </section>
             <section className="landing__wrapper">
                 <SignUpForm />
