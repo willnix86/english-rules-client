@@ -1,7 +1,6 @@
 import { UPDATE_SENTENCE, updateSentence, SHOW_RESPONSE, showResponse, RESET_GAME, resetGame } from './conjunctionsActions';
 import { ADD_WORD, addWord, DROP_WORD, dropWord, RESET_GAME as RESET_GAME_WORDTYPES, resetGame as resetGameWordTypes } from './wordTypeActions';
 import { SET_SENTENCE, setSentence, SET_ANSWER, setAnswer, ADD_POINTS, addPoints, LOSE_LIFE, loseLife, RESET_GAME as RESET_GAME_PREPOSITIONS, resetGame as resetGamePrepositions } from './prepositionsActions';
-import { bindActionCreators } from '../../../../../../Library/Caches/typescript/3.1/node_modules/redux';
 
 describe('Conjunctions Actions', () => {
     
