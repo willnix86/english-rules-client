@@ -1,0 +1,42 @@
+.heart {
+    margin: 0 2px;
+    font-size: calc(10px * 2vmin);
+    color: #F8CE46;
+}
+
+.game__points {
+    display: inherit;
+    position: absolute;
+    top: 20px;
+    left: -5px;
+    color: #F8CE46;
+}
+
+.game__start, .reset-game {
+    margin-top: 15px;
+    font-size: calc(10px + 1vmin);
+    font-weight: normal;
+    height: auto;
+    padding: 10px 30px;
+    color: black;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.game__start {
+    background-color: #F8CE46;
+}
+
+.game__start:focus {       
+    outline-color: #F8CE46;
+}
+
+.reset-game {
+    background-color: rgb(195, 227, 248);
+}
+
+.reset-game:focus {
+    outline-color: #a5d8f7;
+}
+

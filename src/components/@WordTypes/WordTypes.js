@@ -33,14 +33,14 @@ const HTML5toTouch = {
             transition: MouseTransition
         },
         {
-            backend: TouchBackend({ enableMouseEvents: true }),
+            backend: TouchBackend({ enableMouseEvents: false }),
             preview: true,
             transition: TouchTransition
         },
         {
             backend: HTML5Backend,
             transition: MouseTransition
-        },
+        }
     ],
 };
 
@@ -215,6 +215,7 @@ export class WordTypes extends React.Component {
                         >
                             Close
                         </button>
+                        <p className="modal-message">{allyWordChoice}</p>
                         <p className="modal-message">Pick a Word Type:</p>
                         <button 
                             className="wordType"

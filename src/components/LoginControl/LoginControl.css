@@ -36,7 +36,7 @@
     margin-top: 7px;
 }
 
-.logout, .login, .library {
+.logout, .login, .library, .exercises, .home {
     margin: 15px 3px 0 3px;
     font-size: calc(10px + 1vmin);
     font-weight: normal;
@@ -47,6 +47,10 @@
     border: none;
     background-color: rgb(195, 220, 248);
     cursor: pointer;
+}
+
+.home {
+    display: none;
 }
 
 @media only screen and (min-width: 312px) and (max-width: 500px) {
@@ -76,4 +80,9 @@
     .logoutForm {
         padding-top: 16px;
     }
+
+    .home {
+        display: inline-block;
+    }
+
 }

@@ -8,7 +8,8 @@ export function LoginControl({className, loggedIn, ...props}) {
         return (
             <div className={['logoutForm', className].join(' ')} {...props}>
                     <div>
-                        <Link to="/home"><button className="library">Library</button></Link>
+                        <Link to="/"><button className="home">Home</button></Link>
+                        <Link to="/home"><button className="exercises">Exercises</button></Link>
                         <button className="logout" onClick={props.onClick}>Logout</button>
                     </div>
                 </div>

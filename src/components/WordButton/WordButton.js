@@ -15,8 +15,11 @@ export default class WordButton extends React.Component {
         return (
             <button
                 className={this.props.className}
-                onClick={this.handleClick}>
+                onClick={this.handleClick}
+                disabled={this.props.disabled}
+            >
                 {this.props.value}
+                
             </button>
         )
     }

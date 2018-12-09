@@ -1,11 +1,11 @@
 import React from 'react';
-import Heart from './Heart';
+import './HeartContainer.css';
 
 export default function HeartContainer(props) {
 
     return (
-        <div>
-
+        <div className='game__lives'>
+            {props.children}
         </div>
     )
 }

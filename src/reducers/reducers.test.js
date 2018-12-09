@@ -1,7 +1,9 @@
-import { conjunctionsReducer } from './conjunctionsReducer';
-import { wordTypesReducer, initialState } from './wordTypesReducer';
-import { updateSentence, showResponse, resetGame } from '../actions/conjunctionsActions';
+import { conjunctionsReducer, initialState as conjunctionsState } from './conjunctionsReducer';
+import { wordTypesReducer, initialState as wordTypesState } from './wordTypesReducer';
+import { prepositionsReducer, initialState as prepositionsState } from './prepositionsReducer';
+import { updateSentence, showResponse, resetGame as resetGameConjunctions } from '../actions/conjunctionsActions';
 import { addWord, dropWord, resetGame as resetGameWordTypes } from '../actions/wordTypeActions';
+import { addPoints, loseLife, resetGame as resetGamePrepositions } from '../actions/prepositionsActions';
 
 describe('conjunctionsReducer', () => {
     const sentence = "I like to play games and so do my friends.";
@@ -44,15 +46,10 @@ describe('conjunctionsReducer', () => {
     describe('resetGame', () => {
         it('Should reset state back to initial state', () => {
             let state;
-            state = conjunctionsReducer(state, resetGame());
-            expect(state).toEqual({
-                conjunctions: ['and', 'but', 'or', 'nor', 'for', 'yet', 'so'],
-                sentence: '',
-                message: 'Type or click the buttons below to write a compound sentence.',
-                mood: 'talking'
-            })
-        })
-    })
+            state = conjunctionsReducer(state, resetGameConjunctions());
+            expect(state).toEqual(conjunctionsState);
+        });
+    });
 
 });
 
@@ -72,7 +69,7 @@ describe('wordTypeReducer', () => {
 
     it('Should set the initial state when nothing is passed in', () => {
         const state = wordTypesReducer(undefined, {type: '__UNKNOWN'});
-        expect(state).toEqual(initialState);
+        expect(state).toEqual(wordTypesState);
     });
 
     it('Should return the current state on an unknown action', () => {
@@ -86,7 +83,7 @@ describe('wordTypeReducer', () => {
             let state;
             state = wordTypesReducer(state, addWord(word));
             expect(state.words[state.words.length - 1]).toEqual(word);
-        })
+        });
     });
 
     describe('dropWord', () => {
@@ -94,15 +91,54 @@ describe('wordTypeReducer', () => {
             let state;
             state = wordTypesReducer(state, dropWord(droppedWord.word, droppedWord.target, droppedWord.answer));
             expect(state.words[(state.words.length - 1)]).toEqual(droppedWord);
-        })
-    })
+        });
+    });
 
     describe('resetGame', () => {
         it('Should reset state back to initial state', () => {
             let state;
             state = wordTypesReducer(state, resetGameWordTypes());
-            expect(state).toEqual(initialState);
-        })
-    })
+            expect(state).toEqual(wordTypesState);
+        });
+    });
 
 });
+
+describe('prepositionsReducer', () => {
+
+    it('Should set the initial state when nothing is passed in', () => {
+        const state = prepositionsReducer(undefined, {type: '__UNKNOWN'});
+        expect(state).toEqual(prepositionsState);
+    });
+
+    it('Should return the current state on an unknown action', () => {
+        let currentState = {};
+        const state = wordTypesReducer(currentState, {type: '__UNKNOWN'});
+        expect(state).toBe(currentState);
+    });
+
+    describe('addLife', () => {
+        it('Should add points to the player\'s score', () => {
+            let state;
+            state = prepositionsReducer(state, addPoints());
+            expect(state.points).toEqual(100);
+        });
+    })
+
+    describe('loseLife', () => {
+        it('Should take a life away from the player', () => {
+            let state;
+            state = prepositionsReducer(state, loseLife());
+            expect(state.lives).toEqual(2); 
+        });
+    });
+
+    describe('resetGame', () => {
+        it('Should reset state back to initial state', () => {
+            let state;
+            state = prepositionsReducer(state, resetGamePrepositions());
+            expect(state).toEqual(prepositionsState);
+        });
+    });
+
+})
