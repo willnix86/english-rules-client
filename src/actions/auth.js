@@ -37,14 +37,13 @@ export const authError = error => ({
 const storeAuthInfo = (authToken, userId, dispatch) => {
     const decodedToken = jwtDecode(authToken);
     dispatch(setAuthToken(authToken, userId));
-    dispatch(authSuccess(decodedToken.user));
+    dispatch(authSuccess(decodedToken.user.username));
     saveAuthToken(authToken);
 };
 
 export const getJWT = (username, password) => dispatch => {
     dispatch(authRequest());
     return (
-        
         fetch(`${API_BASE_URL}/auth/login`, {
             method: 'POST',
             headers: {
@@ -71,7 +70,6 @@ export const getJWT = (username, password) => dispatch => {
                     })
                 );
             })
-
     );
 };
 

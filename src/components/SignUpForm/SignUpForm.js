@@ -17,7 +17,7 @@ export class SignUpForm extends React.Component {
         const user = {firstName, lastName, username, password};
 
         return this.props.dispatch(registerUser(user))
-        .then(res => this.props.dispatch(getJWT(username, password, res.id)));
+        .then(res => this.props.dispatch(getJWT(username, password)));
     }
 
     render() {

@@ -24,12 +24,13 @@ export const userReducer = (state=initialState, action) => {
     if (action.type === SET_AUTH_TOKEN) {
         return Object.assign({}, state, {
             authToken: action.authToken,
-            id: action.userId
+            id: action.userId,
+            loggedIn: true
         });
     } else if (action.type === CLEAR_AUTH) {
         return Object.assign({}, state, {
             authToken: null,
-            currentUser: null
+            username: null
         });
     } else if (action.type === AUTH_REQUEST) {
         return Object.assign({}, state, {
@@ -39,7 +40,7 @@ export const userReducer = (state=initialState, action) => {
     } else if (action.type === AUTH_SUCCESS) {
         return Object.assign({}, state, {
             loading: false,
-            currentUser: action.currentUser
+            username: action.currentUser
         });
     } else if (action.type === AUTH_ERROR) {
         return Object.assign({}, state, {
