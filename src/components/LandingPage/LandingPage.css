@@ -46,7 +46,7 @@
 
 .landing__wrapper:nth-child(5) {
     background-color: #F2F2F2;
-    height: 400px;
+    height: 450px;
 }
 
 .landing__title {
@@ -83,11 +83,6 @@
 
 .landing__image:nth-of-type(3) {
     transform: rotateZ(-1deg);
-}
-
-
-#signup {
-    margin: 0 auto;
 }
 
 @media only screen and (max-width: 539px) {

@@ -43,8 +43,8 @@ export function App(props){
 }
 
 const mapStateToProps = state => ({
-  title: state.user.title,
-  lastName: state.user.lastName,
+  username: state.user.username,
+  hasAuthToken: state.user.authToken !== null,
   games: state.user.games,
   loggedIn: state.user.loggedIn
 });

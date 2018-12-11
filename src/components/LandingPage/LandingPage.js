@@ -1,5 +1,5 @@
 import React from 'react';
-import {SignUpForm} from '../SignUpForm/SignUpForm';
+import SignUpForm from '../SignUpForm/SignUpForm';
 import './LandingPage.css';
 
 export function LandingPage(props) {

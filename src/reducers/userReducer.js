@@ -1,34 +1,53 @@
 import * as actions from '../actions/userActions';
 
+import {
+    SET_AUTH_TOKEN,
+    CLEAR_AUTH,
+    AUTH_REQUEST,
+    AUTH_SUCCESS,
+    AUTH_ERROR
+} from '../actions/auth';
+
+
 const initialState = {
-    userName: 'tess.ting',
-    title: 'Ms',
-    lastName: 'Ting',
+    id: null,
+    username: null,
+    authToken: null,
     games: ['Conjunctions', 'Word Types', 'Prepositions'],
     isModalOpen: false,
-    loggedIn: true
+    loggedIn: false,
+    loading: false,
+    error: null
 };
 
 export const userReducer = (state=initialState, action) => {
-    if (action.type === actions.USER_LOGIN) {
+    if (action.type === SET_AUTH_TOKEN) {
         return Object.assign({}, state, {
-            userName: action.userName,
-            title: action.title,
-            lastName: action.lastName,
-            games: action.games,
-            isModalOpen: false,
-            loggedIn: true
+            authToken: action.authToken
+        });
+    } else if (action.type === CLEAR_AUTH) {
+        return Object.assign({}, state, {
+            authToken: null,
+            currentUser: null
+        });
+    } else if (action.type === AUTH_REQUEST) {
+        return Object.assign({}, state, {
+            loading: true,
+            error: null
+        });
+    } else if (action.type === AUTH_SUCCESS) {
+        return Object.assign({}, state, {
+            loading: false,
+            currentUser: action.currentUser
+        });
+    } else if (action.type === AUTH_ERROR) {
+        return Object.assign({}, state, {
+            loading: false,
+            error: action.error
         });
     }
     else if (action.type === actions.USER_LOGOUT) {
-        return Object.assign({}, state, {
-            userName: '',
-            title: '',
-            lastName: '',
-            games: [],
-            isModalOpen: false,
-            loggedIn: false
-        });
+        return initialState;
     }
     else if (action.type === actions.TOGGLE_MODAL) {
         return Object.assign({}, state, {

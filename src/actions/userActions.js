@@ -1,23 +1,30 @@
-export const USER_LOGIN = 'USER_LOGIN';
-export const userLogin = {
-    type: USER_LOGIN,
-    userName: 'tess.ting',
-    title: 'Ms',
-    lastName: 'Ting',
-    games: ['Placeholder'],
-    isModalOpen: false,
-    loggedIn: true
-}
+import { API_BASE_URL } from '../config';
+import { normalizeResponseErrors } from './utils';
+
+export const registerUser = user => dispatch => {
+
+    let res; 
+
+    const regUser = async () => {
+        res = await fetch(`${API_BASE_URL}/users`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        });
+        return normalizeResponseErrors(res);
+    }
+
+    regUser().json().catch(err => {
+        return err;
+    });
+
+};
 
 export const USER_LOGOUT = 'USER_LOGOUT';
 export const userLogout = {
-    type: USER_LOGOUT,
-    userName: '',
-    title: '',
-    lastName: '',
-    games: [],
-    isModalOpen: false,
-    loggedIn: false
+    type: USER_LOGOUT
 };
 
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
