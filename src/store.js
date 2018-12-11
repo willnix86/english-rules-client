@@ -1,7 +1,21 @@
-import {createStore} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from './reducers/rootReducer';
+import thunk from 'redux-thunk';
+import {loadAuthToken} from './localStorage';
+import {setAuthToken, refreshAuthToken} from './actions/auth';
 
-export default createStore(
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
     rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    );
+    composeEnhancer(applyMiddleware(thunk)),
+);
+
+const authToken = loadAuthToken();
+if (authToken) {
+    const token = authToken;
+    store.dispatch(setAuthToken(token));
+    store.dispatch(refreshAuthToken());
+};
+
+export default store;

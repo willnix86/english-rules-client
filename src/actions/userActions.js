@@ -1,26 +1,73 @@
+import { SubmissionError } from 'redux-form';
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 
 export const registerUser = user => dispatch => {
-
-    let res; 
-
-    const regUser = async () => {
-        res = await fetch(`${API_BASE_URL}/users`, {
+    
+    return fetch(`${API_BASE_URL}/users`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(user)
+        })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .catch(err => {
+            const {reason, message, location} = err;
+            if (reason === 'ValidationError') {
+                return Promise.reject(
+                    new SubmissionError({
+                        [location]: message
+                    })
+                );
+            }
         });
-        return normalizeResponseErrors(res);
-    }
-
-    regUser().json().catch(err => {
-        return err;
-    });
-
 };
+
+export const userLogin = (userId, authToken) => dispatch => {
+    return (
+        // fetch(`${API_BASE_URL}/user/protected/${userId}`), {
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-type': 'application/json',
+        //         'Authorization': 'Bearer ' + authToken
+        //     }
+        // })
+        // .then(res => {
+        //     if (res.ok) {
+        //         return normalizeResponseErrors(res)
+        //     }
+        // })
+        // .then(res => res.json())
+        // .then(res => console.log(res)) //DISPATCH TO STATE
+        // .catch(err => {
+        //     const {code} = err;
+        //     const message =
+        //         code === 401
+        //             ? 'Incorrect username or password'
+        //             : 'Unable to login, please try again';
+        //     dispatch(loginError(err));
+        //     return Promise.reject(
+        //         new SubmissionError({
+        //             _error: message
+        //         })
+        //     );
+    // })
+    console.log(userId, authToken)
+    )
+};
+
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const loginError = error => ({
+    type: LOGIN_ERROR,
+    error
+});
+
+export const SET_USER_DATA = 'SET_USER_DATA';
+export const setUserData = (user) => ({
+
+})
 
 export const USER_LOGOUT = 'USER_LOGOUT';
 export const userLogout = {

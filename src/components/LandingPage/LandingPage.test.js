@@ -9,10 +9,4 @@ describe('<LandingPage />', () => {
         shallow(<LandingPage />);
     });
 
-    it('renders <SignUpForm />', () => {
-        const wrapper = shallow(<LandingPage/>);
-        expect(wrapper.find(SignUpForm).length).toEqual(1);
-        expect(wrapper.find("section").length).toEqual(5);
-    });
-
 })

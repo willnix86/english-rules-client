@@ -23,7 +23,8 @@ const initialState = {
 export const userReducer = (state=initialState, action) => {
     if (action.type === SET_AUTH_TOKEN) {
         return Object.assign({}, state, {
-            authToken: action.authToken
+            authToken: action.authToken,
+            id: action.userId
         });
     } else if (action.type === CLEAR_AUTH) {
         return Object.assign({}, state, {

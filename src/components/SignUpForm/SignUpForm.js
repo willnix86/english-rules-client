@@ -1,6 +1,6 @@
 import React from 'react'
 import { registerUser } from '../../actions/userActions';
-import { userLogin } from '../../actions/auth';
+import { getJWT } from '../../actions/auth';
 import { reduxForm, Field, focus } from 'redux-form';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 import Input from './Input';
@@ -15,14 +15,9 @@ export class SignUpForm extends React.Component {
         const { firstName, lastName, password } = values;
         const username = values.email;
         const user = {firstName, lastName, username, password};
-        
-        const signupLogin = async () => {
-            await this.props.dispatch(registerUser(user));
-            await this.props.dispatch(userLogin(username, password));
-        }
 
-        return signupLogin();
-        
+        return this.props.dispatch(registerUser(user))
+        .then(res => this.props.dispatch(getJWT(username, password, res.id)));
     }
 
     render() {
@@ -35,9 +30,19 @@ export class SignUpForm extends React.Component {
                     this.onSubmit(values)
                 )}>
                 <label htmlFor="firstName">First Name:</label>
-                <Field name="firstName" itype="text" component={Input} />
+                <Field 
+                    name="firstName"
+                    type="text" 
+                    component={Input}
+                    validate={[required, nonEmpty, isTrimmed]}
+                />
                 <label htmlFor="lastName">Last Name:</label>
-                <Field name="lastName" type="text" component={Input} />
+                <Field 
+                    name="lastName"
+                    type="text"
+                    component={Input}
+                    validate={[required, nonEmpty, isTrimmed]}
+                />
                 <label htmlFor="email">Email:</label>
                 <Field 
                     name="email" 

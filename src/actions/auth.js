@@ -6,9 +6,10 @@ import {saveAuthToken, clearAuthToken} from '../localStorage';
 import {SubmissionError} from 'redux-form';
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
-export const setAuthToken = authToken => ({
+export const setAuthToken = (authToken, userId) => ({
     type: SET_AUTH_TOKEN,
-    authToken
+    authToken,
+    userId
 });
 
 export const CLEAR_AUTH = 'CLEAR_AUTH';
@@ -33,16 +34,17 @@ export const authError = error => ({
     error
 });
 
-const storeAuthInfo = (authToken, dispatch) => {
+const storeAuthInfo = (authToken, userId, dispatch) => {
     const decodedToken = jwtDecode(authToken);
-    dispatch(setAuthToken(authToken));
+    dispatch(setAuthToken(authToken, userId));
     dispatch(authSuccess(decodedToken.user));
     saveAuthToken(authToken);
 };
 
-export const userLogin = (username, password) => dispatch => {
+export const getJWT = (username, password) => dispatch => {
     dispatch(authRequest());
     return (
+        
         fetch(`${API_BASE_URL}/auth/login`, {
             method: 'POST',
             headers: {
@@ -55,7 +57,7 @@ export const userLogin = (username, password) => dispatch => {
         })
             .then(res => normalizeResponseErrors(res))
             .then(res => res.json())
-            .then(({authToken}) => storeAuthInfo(authToken, dispatch))
+            .then(({token, id}) => storeAuthInfo(token, id, dispatch))
             .catch(err => {
                 const {code} = err;
                 const message =
@@ -69,12 +71,13 @@ export const userLogin = (username, password) => dispatch => {
                     })
                 );
             })
+
     );
 };
 
 export const refreshAuthToken = () => (dispatch, getState) => {
     dispatch(authRequest());
-    const authToken = getState().auth.authToken;
+    const authToken = getState().user.authToken;
     return fetch(`${API_BASE_URL}/auth/refresh`, {
         method: 'POST',
         headers: {
