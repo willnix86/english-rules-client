@@ -1,16 +1,21 @@
 
 export const loadAuthToken = () => {
-    return localStorage.getItem('authToken');
+    console.log('loaded auth token');
+    sessionStorage.getItem('authToken');
+    sessionStorage.getItem('userId');
 };
 
-export const saveAuthToken = authToken => {
+export const saveAuthToken = (userId, authToken) => {
+    console.log('save auth token');
     try {
-        localStorage.setItem('authToken', authToken);
+        sessionStorage.setItem('authToken', authToken);
+        sessionStorage.setItem('userId', userId);
     } catch (e) {}
 };
 
 export const clearAuthToken = () => {
+    console.log('clear auth token');
     try {
-        localStorage.removeItem('authToken');
+        sessionStorage.clear();
     } catch (e) {}
 };

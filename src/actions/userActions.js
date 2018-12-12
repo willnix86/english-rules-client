@@ -26,36 +26,34 @@ export const registerUser = user => dispatch => {
 };
 
 export const userLogin = (userId, authToken) => dispatch => {
-    return (
-        // fetch(`${API_BASE_URL}/user/protected/${userId}`), {
-        //     method: 'GET',
-        //     headers: {
-        //         'Content-type': 'application/json',
-        //         'Authorization': 'Bearer ' + authToken
-        //     }
-        // })
-        // .then(res => {
-        //     if (res.ok) {
-        //         return normalizeResponseErrors(res)
-        //     }
-        // })
-        // .then(res => res.json())
-        // .then(res => console.log(res)) //DISPATCH TO STATE
-        // .catch(err => {
-        //     const {code} = err;
-        //     const message =
-        //         code === 401
-        //             ? 'Incorrect username or password'
-        //             : 'Unable to login, please try again';
-        //     dispatch(loginError(err));
-        //     return Promise.reject(
-        //         new SubmissionError({
-        //             _error: message
-        //         })
-        //     );
-    // })
-    console.log(userId, authToken)
-    )
+    return fetch(`${API_BASE_URL}/users/protected/${userId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + authToken
+            }
+        })
+        .then(res => {
+            if (res.ok) {
+                return normalizeResponseErrors(res)
+            }
+        })
+        .then(res => res.json())
+        .then(res => dispatch(setUserData(res)))
+        .catch(err => {
+            const {code} = err;
+            const message =
+                code === 401
+                    ? 'Incorrect username or password'
+                    : 'Unable to login, please try again';
+            dispatch(loginError(err));
+            return Promise.reject(
+                new SubmissionError({
+                    _error: message
+                })
+            );
+    })
+
 };
 
 export const LOGIN_ERROR = 'LOGIN_ERROR';
@@ -66,13 +64,14 @@ export const loginError = error => ({
 
 export const SET_USER_DATA = 'SET_USER_DATA';
 export const setUserData = (user) => ({
-
+    type: SET_USER_DATA,
+    user
 })
 
 export const USER_LOGOUT = 'USER_LOGOUT';
-export const userLogout = {
+export const userLogout = () => ({
     type: USER_LOGOUT
-};
+});
 
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const toggleModal = (isModalOpen) => ({

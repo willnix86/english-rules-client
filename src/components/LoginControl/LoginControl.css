@@ -2,46 +2,19 @@
     display: inline-block;
 }
 
-.loginForm > div {
-    margin-top: -20px;
-}
-
-.logoutForm > div {
-    margin-top: -17px;
-}
-
-.logoutForm > form {
-    margin: -1px 3px;
-    padding: 0;
-}
-
-.loginForm > form {
-    margin: -10px 3px;
-    padding: 0;
-}
-
-.logoutForm > form {
-    margin: -10px 3px;
-    padding: 0;
-}
-
 .loginForm input {
     width: 150px;
-    height: 30px;
+    height: 25px;
     margin: 0 3px;
     border: none;
+    text-align: center;
 }
 
-.loginForm button {
-    margin-top: 7px;
-}
-
-.logout, .login, .library, .exercises, .home {
-    margin: 15px 3px 0 3px;
-    font-size: calc(10px + 1vmin);
+.logout, #login, .library, .exercises, .home {
+    margin: 0 3px;
+    font-size: calc(11px + 1vmin);
     font-weight: normal;
-    height: auto;
-    padding: 10px 30px;
+    padding: 6px 30px;
     color: black;
     border-radius: 5px;
     border: none;

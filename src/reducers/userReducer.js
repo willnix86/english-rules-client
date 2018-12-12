@@ -24,8 +24,7 @@ export const userReducer = (state=initialState, action) => {
     if (action.type === SET_AUTH_TOKEN) {
         return Object.assign({}, state, {
             authToken: action.authToken,
-            id: action.userId,
-            loggedIn: true
+            id: action.userId
         });
     } else if (action.type === CLEAR_AUTH) {
         return Object.assign({}, state, {
@@ -47,6 +46,12 @@ export const userReducer = (state=initialState, action) => {
             loading: false,
             error: action.error
         });
+    }
+    else if (action.type === actions.SET_USER_DATA) {
+        return Object.assign({}, state, {
+            username: action.user.username,
+            loggedIn: true
+        })
     }
     else if (action.type === actions.USER_LOGOUT) {
         return initialState;

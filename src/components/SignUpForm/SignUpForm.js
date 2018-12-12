@@ -1,7 +1,7 @@
 import React from 'react'
 import { registerUser } from '../../actions/userActions';
 import { getJWT } from '../../actions/auth';
-import { reduxForm, Field, focus } from 'redux-form';
+import { reduxForm, Field, focus, reset } from 'redux-form';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 import Input from './Input';
 
@@ -17,7 +17,8 @@ export class SignUpForm extends React.Component {
         const user = {firstName, lastName, username, password};
 
         return this.props.dispatch(registerUser(user))
-        .then(res => this.props.dispatch(getJWT(username, password)));
+        .then(res => this.props.dispatch(getJWT(username, password)))
+        .then(() => reset())
     }
 
     render() {
@@ -75,6 +76,8 @@ export class SignUpForm extends React.Component {
 
 export default reduxForm({
     form: 'signUp',
+    onSubmitSuccess: (errors, dispatch) =>
+        dispatch(reset('signUp')),
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('signUp', Object.keys(errors)[0]))
 })(SignUpForm);
