@@ -15,8 +15,8 @@ export class LoginControl extends React.Component {
         return this.props.dispatch(getJWT(loginUsername, loginPassword))
     }
 
-    onClickLogout() {
-        return this.props.dispatch(userLogout())
+    onClickLogout = () => {
+        this.props.dispatch(userLogout())
     }
 
     render() {
