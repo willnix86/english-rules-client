@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import LoginControl from '../LoginControl/LoginControl';
+import {LoginControl} from '../LoginControl/LoginControl';
 import './NavigationBar.css';
 
 export function NavigationBar(props) {

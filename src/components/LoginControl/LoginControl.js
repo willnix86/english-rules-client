@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { getJWT } from '../../actions/auth';
 import { userLogout } from '../../actions/userActions';
-import { reduxForm, Field, focus} from 'redux-form';
+import { reduxForm, Field, focus, reset} from 'redux-form';
 import {required, nonEmpty} from '../../validators';
 import Input from '../SignUpForm/Input';
 import { connect } from 'react-redux';
@@ -65,6 +65,8 @@ export class LoginControl extends React.Component {
 
 LoginControl = reduxForm({
     form: 'logIn',
+    onSubmitSuccess: (errors, dispatch) =>
+        dispatch(reset('logIn')),
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('logIn', Object.keys(errors)[0]))
 })(LoginControl);

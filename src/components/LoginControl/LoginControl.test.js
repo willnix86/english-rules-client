@@ -1,31 +1,15 @@
 import React from 'react';
-import {shallow, mount} from 'enzyme';
-import {LoginControl} from './LoginControl';
-import {MemoryRouter} from 'react-router-dom';
+import {shallow } from 'enzyme';
+import { LoginControl } from './LoginControl';
+import configureMockStore from 'redux-mock-store';
+const mockStore = configureMockStore();
 
 describe('<LoginControl />', () => {
 
+    let store = mockStore({});
+
     it('renders without crashing', () => {
-        shallow(<LoginControl />);
+        shallow(<LoginControl store={store}/>);
     });
-
-    it('should render LOGIN button if no user is logged in', () => {
-        const wrapper = mount(<LoginControl />);
-        expect(wrapper.find(LoginControl).props()).not.toEqual({"loggedIn":"false"});
-        expect(wrapper.find('button').prop('children')).toEqual("Login");
-    });
-
-    it('should render LOGOUT button if user is logged in', () => {
-        const wrapper = mount(<MemoryRouter><LoginControl loggedIn="true"/></MemoryRouter>);
-        expect(wrapper.find(LoginControl).props()).toEqual({"loggedIn":"true"});
-        expect(wrapper.find('button').at(2).prop('children')).toEqual("Logout");
-    });
-
-    // it('should fire the onSubmit callback when the button is clicked', () => {
-    //     const callback = jest.fn();
-    //     const wrapper = mount(<SignUpForm onSubmit={callback} />);
-    //     wrapper.simulate('click');
-    //     expect(callback).toHaveBeenCalled();
-    // });
 
 })
