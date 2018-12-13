@@ -37,7 +37,7 @@ export const authError = error => ({
     error
 });
 
-const storeAuthInfo = async (authToken, userId, dispatch) => {
+export const storeAuthInfo = async (authToken, userId, dispatch) => {
     const decodedToken = jwtDecode(authToken);
     await dispatch(setAuthToken(authToken, userId));
     await dispatch(authSuccess(decodedToken.user.username));

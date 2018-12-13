@@ -9,6 +9,10 @@ import WordTypes from '../@WordTypes/WordTypes';
 import Prepositions from '../@Prepositions/Prepositions';
 import {Footer} from '../Footer/Footer';
 import EditGames from '../EditGames/EditGames';
+import {loadAuthToken} from '../../localStorage';
+import { userLogin } from '../../actions/userActions';
+import { getUserSentences } from '../../actions/prepositionsActions';
+import { getUserWords } from '../../actions/wordTypeActions';
 import './App.css';
 
 const HomeRoute = (props) => (
@@ -51,27 +55,43 @@ const PrepositionsRoute = (props) => (
   />
 );
 
-export function App(props){
+export class App extends React.Component {
 
-  return (
-    <Router>
-      <div id="#App" className="App">
-        <NavigationBar loggedIn={props.loggedIn} />
-        <main>
-          <Route exact path="/" 
-            component={LandingPage} 
-          />
-          <HomeRoute {...props} />
-          <ConjunctionsRoute {...props} />
-          <WordTypesRoute {...props} />
-          <PrepositionsRoute {...props} />
-          <Route exact path="/editGames" component={EditGames} {...props} />
-        </main>
-        <Footer />
-      </div>
-    </Router>
-  );
+  componentDidMount() {
+    const token = localStorage.getItem('authToken');
+    const userId = localStorage.getItem('userId');
 
+    if (token) {
+
+        this.props.dispatch(userLogin(userId, token));
+        this.props.dispatch(getUserSentences(userId, token));
+        this.props.dispatch(getUserWords(userId, token));
+
+    };
+  }
+
+  render() {
+
+    return (
+      <Router>
+        <div id="#App" className="App">
+          <NavigationBar loggedIn={this.props.loggedIn} />
+          <main>
+            <Route exact path="/" 
+              component={LandingPage} 
+            />
+            <HomeRoute {...this.props} />
+            <ConjunctionsRoute {...this.props} />
+            <WordTypesRoute {...this.props} />
+            <PrepositionsRoute {...this.props} />
+            <Route exact path="/editGames" component={EditGames} {...this.props} />
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    );
+  }
+  
 }
 
 const mapStateToProps = state => ({

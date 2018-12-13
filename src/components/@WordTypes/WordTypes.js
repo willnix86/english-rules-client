@@ -75,7 +75,6 @@ export class WordTypes extends React.Component {
 
     handleClickOnType = (e) => {
         allyTypeChoice = e.target.value;
-        console.log(allyWordType, allyTypeChoice);
         if (allyWordType === allyTypeChoice) {
             this.props.dispatch(dropWord(
                 allyWordChoice,

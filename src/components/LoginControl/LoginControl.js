@@ -16,7 +16,8 @@ export class LoginControl extends React.Component {
     }
 
     onClickLogout = () => {
-        this.props.dispatch(userLogout())
+        this.props.dispatch(userLogout());
+        localStorage.clear();
     }
 
     render() {
