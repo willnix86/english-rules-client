@@ -1,8 +1,8 @@
 import { conjunctionsReducer, initialState as conjunctionsState } from './conjunctionsReducer';
 import { wordTypesReducer, initialState as wordTypesState } from './wordTypesReducer';
-import { prepositionsReducer, initialState as prepositionsState, userSentences } from './prepositionsReducer';
+import { prepositionsReducer, initialState as prepositionsState } from './prepositionsReducer';
 import { updateSentence, showResponse, resetGame as resetGameConjunctions } from '../actions/conjunctionsActions';
-import { addWord, dropWord, resetGame as resetGameWordTypes, userWords } from '../actions/wordTypeActions';
+import { addWord, dropWord, resetGame as resetGameWordTypes } from '../actions/wordTypeActions';
 import { addPoints, loseLife, resetGame as resetGamePrepositions } from '../actions/prepositionsActions';
 
 describe('conjunctionsReducer', () => {
@@ -98,7 +98,7 @@ describe('wordTypeReducer', () => {
         it('Should reset state back to initial state', () => {
             let state;
             state = wordTypesReducer(state, resetGameWordTypes());
-            expect(state).toEqual(userWords);
+            expect(state).toEqual(wordTypesState);
         });
     });
 
@@ -137,7 +137,7 @@ describe('prepositionsReducer', () => {
         it('Should reset state back to initial state', () => {
             let state;
             state = prepositionsReducer(state, resetGamePrepositions());
-            expect(state).toEqual(userSentences);
+            expect(state).toEqual(prepositionsState);
         });
     });
 

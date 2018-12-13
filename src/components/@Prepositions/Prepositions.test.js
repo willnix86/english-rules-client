@@ -22,35 +22,10 @@ describe('<Prepositions />', () => {
         );
         
         const instance = wrapper.instance();
-        const sentences = {sentence:{
-            sentence: 'I went to my friend\'s ____ the road.', 
-            answer: 'across'
-        }};
+        const answer = 'across';
 
         instance.startGame();
-        expect(dispatch).toHaveBeenCalledWith(setAnswer(sentences));
-    });
-
-    it('dispatches setSentence from startGame', () => {
-        const dispatch = jest.fn();
-        const wrapper = mount(
-        <Prepositions 
-            dispatch={dispatch} 
-            prepositions={['up']} 
-            sentences={[{
-                sentence: 'I went to my friend\'s ____ the road.', 
-                answer: 'across'
-            }]} />
-        );
-        
-        const instance = wrapper.instance();
-        const sentences = {sentence:{
-            sentence: 'I went to my friend\'s ____ the road.', 
-            answer: 'across'
-        }};
-
-        instance.startGame();
-        expect(dispatch).toHaveBeenCalledWith(setSentence(sentences));
+        expect(dispatch).toHaveBeenCalledWith(setAnswer(answer));
     });
 
     it('dispatches setSentence and setAnswer from loadNextQuestion', () => {
