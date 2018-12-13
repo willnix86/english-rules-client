@@ -10,14 +10,17 @@ export const initialState = {
     points: 0
 };
 
+let userState;
+
 export const prepositionsReducer = (state=initialState, action) => {
     if (action.type === actions.SET_USER_SENTENCES) {
         let userPreps = action.sentences.map(sentence => sentence.answer);
         let userSentences = action.sentences.map(sentence => sentence.sentence);
-        return Object.assign({}, state, {
+        userState = Object.assign({}, state, {
             prepositions: userPreps,
             sentences: [...state.sentences, userSentences]
         });
+        return userState;
     }
     else if (action.type === actions.SET_SENTENCE) {
         const newState = update(state, {
@@ -44,7 +47,7 @@ export const prepositionsReducer = (state=initialState, action) => {
         return newState;
     }
     else if (action.type === actions.RESET_GAME) {
-        return initialState;
+        return userState;
     }
     return state;
 }

@@ -248,6 +248,99 @@ export class WordTypes extends React.Component {
         
 };
 
+WordTypes.defaultProps = {
+    words: [{
+        word: 'house',
+        wordType: 'Nouns',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'eggs',
+        wordType: 'Nouns',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'children',
+        wordType: 'Nouns',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'football',
+        wordType: 'Nouns',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'glass',
+        wordType: 'Nouns',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'red',
+        wordType: 'Adjectives',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'yummy',
+        wordType: 'Adjectives',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'wooden',
+        wordType: 'Adjectives',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'quick',
+        wordType: 'Adjectives',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'rough',
+        wordType: 'Adjectives',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'play',
+        wordType: 'Verbs',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'going',
+        wordType: 'Verbs',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'skipped',
+        wordType: 'Verbs',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'eat',
+        wordType: 'Verbs',
+        target: 'Container',
+        answer: ''
+    },
+    {
+        word: 'read',
+        wordType: 'Verbs',
+        target: 'Container',
+        answer: ''
+    }]
+}
+
 const mapStateToProps = state => ({
     words: state.wordTypes.words,
     startTime: state.wordTypes.startTime,

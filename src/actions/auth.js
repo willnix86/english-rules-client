@@ -6,7 +6,7 @@ import {saveAuthToken, clearAuthToken} from '../localStorage';
 import {SubmissionError} from 'redux-form';
 import { userLogin } from './userActions';
 import { getUserSentences } from './prepositionsActions';
-// import { getUserWordTypes } from './wordTypeActions';
+import { getUserWords } from './wordTypeActions';
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = (authToken, userId) => ({
@@ -43,7 +43,7 @@ const storeAuthInfo = async (authToken, userId, dispatch) => {
     await dispatch(authSuccess(decodedToken.user.username));
     await dispatch(userLogin(userId, authToken));
     await dispatch(getUserSentences(userId, authToken));
-    // await dispatch(getUserWordTypes(userId, authToken));
+    await dispatch(getUserWords(userId, authToken));
     await saveAuthToken(userId, authToken);
 };
 

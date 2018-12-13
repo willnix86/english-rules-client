@@ -2,102 +2,28 @@ import * as actions from '../actions/wordTypeActions';
 import update from 'immutability-helper';
 
 export const initialState = {
-    words: [{
-        word: 'house',
-        wordType: 'Nouns',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'eggs',
-        wordType: 'Nouns',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'children',
-        wordType: 'Nouns',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'football',
-        wordType: 'Nouns',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'glass',
-        wordType: 'Nouns',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'red',
-        wordType: 'Adjectives',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'yummy',
-        wordType: 'Adjectives',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'wooden',
-        wordType: 'Adjectives',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'quick',
-        wordType: 'Adjectives',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'rough',
-        wordType: 'Adjectives',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'play',
-        wordType: 'Verbs',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'going',
-        wordType: 'Verbs',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'skipped',
-        wordType: 'Verbs',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'eat',
-        wordType: 'Verbs',
-        target: 'Container',
-        answer: ''
-    },
-    {
-        word: 'read',
-        wordType: 'Verbs',
-        target: 'Container',
-        answer: ''
-    }],
+    words: [],
     startTime: 0,
     finishTime: 0
 }
 
+let userState;
+
 export const wordTypesReducer = (state=initialState, action) => {
-    if (action.type === actions.ADD_WORD) {
+    if (action.type === actions.SET_USER_WORDS) {
+        let wordObjs = action.wordObjs.map(wordObj => ({
+            word: wordObj.word,
+            answer: wordObj.answer,
+            wordType: wordObj.wordType,
+            target: 'Container',
+            answer: ''
+        }))
+        userState = Object.assign({}, state, {
+            words: wordObjs
+        });
+        return userState;
+    }
+    else if (action.type === actions.ADD_WORD) {
         return Object.assign({}, state, {
             words: [...state.words, {
                 word: action.word.word,
@@ -121,7 +47,7 @@ export const wordTypesReducer = (state=initialState, action) => {
         return newState;
     } 
     else if (action.type === actions.RESET_GAME) {
-        return initialState;
+        return userState;
     }
     return state;
 }
