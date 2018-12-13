@@ -4,7 +4,7 @@ import GameCartridge from '..//GameCartridge/GameCartridge';
 import './Home.css';
 
 export function Home(props) {
-
+    
     const gameCartridges = [];
 
     for (let i = 0; i < props.games.length; i++) {

@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import { PrivateRoute } from './PrivateRoute'
 import {NavigationBar} from '../NavigationBar/NavigationBar';
 import {LandingPage} from '../LandingPage/LandingPage';
 import {Home} from '../Home/Home';
@@ -20,6 +21,36 @@ const HomeRoute = (props) => (
   />
 );
 
+const ConjunctionsRoute = (props) => (
+  <Route path="/conjunctions" render={() => (
+    props.loggedIn ? 
+      ( <Conjunctions {...props} /> ) 
+    :
+      ( <Redirect to="/" />)
+  )} 
+  />
+);
+
+const WordTypesRoute = (props) => (
+  <Route path="/wordtypes" render={() => (
+    props.loggedIn ? 
+      ( <Conjunctions {...props} /> ) 
+    :
+      ( <Redirect to="/" />)
+  )} 
+  />
+);
+
+const PrepositionsRoute = (props) => (
+  <Route path="/prepositions" render={() => (
+    props.loggedIn ? 
+      ( <Prepositions {...props} /> ) 
+    :
+      ( <Redirect to="/" />)
+  )} 
+  />
+);
+
 export function App(props){
 
   return (
@@ -31,9 +62,9 @@ export function App(props){
             component={LandingPage} 
           />
           <HomeRoute {...props} />
-          <Route exact path="/conjunctions" component={Conjunctions} />
-          <Route exact path="/wordtypes" component={WordTypes} />
-          <Route exact path="/prepositions" component={Prepositions} />
+          <ConjunctionsRoute {...props} />
+          <WordTypesRoute {...props} />
+          <PrepositionsRoute {...props} />
         </main>
         <Footer />
       </div>

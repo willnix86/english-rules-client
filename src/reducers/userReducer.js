@@ -53,6 +53,12 @@ export const userReducer = (state=initialState, action) => {
             loggedIn: true
         })
     }
+    else if (action.type === actions.LOGIN_ERROR) {
+        return Object.assign({}, state, {
+            loading: false,
+            error: action.error
+        })
+    }
     else if (action.type === actions.USER_LOGOUT) {
         return initialState;
     }
