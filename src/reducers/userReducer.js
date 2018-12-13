@@ -9,7 +9,7 @@ import {
 } from '../actions/auth';
 
 
-const initialState = {
+export const initialState = {
     id: null,
     username: null,
     authToken: null,
