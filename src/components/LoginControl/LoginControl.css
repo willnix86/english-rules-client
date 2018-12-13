@@ -1,5 +1,9 @@
-.loginForm *, .logoutForm * {
-    display: inline-block;
+.loginForm, .logoutForm {
+    display: flex;
+    flex: auto;
+    justify-content: center;
+    align-content: flex-end;
+    align-items: center;
 }
 
 .loginForm input {
@@ -10,7 +14,15 @@
     text-align: center;
 }
 
-.logout, #login, .library, .exercises, .home {
+.home, .library, .exercises, .logout {
+    font-weight: bold;
+    color: white !important;
+    font-size: 18px;
+    margin: 0 10px;
+    flex: 1;
+}
+
+#login {
     margin: 0 3px;
     font-size: calc(11px + 1vmin);
     font-weight: normal;
@@ -22,40 +34,12 @@
     cursor: pointer;
 }
 
-.home {
-    display: none;
-}
+@media only screen and (min-width: 360px) and (max-width: 453px) {
 
-@media only screen and (min-width: 312px) and (max-width: 500px) {
     .loginForm {
-        margin: 0 auto;
-        float: none;
-    }
-
-    .loginForm > form * {
         display: block;
-        margin: 3px auto;
     }
-
-    .loginForm > form > label {
-        display: none;
+    .loginForm * {
+        margin: 5px 0;
     }
-
-    .loginForm > form > button {
-        height: 32px;
-        padding: 0 30px;
-    }
-
-    .loginForm > form > input {
-        height: 25px;
-    }
-
-    .logoutForm {
-        padding-top: 16px;
-    }
-
-    .home {
-        display: inline-block;
-    }
-
 }

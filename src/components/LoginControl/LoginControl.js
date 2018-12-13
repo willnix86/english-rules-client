@@ -25,9 +25,9 @@ export class LoginControl extends React.Component {
         if (this.props.loggedIn === true) {
             return (
                 <div className={'logoutForm'}>
-                    <Link to="/"><button className="home">Home</button></Link>
-                    <Link to="/home"><button className="exercises">Exercises</button></Link>
-                    <button className="logout" onClick={this.onClickLogout}>Logout</button>
+                    <Link to="/" className="home">Home</Link>
+                    <Link to="/home" className="exercises">Exercises</Link>
+                    <a href="#" className="logout" onClick={this.onClickLogout}>Logout</a>
                 </div>
             )
         } else {
