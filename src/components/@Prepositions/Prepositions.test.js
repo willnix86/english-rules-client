@@ -9,25 +9,6 @@ describe('<Prepositions />', () => {
         shallow(<Prepositions prepositions={['up']} />)
     });
 
-    it('dispatches setSentence from startGame', () => {
-        const dispatch = jest.fn();
-        const wrapper = mount(
-        <Prepositions 
-            dispatch={dispatch} 
-            prepositions={['up']} 
-            sentences={[{
-                sentence: 'I went to my friend\'s ____ the road.', 
-                answer: 'across'
-            }]} />
-        );
-        
-        const instance = wrapper.instance();
-        const sentence = 'I went to my friend\'s ____ the road.';
-
-        instance.startGame();
-        expect(dispatch).toHaveBeenCalledWith(setSentence(sentence));
-    });
-
     it('dispatches setAnswer from startGame', () => {
         const dispatch = jest.fn();
         const wrapper = mount(
@@ -41,10 +22,35 @@ describe('<Prepositions />', () => {
         );
         
         const instance = wrapper.instance();
-        const answer = 'across';
+        const sentences = {sentence:{
+            sentence: 'I went to my friend\'s ____ the road.', 
+            answer: 'across'
+        }};
 
         instance.startGame();
-        expect(dispatch).toHaveBeenCalledWith(setAnswer(answer));
+        expect(dispatch).toHaveBeenCalledWith(setAnswer(sentences));
+    });
+
+    it('dispatches setSentence from startGame', () => {
+        const dispatch = jest.fn();
+        const wrapper = mount(
+        <Prepositions 
+            dispatch={dispatch} 
+            prepositions={['up']} 
+            sentences={[{
+                sentence: 'I went to my friend\'s ____ the road.', 
+                answer: 'across'
+            }]} />
+        );
+        
+        const instance = wrapper.instance();
+        const sentences = {sentence:{
+            sentence: 'I went to my friend\'s ____ the road.', 
+            answer: 'across'
+        }};
+
+        instance.startGame();
+        expect(dispatch).toHaveBeenCalledWith(setSentence(sentences));
     });
 
     it('dispatches setSentence and setAnswer from loadNextQuestion', () => {

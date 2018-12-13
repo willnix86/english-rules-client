@@ -12,19 +12,23 @@ let isDisabled = true;
 
 export class Prepositions extends React.Component {
 
+    componentWillUnmount() {
+        this.props.dispatch(resetGame());
+    };
+
     startGame() {
         index = 0;
         isDisabled = false;
-        this.props.dispatch(setSentence(this.props.sentences[0]));
-        this.props.dispatch(setAnswer(this.props.prepositions[0]));
+        this.props.dispatch(setSentence(this.props.sentences[0].sentence));
+        this.props.dispatch(setAnswer(this.props.sentences[0].answer));
     };
 
     loadNextSentence() {
 
         if (index < this.props.sentences.length - 1) {
             index++;
-            this.props.dispatch(setSentence(this.props.sentences[index]));
-            this.props.dispatch(setAnswer(this.props.prepositions[index]));
+            this.props.dispatch(setSentence(this.props.sentences[index].sentence));
+            this.props.dispatch(setAnswer(this.props.sentences[index].answer));
         } else {
             isDisabled = true;
             this.props.dispatch(setSentence('Congratulations! You scored ' + (this.props.points + 100) + ' points'))
