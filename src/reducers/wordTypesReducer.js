@@ -102,7 +102,6 @@ export const wordTypesReducer = (state=initialState, action) => {
     if (action.type === actions.SET_USER_WORDS) {
         let wordObjs = action.wordObjs.map(wordObj => ({
             word: wordObj.word,
-            answer: wordObj.answer,
             wordType: wordObj.wordType,
             target: 'Container',
             answer: ''

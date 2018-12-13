@@ -8,6 +8,7 @@ import Conjunctions from '../@Conjunctions/Conjunctions';
 import WordTypes from '../@WordTypes/WordTypes';
 import Prepositions from '../@Prepositions/Prepositions';
 import {Footer} from '../Footer/Footer';
+import EditGames from '../EditGames/EditGames';
 import './App.css';
 
 const HomeRoute = (props) => (
@@ -64,6 +65,7 @@ export function App(props){
           <ConjunctionsRoute {...props} />
           <WordTypesRoute {...props} />
           <PrepositionsRoute {...props} />
+          <Route exact path="/editGames" component={EditGames} {...props} />
         </main>
         <Footer />
       </div>

@@ -19,3 +19,13 @@ export const matches = field => (value, allValues) =>
     field in allValues && value.trim() === allValues[field].trim()
         ? undefined
         : 'Does not match';
+
+export const correctWordType = value => {
+    if (value !== 'Nouns' && value !== 'Adjectives' && value !== 'Verbs') {
+        return 'WordType must be set to "Nouns", "Adjectives", or "Verbs"';
+    };
+}
+
+export const underscoresIncluded = value =>
+        value.includes("_") ? undefined : 'Your sentence must included underscores in place of the preposition';
+    
