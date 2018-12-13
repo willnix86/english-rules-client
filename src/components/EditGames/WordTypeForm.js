@@ -1,15 +1,17 @@
 import React from 'react'
 import { reduxForm, Field, focus, reset } from 'redux-form';
-import { loadAuthToken } from '../../localStorage';
+import { addUserWords } from '../../actions/wordTypeActions';
 import {required, nonEmpty, isTrimmed, correctWordType} from '../../validators';
 import Input from '../SignUpForm/Input';
 
 export class WordTypeForm extends React.Component {
     onSubmit(values) {
         const { word, wordType } = values;
-        const authToken = loadAuthToken();
+        const userId = sessionStorage.getItem('userId');
+        const authToken = sessionStorage.getItem('authToken');
 
-        console.log(authToken);
+        return this.props.dispatch(addUserWords(userId, authToken, word, wordType))
+        .then(() => reset())
     }
 
     render() {

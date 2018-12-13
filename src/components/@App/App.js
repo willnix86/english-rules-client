@@ -9,7 +9,6 @@ import WordTypes from '../@WordTypes/WordTypes';
 import Prepositions from '../@Prepositions/Prepositions';
 import {Footer} from '../Footer/Footer';
 import EditGames from '../EditGames/EditGames';
-import {loadAuthToken} from '../../localStorage';
 import { userLogin } from '../../actions/userActions';
 import { getUserSentences } from '../../actions/prepositionsActions';
 import { getUserWords } from '../../actions/wordTypeActions';

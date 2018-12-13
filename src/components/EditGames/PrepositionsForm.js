@@ -1,15 +1,17 @@
 import React from 'react'
 import { reduxForm, Field, focus, reset } from 'redux-form';
-import { loadAuthToken } from '../../localStorage';
+import { addUserSentences } from '../../actions/prepositionsActions';
 import {required, nonEmpty, isTrimmed, underscoresIncluded} from '../../validators';
 import Input from '../SignUpForm/Input';
 
 export class PrepositionsForm extends React.Component {
     onSubmit(values) {
         const { sentence, answer } = values;
-        const authToken = loadAuthToken();
+        const userId = sessionStorage.getItem('userId');
+        const authToken = sessionStorage.getItem('authToken');
 
-        console.log(authToken);
+        return this.props.dispatch(addUserSentences(userId, authToken, sentence, answer))
+        .then(() => reset())
     }
 
     render() {

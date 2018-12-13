@@ -33,6 +33,35 @@ export const getUserWords = (userId, authToken) => dispatch => {
 
 };
 
+export const addUserWords = (userId, authToken, word, wordType) => dispatch => {
+    return fetch(`${API_BASE_URL}/wordtypes`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            user: userId,
+            word: word,
+            wordType: wordType
+        })
+    })
+    .then(res => {
+        if (res.ok) {
+            return normalizeResponseErrors(res)
+        }
+    })
+    .then(res => res.json())
+    .then(res => dispatch(getUserWords(userId, authToken)))
+    .catch(err => {
+        dispatch(wordsError(err));
+        return Promise.reject(
+            new SubmissionError({
+                _error: err
+            })
+        );
+    })
+}
+
 export const SET_USER_WORDS = 'SET_USER_WORDS';
 export const setUserWords = (wordObjs) => ({
     type: SET_USER_WORDS,
