@@ -16,38 +16,39 @@ export class WordTypeForm extends React.Component {
 
     render() {
         return (
-            <>
-            <h3>Edit WordTypes</h3>
-            <form 
-            onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-                <label htmlFor="word">Word:
-                </label>
-                <Field
-                    name="word"
-                    type="text"
-                    component={Input}
-                    validate={[
-                        required, nonEmpty, isTrimmed
-                    ]}
-                />
-                <label htmlFor="wordType">Word Type:</label>
-                <Field  
-                    name="wordType"
-                    type="text"
-                    component={Input}
-                    validate={[
-                        required, nonEmpty, isTrimmed, correctWordType
-                    ]}
-                />
-                <button 
-                    id="submitWord"
-                    type="submit"
-                    disabled={this.props.pristine || this.props.submitting}
-                >
-                    Submit New Word
-                </button>
-            </form>
-            </>
+            <div className="WordTypeForm">
+                <h3 className="title">Customize WordTypes</h3>
+                <p className="example">e.g Fish / Nouns</p>
+                <form 
+                onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+                    <label htmlFor="word">Word:
+                    </label>
+                    <Field
+                        name="word"
+                        type="text"
+                        component={Input}
+                        validate={[
+                            required, nonEmpty, isTrimmed
+                        ]}
+                    />
+                    <label htmlFor="wordType">Word Type:</label>
+                    <Field  
+                        name="wordType"
+                        type="text"
+                        component={Input}
+                        validate={[
+                            required, nonEmpty, isTrimmed, correctWordType
+                        ]}
+                    />
+                    <button 
+                        id="submitWord"
+                        type="submit"
+                        disabled={this.props.pristine || this.props.submitting}
+                    >
+                        Submit New Word
+                    </button>
+                </form>
+            </div>
         )
     }
 

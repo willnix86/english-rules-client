@@ -1,20 +1,31 @@
-.loginForm, .logoutForm {
+.logoutForm {
     display: flex;
     flex: auto;
     justify-content: center;
     align-content: flex-end;
     align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.loginForm {
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .loginForm input {
-    width: 150px;
     height: 25px;
-    margin: 0 3px;
+    margin: 0 10px;
     border: none;
     text-align: center;
+    background-color: #F2F2F2;
 }
 
-.home, .library, .exercises, .logout {
+.home, .library, .exercises, .logout, #login, #demo {
     font-weight: bold;
     color: white !important;
     font-size: 18px;
@@ -22,16 +33,17 @@
     flex: 1;
 }
 
-#login {
-    margin: 0 3px;
-    font-size: calc(11px + 1vmin);
-    font-weight: normal;
-    padding: 6px 30px;
-    color: black;
-    border-radius: 5px;
+#login, #demo {
+    font-size: 18px;
+    font-weight: bold;
     border: none;
-    background-color: rgb(195, 220, 248);
+    background-color: #0166FF;
     cursor: pointer;
+}
+
+.logout {
+    background-color: #0166FF;
+    border: none;
 }
 
 @media only screen and (min-width: 360px) and (max-width: 453px) {
@@ -39,7 +51,14 @@
     .loginForm {
         display: block;
     }
-    .loginForm * {
-        margin: 5px 0;
+
+    .loginForm input {
+        margin: 5px auto;
     }
+
+    #login, #demo {
+        margin: 0 auto;
+    }
+
+
 }

@@ -1,4 +1,3 @@
-
 export const loadAuthToken = () => {
     localStorage.getItem('authToken');
     localStorage.getItem('userId');

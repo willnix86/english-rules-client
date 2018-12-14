@@ -124,8 +124,15 @@ export class WordTypes extends React.Component {
                 <div className="game__wrapper">
 
                     <div className="game__screen">
-            
-                        <p>Drag and drop the words below into the correct box.</p>
+
+                        {
+                            correctWords === words.length
+                            ?
+                            <p className="wordTypes-message">WELL DONE!! You finished in {totalTime} seconds. <br /> <br /> Reset the game and see if your friend can do it faster.</p>
+                            :
+                            <p>Drag and drop the words below into the correct box.</p>
+                        }
+
                         <span id="operation" className='assistive-text'>
                             Use the spacebar to select a word and wordtype to place it in.
                         </span>
@@ -183,11 +190,6 @@ export class WordTypes extends React.Component {
 
                     <div className="game__controls">
                         <Preview generator={this.generatePreview} />
-                    {
-                        correctWords === words.length
-                        ?
-                        <p className="wordTypes-message">WELL DONE!! You finished in {totalTime} seconds. <br /> <br /> Reset the game and see if your friend can do it faster.</p>
-                        :
                         <WordContainer 
                         wordType={'Container'}
                         className="draggables" 
@@ -201,7 +203,6 @@ export class WordTypes extends React.Component {
                                 />
                             )}
                         </WordContainer>
-                    }
                     </div>
                     <Modal
                         isOpen={this.props.isModalOpen}

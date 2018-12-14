@@ -18,7 +18,7 @@ export function Home(props) {
 
     return (
         <div className="home__library">
-            <Link to="/editgames"><button>Edit Games</button></Link>
+            <Link to="/editgames"><button className="home__editGame">Edit Game Content</button></Link>
             <div className="home__gameslist">
                 {gameCartridges}
             </div>

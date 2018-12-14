@@ -37,16 +37,25 @@
 }
 
 .landing__wrapper:nth-child(3) {
-    background-color: grey;
+    background-color: rgb(24, 23, 23);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-content: center;
+    color: white;
 }
 
 .landing__wrapper:nth-child(4) {
     background-color: #01C76E;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-content: center;
 }
 
 .landing__wrapper:nth-child(5) {
     background-color: #F2F2F2;
-    height: 450px;
+    height: auto;
 }
 
 .landing__title {
@@ -55,6 +64,8 @@
     font-weight: 700;
     margin: 0;
     padding: 15px 15px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .landing__subtitle {
@@ -63,6 +74,8 @@
     margin-bottom: 50px;
     font-size: calc(7px + 2vmin);
     padding: 0 15px;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
 .landing__image {

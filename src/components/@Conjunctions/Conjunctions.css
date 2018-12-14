@@ -34,7 +34,9 @@
 }
 
 .wordContainer {
-    margin: 40px auto 0px auto;
+    margin: 15px auto 0 auto;
+    max-width: 1000px;
+
 }
 
 .game__controls form {
@@ -45,7 +47,9 @@
 .game__controls input[type="text"] {
     height: 4vh;
     width: 75vw;
+    max-width: 1000px;
     display: block;
+    margin-top: 30px;
     padding: 5px;
     background-color: rgb(226, 226, 226);
     font-size: calc(5px + 2vmin);

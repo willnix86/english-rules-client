@@ -3,7 +3,9 @@ import {Link} from 'react-router-dom';
 import { getJWT } from '../../actions/auth';
 import { userLogout } from '../../actions/userActions';
 import { reduxForm, Field, focus, reset} from 'redux-form';
-import {required, nonEmpty} from '../../validators';
+import { userLogin } from '../../actions/userActions';
+import { getUserSentences } from '../../actions/prepositionsActions';
+import { getUserWords } from '../../actions/wordTypeActions';
 import Input from '../SignUpForm/Input';
 import { connect } from 'react-redux';
 import './LoginControl.css';
@@ -15,19 +17,27 @@ export class LoginControl extends React.Component {
         return this.props.dispatch(getJWT(loginUsername, loginPassword))
     }
 
+    onClickDemo = (e) => {
+        e.preventDefault();
+        const user = 'tess.ting@gmail.com';
+        const pass = 'Password';
+        return this.props.dispatch(getJWT(user, pass))
+            .then(res => this.forceUpdate());
+    }
+
     onClickLogout = () => {
         this.props.dispatch(userLogout());
         localStorage.clear();
     }
 
     render() {
-
+    
         if (this.props.loggedIn === true) {
             return (
                 <div className={'logoutForm'}>
                     <Link to="/" className="home">Home</Link>
                     <Link to="/home" className="exercises">Exercises</Link>
-                    <a href="#" className="logout" onClick={this.onClickLogout}>Logout</a>
+                    <button className="logout" onClick={this.onClickLogout}>Logout</button>
                 </div>
             )
         } else {
@@ -41,14 +51,12 @@ export class LoginControl extends React.Component {
                         type="text" 
                         placeholder="Username"
                         component={Input}
-                        validate={[required, nonEmpty]}
                     />
                     <Field
                         name="loginPassword" 
                         type="password" 
                         placeholder="Password"
                         component={Input}
-                        validate={[required, nonEmpty]}
                     />
                     <button 
                         id="login"
@@ -56,6 +64,12 @@ export class LoginControl extends React.Component {
                         disabled={this.props.pristine || this.props.submitting}
                     >
                         Login
+                    </button>
+                    <button
+                        id="demo"
+                        onClick={e => this.onClickDemo(e)}
+                    >
+                        Demo
                     </button>
                 </form>
             )
