@@ -37,7 +37,7 @@ export const authError = error => ({
     error
 });
 
-export const storeAuthInfo = async (authToken, userId, dispatch) => {
+export const storeAuthInfoAndLogUserIn = async (authToken, userId, dispatch) => {
     const decodedToken = jwtDecode(authToken);
     await dispatch(setAuthToken(authToken, userId));
     await dispatch(authSuccess(decodedToken.user.username));
@@ -62,7 +62,7 @@ export const getJWT = (username, password) => dispatch => {
         })
             .then(res => normalizeResponseErrors(res))
             .then(res => res.json())
-            .then(({token, id}) => storeAuthInfo(token, id, dispatch))
+            .then(({token, id}) => storeAuthInfoAndLogUserIn(token, id, dispatch))
             .catch(err => {
                 const {code} = err;
                 const message =
@@ -90,7 +90,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(({authToken}) => storeAuthInfo(authToken, dispatch))
+        .then(({authToken}) => storeAuthInfoAndLogUserIn(authToken, dispatch))
         .catch(err => {
             dispatch(authError(err));
             dispatch(clearAuth());

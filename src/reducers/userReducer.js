@@ -10,9 +10,7 @@ import {
 
 
 export const initialState = {
-    id: null,
     username: null,
-    authToken: null,
     games: ['Conjunctions', 'Word Types', 'Prepositions'],
     isModalOpen: false,
     loggedIn: false,
