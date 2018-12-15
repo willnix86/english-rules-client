@@ -17,6 +17,7 @@ export const registerUser = user => dispatch => {
         .catch(err => {
             const {reason, message, location} = err;
             if (reason === 'ValidationError') {
+                dispatch(loginError(message));
                 return Promise.reject(
                     new SubmissionError({
                         [location]: message
@@ -44,10 +45,10 @@ export const userLogin = (userId, authToken) => dispatch => {
         .catch(err => {
             const {code} = err;
             const message =
-                code === 401
-                    ? 'Incorrect username or password'
-                    : 'Unable to login, please try again';
-            dispatch(loginError(err));
+                code === 422
+                    ? 'Username already taken'
+                    : 'Unable to register, please try again';
+            dispatch(loginError(message));
             return Promise.reject(
                 new SubmissionError({
                     _error: message

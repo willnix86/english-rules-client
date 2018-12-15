@@ -2,10 +2,15 @@ form * {
     display: block;
     margin: 0 auto;
     text-align: center;
+    border: none;
 }
 
 form > div {
     margin: 10px 0;
+}
+
+form input {
+    height: 25px;
 }
 
 #signup {
@@ -20,4 +25,12 @@ h3 {
 .form-error {
     color: #C93A2B;
     font-size: 12px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-error-large {
+    margin-top: -15px;
+    margin-bottom: 20px;
+    font-size: 15px;
 }

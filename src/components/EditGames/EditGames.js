@@ -4,12 +4,12 @@ import PrepositionsForm from './PrepositionsForm';
 
 import './EditGames.css';
 
-export default function EditGames() {
+export default function EditGames(props) {
 
         return (
             <div className="edit__wrapper">
-                <WordTypeForm />
-                <PrepositionsForm />
+                <WordTypeForm {...props} />
+                <PrepositionsForm {...props} />
             </div>
         )
         

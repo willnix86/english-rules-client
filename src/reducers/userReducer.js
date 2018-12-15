@@ -48,7 +48,8 @@ export const userReducer = (state=initialState, action) => {
     else if (action.type === actions.SET_USER_DATA) {
         return Object.assign({}, state, {
             username: action.user.username,
-            loggedIn: true
+            loggedIn: true,
+            error: null
         })
     }
     else if (action.type === actions.LOGIN_ERROR) {

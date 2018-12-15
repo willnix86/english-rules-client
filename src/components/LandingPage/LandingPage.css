@@ -28,7 +28,7 @@
 
 .landing__wrapper {
     padding: 30px 0;
-    height: 350px;
+    min-height: 350px;
 }
 
 .landing__wrapper:nth-child(2) {
@@ -38,15 +38,28 @@
 
 .landing__wrapper:nth-child(3) {
     background-color: rgb(24, 23, 23);
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+        ), url(/customizecode.png) no-repeat ;
+    background-size: cover;
     display: flex;
     flex-flow: column;
     justify-content: center;
-    align-content: center;
+    align-content: flex-end;
     color: white;
 }
 
+.landing__wrapper:nth-child(3) > .landing__title {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.45);
+}
+.landing__wrapper:nth-child(3) > .landing__subtitle {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.45);
+}
+
 .landing__wrapper:nth-child(4) {
-    background-color: #01C76E;
+    background-color: #F2F2F2;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -54,7 +67,7 @@
 }
 
 .landing__wrapper:nth-child(5) {
-    background-color: #F2F2F2;
+    background-color: #01C76E;
     height: auto;
 }
 
@@ -65,6 +78,13 @@
     margin: 0;
     padding: 15px 15px;
     max-width: 900px;
+    margin: 0 auto;
+}
+
+.feedbackImg {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
     margin: 0 auto;
 }
 

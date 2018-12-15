@@ -69,7 +69,7 @@ export const getJWT = (username, password) => dispatch => {
                     code === 401
                         ? 'Incorrect username or password'
                         : 'Unable to login, please try again';
-                dispatch(authError(err));
+                dispatch(authError(message));
                 return Promise.reject(
                     new SubmissionError({
                         _error: message

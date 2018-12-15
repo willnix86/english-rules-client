@@ -46,6 +46,18 @@
     border: none;
 }
 
+.form__wrapper {
+    height: auto;
+    margin: 0 auto;
+}
+
+.errorMessage {
+    color: #fd7070;
+    font-size: 15px;
+    margin: 5px auto;
+    font-weight: bold;
+}
+
 @media only screen and (min-width: 360px) and (max-width: 453px) {
 
     .loginForm {

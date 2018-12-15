@@ -2,7 +2,7 @@ import React from 'react'
 import { reduxForm, Field, focus, reset } from 'redux-form';
 import { addUserSentences } from '../../actions/prepositionsActions';
 import {required, nonEmpty, isTrimmed, underscoresIncluded} from '../../validators';
-import Input from '../SignUpForm/Input';
+import Input from '../@SignUpForm/Input';
 
 export class PrepositionsForm extends React.Component {
     onSubmit(values) {
@@ -15,6 +15,7 @@ export class PrepositionsForm extends React.Component {
     }
 
     render() {
+        
         return (
             <div className="PrepositionsForm">
                 <h3 className="title">Customize Prepositions</h3>

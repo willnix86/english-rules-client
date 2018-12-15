@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUpForm from '../SignUpForm/SignUpForm';
+import SignUpForm from '../@SignUpForm/SignUpForm';
 import './LandingPage.css';
 
 export function LandingPage(props) {
@@ -25,8 +25,8 @@ export function LandingPage(props) {
             </section>
             <section className="landing__wrapper">
                 <h2 className="landing__title">Get Feedback About Your Students' Progress</h2>
-                <h3 className="landing__subtitle">English Rules stores a record of each students' answers so you can track who's still to complete an exercise and how well they've done when they have</h3>
                 <p><b>Coming Soon!</b></p>
+                <img className="feedbackImg" src={window.location.origin + "/feedback.png"} alt="screenshot of student answers and scores" />
             </section>
             <section className="landing__wrapper">
                 <SignUpForm />

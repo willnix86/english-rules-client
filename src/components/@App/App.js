@@ -69,10 +69,11 @@ export class App extends React.Component {
     return (
       <Router>
         <div id="#App" className="App">
-          <NavigationBar loggedIn={this.props.loggedIn} />
+          <NavigationBar loggedIn={this.props.loggedIn} {...this.props} />
           <main>
             <Route exact path="/" 
               component={LandingPage} 
+              props={this.props}
             />
             <HomeRoute {...this.props} />
             <ConjunctionsRoute {...this.props} />

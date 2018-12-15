@@ -1,5 +1,5 @@
 import { TOGGLE_MODAL, toggleModal, registerUser, userLogin, SET_USER_DATA, setUserData } from './userActions';
-import { CLEAR_AUTH, clearAuth, AUTH_SUCCESS, authSuccess, storeAuthInfo, setAuthToken } from './auth';
+import { CLEAR_AUTH, clearAuth, AUTH_SUCCESS, authSuccess, storeAuthInfoAndLogUserIn, setAuthToken } from './auth';
 import { UPDATE_SENTENCE, updateSentence, SHOW_RESPONSE, showResponse, RESET_GAME, resetGame } from './conjunctionsActions';
 import { ADD_WORD, addWord, DROP_WORD, dropWord, RESET_GAME as RESET_GAME_WORDTYPES, resetGame as resetGameWordTypes } from './wordTypeActions';
 import { SET_SENTENCE, setSentence, SET_ANSWER, setAnswer, ADD_POINTS, addPoints, LOSE_LIFE, loseLife, RESET_GAME as RESET_GAME_PREPOSITIONS, resetGame as resetGamePrepositions } from './prepositionsActions';
@@ -90,7 +90,7 @@ describe('User Actions', () => {
 
 describe('Auth Actions', () => {
 
-    describe('storeAuthInfo', () => {
+    describe('storeAuthInfoAndLogUserIn', () => {
         it('should dispatch setAuthToken', () => {
 
             const user = {
@@ -99,7 +99,7 @@ describe('Auth Actions', () => {
             };
     
             const dispatch = jest.fn();
-            return storeAuthInfo(user.authToken, user.userId, dispatch).then(() => {
+            return storeAuthInfoAndLogUserIn(user.authToken, user.userId, dispatch).then(() => {
                 expect(dispatch).toHaveBeenCalledWith(setAuthToken(user.authToken, user.userId));
             })
 

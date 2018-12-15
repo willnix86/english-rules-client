@@ -3,10 +3,9 @@ import {Link} from 'react-router-dom';
 import { getJWT } from '../../actions/auth';
 import { userLogout } from '../../actions/userActions';
 import { reduxForm, Field, focus, reset} from 'redux-form';
-import Input from '../SignUpForm/Input';
+import Input from '../@SignUpForm/Input';
 import { connect } from 'react-redux';
 import './LoginControl.css';
-
 
 export class LoginControl extends React.Component {
     onSubmit(values) {
@@ -39,36 +38,46 @@ export class LoginControl extends React.Component {
             )
         } else {
             return (
-                <form
-                    onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
-                    className={'loginForm'}
-                >
-                    <Field
-                        name="loginUsername" 
-                        type="text" 
-                        placeholder="Username"
-                        component={Input}
-                    />
-                    <Field
-                        name="loginPassword" 
-                        type="password" 
-                        placeholder="Password"
-                        component={Input}
-                    />
-                    <button 
-                        id="login"
-                        type="submit"
-                        disabled={this.props.pristine || this.props.submitting}
+                <div className="form__wrapper">
+                    <form
+                        onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+                        className={'loginForm'}
                     >
-                        Login
-                    </button>
-                    <button
-                        id="demo"
-                        onClick={e => this.onClickDemo(e)}
-                    >
-                        Demo
-                    </button>
-                </form>
+                        <Field
+                            name="loginUsername" 
+                            type="text" 
+                            placeholder="Username"
+                            component={Input}
+                        />
+                        <Field
+                            name="loginPassword" 
+                            type="password" 
+                            placeholder="Password"
+                            component={Input}
+                        />
+                        <button 
+                            id="login"
+                            type="submit"
+                            disabled={this.props.pristine || this.props.submitting}
+                        >
+                            Login
+                        </button>
+                        <button
+                            id="demo"
+                            onClick={e => this.onClickDemo(e)}
+                        >
+                            Demo
+                        </button>
+                    </form>
+                    {
+                        this.props.error
+                        ?
+                        <p className="errorMessage">{this.props.error}</p>
+                        :
+                        null
+                    }
+                    
+                </div>
             )
         }
     }

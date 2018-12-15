@@ -2,7 +2,7 @@ import React from 'react'
 import { reduxForm, Field, focus, reset } from 'redux-form';
 import { addUserWords } from '../../actions/wordTypeActions';
 import {required, nonEmpty, isTrimmed, correctWordType} from '../../validators';
-import Input from '../SignUpForm/Input';
+import Input from '../@SignUpForm/Input';
 
 export class WordTypeForm extends React.Component {
     onSubmit(values) {
