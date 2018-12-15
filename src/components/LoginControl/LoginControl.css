@@ -58,7 +58,7 @@
     font-weight: bold;
 }
 
-@media only screen and (min-width: 360px) and (max-width: 453px) {
+@media only screen and (min-width: 360px) and (max-width: 550px) {
 
     .loginForm {
         display: block;
