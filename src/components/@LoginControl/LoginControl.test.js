@@ -2,7 +2,9 @@ import React from 'react';
 import {shallow } from 'enzyme';
 import { LoginControl } from './LoginControl';
 import configureMockStore from 'redux-mock-store';
-const mockStore = configureMockStore();
+import thunk from 'redux-thunk';
+
+const mockStore = configureMockStore([thunk]);
 
 describe('<LoginControl />', () => {
 

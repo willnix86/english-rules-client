@@ -25,12 +25,17 @@
     background-color: #F2F2F2;
 }
 
+.home, .library, .exercises {
+    padding-top: 5px;
+}
+
 .home, .library, .exercises, .logout, #login, #demo {
     font-weight: bold;
     color: white !important;
     font-size: 18px;
     margin: 0 10px;
     flex: 1;
+    min-height: 25px;
 }
 
 #login, #demo {

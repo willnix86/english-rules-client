@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import {NavigationBar} from './NavigationBar';
-import {LoginControl} from '../LoginControl/LoginControl';
+import {LoginControl} from '../@LoginControl/LoginControl';
 
 describe('<NavigationBar />', () => {
 

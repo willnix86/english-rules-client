@@ -25,7 +25,7 @@ export class SignUpForm extends React.Component {
     render() {
         return (
             <>
-            <h3>Sign Up!</h3>
+            <h3>Start Here</h3>
             {
                 this.props.errors
                 ?
