@@ -7,9 +7,8 @@ import Input from '../@SignUpForm/Input';
 export class WordTypeForm extends React.Component {
     onSubmit(values) {
         const { word, wordType } = values;
-        const userId = sessionStorage.getItem('userId');
-        const authToken = sessionStorage.getItem('authToken');
-
+        const userId = localStorage.getItem('userId');
+        const authToken = localStorage.getItem('authToken');
         return this.props.dispatch(addUserWords(userId, authToken, word, wordType))
         .then(() => reset())
     }

@@ -7,8 +7,8 @@ import Input from '../@SignUpForm/Input';
 export class PrepositionsForm extends React.Component {
     onSubmit(values) {
         const { sentence, answer } = values;
-        const userId = sessionStorage.getItem('userId');
-        const authToken = sessionStorage.getItem('authToken');
+        const userId = localStorage.getItem('userId');
+        const authToken = localStorage.getItem('authToken');
 
         return this.props.dispatch(addUserSentences(userId, authToken, sentence, answer))
         .then(() => reset())

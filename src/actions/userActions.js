@@ -2,6 +2,8 @@
 import { SubmissionError } from 'redux-form';
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
+import { getUserSentences } from './prepositionsActions';
+import { getUserWords } from './wordTypeActions';
 
 export const registerUser = user => dispatch => {
     
@@ -42,6 +44,8 @@ export const userLogin = (userId, authToken) => dispatch => {
         })
         .then(res => res.json())
         .then(res => dispatch(setUserData(res)))
+        .then(res => dispatch(getUserWords(userId, authToken)))
+        .then(res => dispatch(getUserSentences(userId, authToken)))
         .catch(err => {
             const {code} = err;
             const message =
