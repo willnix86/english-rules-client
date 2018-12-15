@@ -10,6 +10,10 @@ header {
     padding: 80px 0;
 }
 
+#nothing {
+  color: red;
+}
+
 .message > p {
   line-height: calc(20px + 2vmin)
 }
