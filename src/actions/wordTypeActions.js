@@ -60,7 +60,55 @@ export const addUserWords = (userId, authToken, word, wordType) => dispatch => {
             })
         );
     })
-}
+};
+
+export const deleteUserWord = (id) => dispatch => {
+    return fetch(`${API_BASE_URL}/wordtypes/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+        })
+    .then(res => {
+        if (res.ok) {
+            return normalizeResponseErrors(res)
+        }
+    })
+    .then(res => dispatch(deleteWordSuccess(id)))
+    .catch(err => {
+        dispatch(wordsError(err));
+        console.log(err)
+        return Promise.reject(
+            new SubmissionError({
+                _error: err
+            })
+        );
+    })
+};
+
+export const deleteAllUserWords = (id) => dispatch => {
+    return fetch(`${API_BASE_URL}/wordtypes/user/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+        })
+    .then(res => {
+        if (res.ok) {
+            return normalizeResponseErrors(res)
+        }
+    })
+    .then(res => dispatch(restoreDefaultWords()))
+    .catch(err => {
+        dispatch(wordsError(err));
+        console.log(err)
+        return Promise.reject(
+            new SubmissionError({
+                _error: err
+            })
+        );
+    })
+};
 
 export const SET_USER_WORDS = 'SET_USER_WORDS';
 export const setUserWords = (wordObjs) => ({
@@ -80,6 +128,12 @@ export const addWord = (word) => ({
     word
 });
 
+export const DELETE_WORD_SUCCESS = 'DELETE_WORD_SUCCESS';
+export const deleteWordSuccess = (wordId) => ({
+    type: DELETE_WORD_SUCCESS,
+    wordId
+});
+
 export const DROP_WORD = 'DROP_WORD';
 export const dropWord = (word, target, answer) => ({
     type: DROP_WORD,
@@ -92,15 +146,20 @@ export const START_TIMER = 'START_TIMER';
 export const startTimer = (time) => ({
     type: START_TIMER,
     time
-})
+});
 
 export const STOP_TIMER = 'STOP_TIMER';
 export const stopTimer = (time) => ({
     type: STOP_TIMER,
     time
-})
+});
+
+export const RESTORE_DEFAULT_WORDS = 'RESTORE_DEFAULT_WORDS';
+export const restoreDefaultWords = () => ({
+    type: RESTORE_DEFAULT_WORDS
+});
 
 export const RESET_GAME = 'REST_GAME';
 export const resetGame = () => ({
     type: RESET_GAME
-})
+});

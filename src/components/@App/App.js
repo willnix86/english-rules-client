@@ -93,7 +93,9 @@ const mapStateToProps = state => ({
   username: state.user.username,
   hasAuthToken: state.user.authToken !== null,
   games: state.user.games,
-  loggedIn: state.user.loggedIn
+  loggedIn: state.user.loggedIn,
+  words: state.wordTypes.words,
+  sentences: state.prepositions.sentences
 });
 
 export default connect(mapStateToProps)(App);

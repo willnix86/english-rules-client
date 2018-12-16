@@ -101,6 +101,7 @@ export let userState;
 export const wordTypesReducer = (state=initialState, action) => {
     if (action.type === actions.SET_USER_WORDS) {
         let wordObjs = action.wordObjs.map(wordObj => ({
+            id: wordObj._id,
             word: wordObj.word,
             wordType: wordObj.wordType,
             target: 'Container',
@@ -125,6 +126,15 @@ export const wordTypesReducer = (state=initialState, action) => {
             }]
         });
     } 
+    else if (action.type === actions.DELETE_WORD_SUCCESS) {
+        console.log(state);
+        const index = state.words.findIndex((wordObj => wordObj.id === action.wordId));
+        const newState = update(state, {words: { $splice: [[index, 1]]}}
+        );
+        console.log(newState);
+
+        return newState;
+    }
     else if (action.type === actions.DROP_WORD) {
         const index = state.words.findIndex((wordObj => wordObj.word === action.word))
         const updatedWord = update(state.words[index], {
@@ -137,6 +147,11 @@ export const wordTypesReducer = (state=initialState, action) => {
         newState.words = update(newState.words, {$push: [updatedWord]});
 
         return newState;
+    }
+    else if (action.type === actions.RESTORE_DEFAULT_WORDS) {
+        return Object.assign({}, state, {
+            words: initialState.words
+        });
     } 
     else if (action.type === actions.RESET_GAME) {
         return userState || initialState;

@@ -60,7 +60,55 @@ export const addUserSentences = (userId, authToken, sentence, answer) => dispatc
             })
         );
     })
-}
+};
+
+export const deleteUserSentence = (id) => dispatch => {
+    return fetch(`${API_BASE_URL}/prepositions/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+        })
+    .then(res => {
+        if (res.ok) {
+            return normalizeResponseErrors(res)
+        }
+    })
+    .then(res => dispatch(deleteSentenceSuccess(id)))
+    .catch(err => {
+        dispatch(sentencesError(err));
+        console.log(err)
+        return Promise.reject(
+            new SubmissionError({
+                _error: err
+            })
+        );
+    })
+};
+
+export const deleteAllUserSentences= (id) => dispatch => {
+    return fetch(`${API_BASE_URL}/prepositions/user/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+        })
+    .then(res => {
+        if (res.ok) {
+            return normalizeResponseErrors(res)
+        }
+    })
+    .then(res => dispatch(restoreDefaultSentences()))
+    .catch(err => {
+        dispatch(sentencesError(err));
+        console.log(err)
+        return Promise.reject(
+            new SubmissionError({
+                _error: err
+            })
+        );
+    })
+};
 
 export const SET_USER_SENTENCES = 'SET_USER_SENTENCES';
 export const setUserSentences = (sentences) => ({
@@ -86,6 +134,12 @@ export const setAnswer = (answer) => ({
     answer
 });
 
+export const DELETE_SENTENCE_SUCCESS = 'DELETE_SENTENCE_SUCCESS';
+export const deleteSentenceSuccess = (sentenceId) => ({
+    type: DELETE_SENTENCE_SUCCESS,
+    sentenceId
+});
+
 export const ADD_POINTS = 'ADD_POINTS';
 export const addPoints = () => ({
     type: ADD_POINTS
@@ -94,6 +148,11 @@ export const addPoints = () => ({
 export const LOSE_LIFE = 'LOSE_LIFE';
 export const loseLife = () => ({
     type: LOSE_LIFE
+});
+
+export const RESTORE_DEFAULT_SENTENCES = 'RESTORE_DEFAULT_SENTENCES';
+export const restoreDefaultSentences = () => ({
+    type: RESTORE_DEFAULT_SENTENCES
 });
 
 export const RESET_GAME = 'RESET_GAME';

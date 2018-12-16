@@ -11,7 +11,10 @@
 
 #submitWord, #submitSentence {
     margin-top: 20px;
-    background-color: rgb(219, 217, 217);
+    background-color: #d3d3d3;
+    font-weight: bold;
+    height: 40px;
+    border-radius: 10px;
 }
 
 #sentence {
@@ -19,10 +22,48 @@
 }
 
 .title {
-    margin-bottom: 3px;
+    margin-bottom: 15px;
 }
 
 .example { 
-    margin-top: 0px;
+    margin-top: 3px;
     font-style: italic;
+    font-size: .75rem;
+}
+
+.list {
+    margin-top: 20px;
+    padding: 0;
+}
+
+
+.list * {
+    margin: 0 auto;
+    display: block;
+}
+
+.word {
+    max-width: 200px;
+}
+
+.word, .sentence {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border: 1px solid rgb(204, 202, 202);
+    border-radius: 20px;
+    background-color: rgb(226, 225, 225);
+    box-shadow: 0 1px 6px rgba(81, 83, 87, 0.28);
+}
+
+.remove {
+    padding: 0px 5px 2px 5px;
+    border-radius: 50%;
+    background-color: #c93a2b;
+    color: white;
+    font-weight: bold;
+}
+
+.restore {
+    margin: 5px 0 10px 0;
+    font-size: .75rem;
 }

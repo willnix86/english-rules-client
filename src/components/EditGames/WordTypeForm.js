@@ -1,6 +1,6 @@
 import React from 'react'
 import { reduxForm, Field, focus, reset } from 'redux-form';
-import { addUserWords } from '../../actions/wordTypeActions';
+import { addUserWords, deleteUserWord, deleteAllUserWords } from '../../actions/wordTypeActions';
 import {required, nonEmpty, isTrimmed, correctWordType} from '../../validators';
 import Input from '../@SignUpForm/Input';
 
@@ -13,15 +13,32 @@ export class WordTypeForm extends React.Component {
         .then(() => reset())
     }
 
+    handleDeleteWord = (e) => {
+        return this.props.dispatch(deleteUserWord(e.target.id));
+    }
+
+    handleRestoreWords = () => {
+        const userId = localStorage.getItem('userId');
+        return this.props.dispatch(deleteAllUserWords(userId));
+    }
+
     render() {
+        let wordList;
+        if (this.props.words[0].hasOwnProperty('id')) {
+            wordList = this.props.words.map((word, index) => <div key={index} className="word">{word.word}<button id={word.id} className="remove" onClick={e => this.handleDeleteWord(e)}> x </button></div>);
+        }
+
         return (
             <div className="WordTypeForm">
+
                 <h3 className="title">Customize WordTypes</h3>
-                <p className="example">e.g Fish / Nouns</p>
+                <button onClick={this.handleRestoreWords} className="restore">Restore Defaults</button>
+                
                 <form 
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                     <label htmlFor="word">Word:
                     </label>
+                    <p className="example">e.g. Fish</p>
                     <Field
                         name="word"
                         type="text"
@@ -31,6 +48,7 @@ export class WordTypeForm extends React.Component {
                         ]}
                     />
                     <label htmlFor="wordType">Word Type:</label>
+                    <p className="example">e.g. Nouns</p>
                     <Field  
                         name="wordType"
                         type="text"
@@ -44,9 +62,12 @@ export class WordTypeForm extends React.Component {
                         type="submit"
                         disabled={this.props.pristine || this.props.submitting}
                     >
-                        Submit New Word
+                        Submit Word
                     </button>
                 </form>
+                <ul className="list">
+                    {wordList}
+                </ul>
             </div>
         )
     }

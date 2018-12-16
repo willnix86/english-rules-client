@@ -1,6 +1,6 @@
 import React from 'react'
 import { reduxForm, Field, focus, reset } from 'redux-form';
-import { addUserSentences } from '../../actions/prepositionsActions';
+import { addUserSentences, deleteUserSentence, deleteAllUserSentences } from '../../actions/prepositionsActions';
 import {required, nonEmpty, isTrimmed, underscoresIncluded} from '../../validators';
 import Input from '../@SignUpForm/Input';
 
@@ -14,15 +14,30 @@ export class PrepositionsForm extends React.Component {
         .then(() => reset())
     }
 
+    handleDeleteSentence = (e) => {
+        return this.props.dispatch(deleteUserSentence(e.target.id));
+    }
+
+    handleRestoreSentences = () => {
+        const userId = localStorage.getItem('userId');
+        return this.props.dispatch(deleteAllUserSentences(userId));
+    }
+
     render() {
+        let sentenceList;
+        if (this.props.sentences[0].hasOwnProperty('id')) {
+            sentenceList = this.props.sentences.map((sentence, index) => <div key={index} className="sentence"><p>{sentence.sentence}</p><button id={sentence.id} className="remove" onClick={e => this.handleDeleteSentence(e)}> x </button></div>);
+        }
         
         return (
             <div className="PrepositionsForm">
                 <h3 className="title">Customize Prepositions</h3>
-                <p className="example">e.g I looked _____ at the sky / up</p>
+                <button onClick={this.handleRestoreSentences} className="restore">Restore Defaults</button>
+                
                 <form 
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                     <label htmlFor="sentence">Sentence:</label>
+                    <p className="example">e.g. I looked _____ at the sky</p>
                     <Field
                         name="sentence"
                         type="text"
@@ -30,6 +45,7 @@ export class PrepositionsForm extends React.Component {
                         validate={[required, nonEmpty, isTrimmed, underscoresIncluded]}
                     />
                     <label htmlFor="answer">Answer:</label>
+                    <p className="example">e.g. up</p>
                     <Field
                         name="answer"
                         type="text"
@@ -41,9 +57,12 @@ export class PrepositionsForm extends React.Component {
                         type="submit"
                         disabled={this.props.pristine || this.props.submitting}
                     >
-                        Submit New Sentence
+                        Submit Sentence
                     </button>
                 </form>
+                <ul className="list">
+                    {sentenceList}
+                </ul>
             </div>
         )
     }

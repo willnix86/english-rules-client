@@ -56,6 +56,7 @@ export let userState;
 export const prepositionsReducer = (state=initialState, action) => {
     if (action.type === actions.SET_USER_SENTENCES) {
         let sentenceObjs = action.sentences.map(sentence => ({
+            id: sentence._id,
             sentence: sentence.sentence,
             answer: sentence.answer
         }));
@@ -82,6 +83,14 @@ export const prepositionsReducer = (state=initialState, action) => {
         });
         return newState;
     }
+    else if (action.type === actions.DELETE_SENTENCE_SUCCESS) {
+        
+        const index = state.sentences.findIndex((sentence => sentence.id === action.sentenceId));
+        const newState = update(state, {sentences: { $splice: [[index, 1]]}}
+        );
+
+        return newState;
+    }
     else if (action.type === actions.ADD_POINTS) {
         const newState = update(state, {
             points: {$set: state.points + 100}
@@ -94,6 +103,12 @@ export const prepositionsReducer = (state=initialState, action) => {
         })
         return newState;
     }
+    else if (action.type === actions.RESTORE_DEFAULT_SENTENCES) {
+        return Object.assign({}, state, {
+            prepositions: initialState.prepositions,
+            sentences: initialState.sentences
+        });
+    } 
     else if (action.type === actions.RESET_GAME) {
         return userState || initialState;
     }
