@@ -35,11 +35,11 @@ Screenshots:
 ### Desktop
 ![Screenshot of the 'English Rules' Landing Page](/public/homepage.png | width=700)
 
-![Screenshot of the 'English Rules' Exercises Page](/public/exercisespage.png | width=700)
+![Screenshot of the 'English Rules' Exercises Page](/public/exercisespage.png)
 
-![Screenshot of the 'English Rules' Customization Page](/public/editpage.png | width=700)
+![Screenshot of the 'English Rules' Customization Page](/public/editpage.png)
 
-![Screenshot of the 'English Rules' Game Page](/public/landingpage1.png | width=700)
+![Screenshot of the 'English Rules' Game Page](/public/landingpage1.png)
 
 
 ### Mobile
