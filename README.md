@@ -29,6 +29,24 @@ https://english-rules.herokuapp.com/
 
 
 
+Built with:
+-----------
+
+Front-End: HTML5 | CSS3 | JavaScript ES6 | React | React Redux
+
+Back-End: Node.js | Express.js | Mocha | Chai | REST APIs | MongoDB | Mongoose | Passport & JWT Authentication
+
+Testing: Enzyme | Jest
+
+
+
+Author:
+------
+
+[Will Nixon](https://www.willnixon.tech)
+
+
+
 Screenshots:
 -----------
 
@@ -52,21 +70,3 @@ Screenshots:
 ![Screenshot of the 'English Rules' Mobile Customization Page](/public/edit-mobile.png)
 
 ![Screenshot of the 'English Rules' Mobile Game Page](/public/game-mobile.png)
-
-
-
-Built with:
------------
-
-Front-End: HTML5 | CSS3 | JavaScript ES6 | React | React Redux
-
-Back-End: Node.js | Express.js | Mocha | Chai | REST APIs | MongoDB | Mongoose | Passport & JWT Authentication
-
-Testing: Enzyme | Jest
-
-
-
-Author:
-------
-
-[Will Nixon](https://www.willnixon.tech)
