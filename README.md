@@ -33,23 +33,25 @@ Screenshots:
 -----------
 
 ### Desktop
-![Screenshot of the 'English Rules' Landing Page](/public/homepage.png)
+![Screenshot of the 'English Rules' Landing Page](/public/homepage.png = 700x)
 
-![Screenshot of the 'English Rules' Exercises Page](/public/exercisespage.png)
+![Screenshot of the 'English Rules' Exercises Page](/public/exercisespage.png = 700x)
 
-![Screenshot of the 'English Rules' Customization Page](/public/editpage.png)
+![Screenshot of the 'English Rules' Customization Page](/public/editpage.png = 700x)
 
-![Screenshot of the 'English Rules' Game Page](/public/landingpage1.png)
+![Screenshot of the 'English Rules' Game Page](/public/landingpage1.png = 700x)
 
 
 ### Mobile
-![Screenshot of the 'English Rules' Mobile Landing Page](/public/)
+![Screenshot of the 'English Rules' Mobile Landing Page](/public/home-mobile.png = 400x)
 
-![Screenshot of the 'English Rules' Mobile Exercises Page](/public/)
+![Screenshot of the 'English Rules' Mobile Exercises Page](/public/exercises-mobile.png = 400x)
 
-![Screenshot of the 'English Rules' Mobile Customization Page](/publi)
+![Screenshot of the 'English Rules' Mobile Customization Page](/public/edit-mobile.png = 400x)
 
-![Screenshot of the 'English Rules' Mobile Game Page](/public)
+![Screenshot of the 'English Rules' Mobile Game Page](/public/game-mobile.png = 400x)
+
+
 
 Built with:
 -----------
@@ -59,6 +61,7 @@ Front-End: HTML5 | CSS3 | JavaScript ES6 | React | React Redux
 Back-End: Node.js | Express.js | Mocha | Chai | REST APIs | MongoDB | Mongoose | Passport & JWT Authentication
 
 Testing: Enzyme | Jest
+
 
 
 Author:
