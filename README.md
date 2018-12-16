@@ -58,7 +58,7 @@ Screenshots:
 
 ![Screenshot of the 'English Rules' Customization Page](/public/editpage.png)
 
-![Screenshot of the 'English Rules' Game Page](/public/landingpage1.png)
+![Screenshot of the 'English Rules' Game Page](/public/game.png)
 
 
 ### Mobile
