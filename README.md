@@ -33,6 +33,7 @@ Screenshots:
 -----------
 
 ### Desktop
+
 ![Screenshot of the 'English Rules' Landing Page](/public/homepage.png)
 
 ![Screenshot of the 'English Rules' Exercises Page](/public/exercisespage.png)
@@ -43,6 +44,7 @@ Screenshots:
 
 
 ### Mobile
+
 ![Screenshot of the 'English Rules' Mobile Landing Page](/public/home-mobile.png)
 
 ![Screenshot of the 'English Rules' Mobile Exercises Page](/public/exercises-mobile.png)
