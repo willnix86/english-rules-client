@@ -33,7 +33,7 @@ Screenshots:
 -----------
 
 ### Desktop
-![Screenshot of the 'English Rules' Landing Page](/public/homepage.png | width=700)
+![Screenshot of the 'English Rules' Landing Page](/public/homepage.png)
 
 ![Screenshot of the 'English Rules' Exercises Page](/public/exercisespage.png)
 
@@ -43,13 +43,13 @@ Screenshots:
 
 
 ### Mobile
-![Screenshot of the 'English Rules' Mobile Landing Page](/public/home-mobile.png | width=400)
+![Screenshot of the 'English Rules' Mobile Landing Page](/public/home-mobile.png)
 
-![Screenshot of the 'English Rules' Mobile Exercises Page](/public/exercises-mobile.png | width=400)
+![Screenshot of the 'English Rules' Mobile Exercises Page](/public/exercises-mobile.png)
 
-![Screenshot of the 'English Rules' Mobile Customization Page](/public/edit-mobile.png | width=400)
+![Screenshot of the 'English Rules' Mobile Customization Page](/public/edit-mobile.png)
 
-![Screenshot of the 'English Rules' Mobile Game Page](/public/game-mobile.png | width=400)
+![Screenshot of the 'English Rules' Mobile Game Page](/public/game-mobile.png)
 
 
 
