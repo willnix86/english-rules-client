@@ -33,23 +33,23 @@ Screenshots:
 -----------
 
 ### Desktop
-![Screenshot of the 'English Rules' Landing Page](/public/homepage.png = 700x)
+![Screenshot of the 'English Rules' Landing Page](/public/homepage.png | width=700)
 
-![Screenshot of the 'English Rules' Exercises Page](/public/exercisespage.png = 700x)
+![Screenshot of the 'English Rules' Exercises Page](/public/exercisespage.png | width=700)
 
-![Screenshot of the 'English Rules' Customization Page](/public/editpage.png = 700x)
+![Screenshot of the 'English Rules' Customization Page](/public/editpage.png | width=700)
 
-![Screenshot of the 'English Rules' Game Page](/public/landingpage1.png = 700x)
+![Screenshot of the 'English Rules' Game Page](/public/landingpage1.png | width=700)
 
 
 ### Mobile
-![Screenshot of the 'English Rules' Mobile Landing Page](/public/home-mobile.png = 400x)
+![Screenshot of the 'English Rules' Mobile Landing Page](/public/home-mobile.png | width=400)
 
-![Screenshot of the 'English Rules' Mobile Exercises Page](/public/exercises-mobile.png = 400x)
+![Screenshot of the 'English Rules' Mobile Exercises Page](/public/exercises-mobile.png | width=400)
 
-![Screenshot of the 'English Rules' Mobile Customization Page](/public/edit-mobile.png = 400x)
+![Screenshot of the 'English Rules' Mobile Customization Page](/public/edit-mobile.png | width=400)
 
-![Screenshot of the 'English Rules' Mobile Game Page](/public/game-mobile.png = 400x)
+![Screenshot of the 'English Rules' Mobile Game Page](/public/game-mobile.png | width=400)
 
 
 
