@@ -71,13 +71,13 @@ export const deleteUserWord = (id) => dispatch => {
         })
     .then(res => {
         if (res.ok) {
+            console.log('fired');
             return normalizeResponseErrors(res)
         }
     })
     .then(res => dispatch(deleteWordSuccess(id)))
     .catch(err => {
         dispatch(wordsError(err));
-        console.log(err)
         return Promise.reject(
             new SubmissionError({
                 _error: err
@@ -101,7 +101,6 @@ export const deleteAllUserWords = (id) => dispatch => {
     .then(res => dispatch(restoreDefaultWords()))
     .catch(err => {
         dispatch(wordsError(err));
-        console.log(err)
         return Promise.reject(
             new SubmissionError({
                 _error: err

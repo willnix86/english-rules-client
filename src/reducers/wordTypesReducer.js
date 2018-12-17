@@ -127,11 +127,9 @@ export const wordTypesReducer = (state=initialState, action) => {
         });
     } 
     else if (action.type === actions.DELETE_WORD_SUCCESS) {
-        console.log(state);
         const index = state.words.findIndex((wordObj => wordObj.id === action.wordId));
         const newState = update(state, {words: { $splice: [[index, 1]]}}
         );
-        console.log(newState);
 
         return newState;
     }
