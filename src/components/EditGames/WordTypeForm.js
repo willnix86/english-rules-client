@@ -24,7 +24,7 @@ export class WordTypeForm extends React.Component {
 
     render() {
         let wordList;
-        if (this.props.words[0].hasOwnProperty('id')) {
+        if (this.props.words.length > 0 && this.props.words[0].hasOwnProperty('id')) {
             wordList = this.props.words.map((word, index) => <div key={index} className="word">{word.word}<button id={word.id} className="remove" onClick={e => this.handleDeleteWord(e)}> x </button></div>);
         }
 

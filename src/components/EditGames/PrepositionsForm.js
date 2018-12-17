@@ -25,7 +25,7 @@ export class PrepositionsForm extends React.Component {
 
     render() {
         let sentenceList;
-        if (this.props.sentences[0].hasOwnProperty('id')) {
+        if (this.props.sentences.length > 0 && this.props.sentences[0].hasOwnProperty('id')) {
             sentenceList = this.props.sentences.map((sentence, index) => <div key={index} className="sentence"><p>{sentence.sentence}</p><button id={sentence.id} className="remove" onClick={e => this.handleDeleteSentence(e)}> x </button></div>);
         }
         
