@@ -25,7 +25,7 @@ Future Releases:
 Live App:
 ---------
 
-https://english-rules.herokuapp.com/
+http://www.englishrules.tech
 
 
 
