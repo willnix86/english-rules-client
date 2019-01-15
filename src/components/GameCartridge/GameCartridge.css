@@ -22,11 +22,8 @@
 
 @media only screen and (max-width: 422px) {
     .cartridge__body {
-        width: 250px;
+        width: 300px;
         height: auto;
     }
-
-    .cartridge__image > img {
-        width: 200px;
-    }
+    
 }
