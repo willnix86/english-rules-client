@@ -43,7 +43,7 @@ Testing: Enzyme | Jest
 Author:
 ------
 
-[Will Nixon](https://www.willnixon.tech)
+[Will Nixon](https://www.willnixon.dev)
 
 
 
